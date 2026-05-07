@@ -1,0 +1,35 @@
+[
+  {
+    "question": "According to the summary slide of Chapter 5, which of the following is a main topic covered?",
+    "options": [
+      "A. Hash Tables",
+      "B. Breadth First Search",
+      "C. Basic Operations",
+      "D. Binary Search Trees"
+    ],
+    "answer": "C",
+    "explanation": "The summary slide for the Heaps chapter explicitly lists 'Basic Operations' as one of the main topics."
+  },
+  {
+    "question": "Which sorting algorithm is specifically associated with Chapter 5?",
+    "options": [
+      "A. Heap Sort",
+      "B. Quick Sort",
+      "C. Merge Sort",
+      "D. Bubble Sort"
+    ],
+    "answer": "A",
+    "explanation": "The summary slide for Chapter 5 includes 'Heap Sort' as a key topic."
+  },
+  {
+    "question": "What are the exactly three topics outlined in the summary of the Heaps chapter?",
+    "options": [
+      "A. Arrays, Linked Lists, and Trees",
+      "B. Introduction, Basic Operations, and Heap Sort",
+      "C. Static hashing, Dynamic hashing, and Collision Resolution",
+      "D. Sequential Search, Binary Search, and Sorting"
+    ],
+    "answer": "B",
+    "explanation": "The document's summary for Heaps lists exactly three bullet points: 'Introduction', 'Basic Operations', and 'Heap Sort'."
+  }
+]

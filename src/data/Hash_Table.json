@@ -1,0 +1,189 @@
+[
+    {
+        "question": "What is the primary subject of Chapter 7?",
+        "options": [
+            "A. Graphs",
+            "B. Trees",
+            "C. Hash Table",
+            "D. Heaps"
+        ],
+        "answer": "C",
+        "explanation": "The title of Chapter 7 is 'Hash Table'."
+    },
+    {
+        "question": "According to the content summary, what are the three main topics discussed in Chapter 7?",
+        "options": [
+            "A. Terminology, Graph Representations, Traversals",
+            "B. Basic Operations, Heap Sort, Introduction",
+            "C. Introduction, Static hashing, Dynamic hashing",
+            "D. Sequential Search, Binary Search, Sorting"
+        ],
+        "answer": "C",
+        "explanation": "The contents slide explicitly lists 'Introduction', 'Static hashing', and 'Dynamic hashing'."
+    },
+    {
+        "question": "In the context of the introduction, what does a table consist of?",
+        "options": [
+            "A. Only keys",
+            "B. Several fields (types of information)",
+            "C. Only numeric values",
+            "D. Nodes and edges"
+        ],
+        "answer": "B",
+        "explanation": "The document states: 'A table has several fields (types of information)'."
+    },
+    {
+        "question": "According to the introduction, which of the following fields might be found in a telephone book?",
+        "options": [
+            "A. user id, password, home folder",
+            "B. row, col, value",
+            "C. name, address, phone number",
+            "D. left link, item, right link"
+        ],
+        "answer": "C",
+        "explanation": "The text notes: 'A telephone book may have fields name, address, phone number'."
+    },
+    {
+        "question": "Which fields are typically found in a user account table?",
+        "options": [
+            "A. name, address, phone number",
+            "B. user id, password, home folder",
+            "C. tag, row, col",
+            "D. data and link"
+        ],
+        "answer": "B",
+        "explanation": "The text notes: 'A user account table may have fields user id, password, home folder'."
+    },
+    {
+        "question": "To find an entry in a table, how much information do you typically need to know?",
+        "options": [
+            "A. All of the fields",
+            "B. At least two fields",
+            "C. The exact memory address",
+            "D. Only the contents of one of the fields"
+        ],
+        "answer": "D",
+        "explanation": "The document explains: 'To find an entry in the table, you only need know the contents of one of the fields (not all of them)'."
+    },
+    {
+        "question": "What is the key field typically used in a telephone book?",
+        "options": [
+            "A. Address",
+            "B. Phone number",
+            "C. Name",
+            "D. Zip code"
+        ],
+        "answer": "C",
+        "explanation": "The document states: 'In a telephone book, the key is usually name'."
+    },
+    {
+        "question": "What is the key field typically used in a user account table?",
+        "options": [
+            "A. Password",
+            "B. Home folder",
+            "C. User id",
+            "D. IP address"
+        ],
+        "answer": "C",
+        "explanation": "The document states: 'In a user account table, the key is usually user id'."
+    },
+    {
+        "question": "In the provided Static Hashing example, what hash function is used?",
+        "options": [
+            "A. Hash(k) = k / 10",
+            "B. Hash(k) = k % 10",
+            "C. Hash(k) = 10 % k",
+            "D. Hash(k) = k * 10"
+        ],
+        "answer": "B",
+        "explanation": "The collision resolution slide explicitly defines the function as 'Hash(k) = k % 10'."
+    },
+    {
+        "question": "Based on the hash function Hash(k) = k % 10, which chain would a record with key = 33 be inserted into?",
+        "options": [
+            "A. Chain 0",
+            "B. Chain 1",
+            "C. Chain 3",
+            "D. Chain 9"
+        ],
+        "answer": "C",
+        "explanation": "33 % 10 = 3. The slide states: 'Insert in chain 3'."
+    },
+    {
+        "question": "When a record with key = 73 is inserted into a hash table using Hash(k) = k % 10, which chain does it go to?",
+        "options": [
+            "A. Chain 7",
+            "B. Chain 3",
+            "C. Chain 10",
+            "D. Chain 0"
+        ],
+        "answer": "B",
+        "explanation": "73 % 10 = 3. The slide states: 'Insert in chain 3'."
+    },
+    {
+        "question": "What happens when multiple keys (like 33, 73, and 13) result in the same hash value (3) in the static hashing example?",
+        "options": [
+            "A. The older records are deleted",
+            "B. They are placed in the same chain",
+            "C. The table size is doubled automatically",
+            "D. The program crashes permanently"
+        ],
+        "answer": "B",
+        "explanation": "The visual example demonstrates Collision Resolution by chaining, showing 33, 73, and 13 all being inserted into chain 3."
+    },
+    {
+        "question": "What is one of the primary objectives of finding an extendible hashing function in Dynamic Hashing?",
+        "options": [
+            "A. It maximizes the number of pages accessed",
+            "B. It minimizes the number of pages accessed",
+            "C. It eliminates all collisions entirely",
+            "D. It replaces the need for keys"
+        ],
+        "answer": "B",
+        "explanation": "Under 'Dynamic hashing' objectives, it lists: 'it minimizes the number of pages accessed'."
+    },
+    {
+        "question": "In Dynamic Hashing, how should space utilization be managed according to its objectives?",
+        "options": [
+            "A. As low as possible",
+            "B. Kept exactly at 50%",
+            "C. Ignored completely",
+            "D. As high as possible"
+        ],
+        "answer": "D",
+        "explanation": "The objective slide states: 'space utilization is as high as possible'."
+    },
+    {
+        "question": "How many approaches to Dynamic Hashing are listed in the document?",
+        "options": [
+            "A. One",
+            "B. Two",
+            "C. Three",
+            "D. Four"
+        ],
+        "answer": "B",
+        "explanation": "The document explicitly states: 'There are two approaches'."
+    },
+    {
+        "question": "What is the first approach to Dynamic Hashing mentioned?",
+        "options": [
+            "A. Dynamic Hashing using Binary Search",
+            "B. Dynamic Hashing with Using Directories",
+            "C. Dynamic Hashing with Stacks",
+            "D. Dynamic Hashing using Linked Lists"
+        ],
+        "answer": "B",
+        "explanation": "One of the two approaches listed is 'Dynamic Hashing with Using Directories'."
+    },
+    {
+        "question": "What is the second approach to Dynamic Hashing mentioned?",
+        "options": [
+            "A. Dynamic Hashing without Using Directories",
+            "B. Dynamic Hashing with Heaps",
+            "C. Dynamic Hashing with Graphs",
+            "D. Dynamic Hashing with Queues"
+        ],
+        "answer": "A",
+        "explanation": "The other approach listed is 'Dynamic Hashing without Using Directories'."
+    }
+]

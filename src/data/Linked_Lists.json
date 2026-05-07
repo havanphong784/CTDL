@@ -1,0 +1,552 @@
+[
+  {
+    "question": "What is the primary purpose of both linked lists and arrays?",
+    "options": [
+      "A. To allocate memory dynamically",
+      "B. To store collections of data",
+      "C. To calculate polynomial equations",
+      "D. To traverse tree structures"
+    ],
+    "answer": "B",
+    "explanation": "According to the document, both linked lists and arrays are similar in that both store collections of data."
+  },
+  {
+    "question": "How does an array allocate memory for its elements?",
+    "options": [
+      "A. Separately and only when necessary",
+      "B. Sequentially",
+      "C. Randomly",
+      "D. Hierarchically"
+    ],
+    "answer": "B",
+    "explanation": "The document states that an array allocates its elements sequentially."
+  },
+  {
+    "question": "How does a linked list allocate memory for its elements?",
+    "options": [
+      "A. Sequentially",
+      "B. Separately and only when necessary",
+      "C. In a fixed-size block",
+      "D. Contiguously"
+    ],
+    "answer": "B",
+    "explanation": "Linked lists allocate memory for each element separately and only when necessary."
+  },
+  {
+    "question": "In a linked list, what do we initially know the address of?",
+    "options": [
+      "A. The last node",
+      "B. The middle node",
+      "C. The first node (head)",
+      "D. Every node"
+    ],
+    "answer": "C",
+    "explanation": "We only know the address of the first node, which is called the head."
+  },
+  {
+    "question": "How do you reach other nodes in a linked list from the head?",
+    "options": [
+      "A. By incrementing the array index",
+      "B. By generating random addresses",
+      "C. By following the 'next' pointers",
+      "D. By using a hash function"
+    ],
+    "answer": "C",
+    "explanation": "Other nodes are reached by following the 'next' pointers."
+  },
+  {
+    "question": "What does the last node in a singly linked list point to?",
+    "options": [
+      "A. The first node",
+      "B. NULL",
+      "C. The previous node",
+      "D. A random memory address"
+    ],
+    "answer": "B",
+    "explanation": "The document specifies that the last node points to NULL."
+  },
+  {
+    "question": "Which of the following is an advantage of using an array?",
+    "options": [
+      "A. Arbitrary size",
+      "B. O(1) access time",
+      "C. No shift required when inserting",
+      "D. No memory wasting"
+    ],
+    "answer": "B",
+    "explanation": "Advantages of an array include: easy to use, a good choice for a small list, and O(1) access time."
+  },
+  {
+    "question": "Which of the following is a disadvantage of using an array?",
+    "options": [
+      "A. Fixed size",
+      "B. Necessity to allocate 'next' pointers",
+      "C. O(N) access time",
+      "D. Difficult to use"
+    ],
+    "answer": "A",
+    "explanation": "Disadvantages of an array include its fixed size and memory wasting."
+  },
+  {
+    "question": "What is an advantage of a linked list compared to an array?",
+    "options": [
+      "A. O(1) access time",
+      "B. Fixed size",
+      "C. Arbitrary size and no shift required",
+      "D. Elements are contiguous in memory"
+    ],
+    "answer": "C",
+    "explanation": "Linked list advantages include arbitrary size and no shift required for insertions/deletions."
+  },
+  {
+    "question": "Why is random access considered a disadvantage in linked lists?",
+    "options": [
+      "A. Because it requires O(1) time",
+      "B. Because random access is expensive for linked lists (O(N) access time)",
+      "C. Because memory is contiguous",
+      "D. Because it is impossible to perform"
+    ],
+    "answer": "B",
+    "explanation": "Random access is expensive for linked lists because they have O(N) access time, meaning you must traverse the list to reach a specific node."
+  },
+  {
+    "question": "When should you prefer using a linked list over an array?",
+    "options": [
+      "A. When the number of elements is known at compile time",
+      "B. When random access is frequent",
+      "C. When elements may be inserted or deleted from the middle frequently",
+      "D. When you want O(1) access time"
+    ],
+    "answer": "C",
+    "explanation": "Linked lists are used if elements may be inserted in the middle or deleted from the middle, and the number of elements cannot be predicted."
+  },
+  {
+    "question": "Which of the following are considered 'Generic methods' for a linked list?",
+    "options": [
+      "A. isFirst(p), isLast(p)",
+      "B. first(), last()",
+      "C. size(), isEmpty()",
+      "D. insertFirst(e), insertLast(e)"
+    ],
+    "answer": "C",
+    "explanation": "The generic methods listed for a linked list are size() and isEmpty()."
+  },
+  {
+    "question": "Which of the following are considered 'Query methods' for a linked list?",
+    "options": [
+      "A. size(), isEmpty()",
+      "B. isFirst(p), isLast(p)",
+      "C. before(p), after(p)",
+      "D. removeAfter(p)"
+    ],
+    "answer": "B",
+    "explanation": "The query methods listed are isFirst(p) and isLast(p)."
+  },
+  {
+    "question": "Which of the following belongs to 'Accessor methods' in a linked list?",
+    "options": [
+      "A. insertBefore(p,e)",
+      "B. size()",
+      "C. first(), last(), before(p), after(p)",
+      "D. isFirst(p)"
+    ],
+    "answer": "C",
+    "explanation": "Accessor methods include first(), last(), before(p), and after(p)."
+  },
+  {
+    "question": "Which method is categorized under 'Update methods'?",
+    "options": [
+      "A. size()",
+      "B. isLast(p)",
+      "C. first()",
+      "D. insertFirst(e)"
+    ],
+    "answer": "D",
+    "explanation": "Update methods include operations that modify the list, such as insertFirst(e)."
+  },
+  {
+    "question": "In a singly linked list, each node must have at least how many fields?",
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4"
+    ],
+    "answer": "B",
+    "explanation": "Each node has (at least) 2 fields: Data and a Pointer to the next node."
+  },
+  {
+    "question": "How is an empty singly linked list declared?",
+    "options": [
+      "A. head = 0;",
+      "B. head = NULL;",
+      "C. next = NULL;",
+      "D. data = 0;"
+    ],
+    "answer": "B",
+    "explanation": "An empty linked list is defined by setting `head = NULL;`."
+  },
+  {
+    "question": "When inserting a node 'mat' between 'cat' and 'sat', what is the first step?",
+    "options": [
+      "A. Set the data field of the node to 'mat'",
+      "B. Get a node that is currently unused; let its address be paddr",
+      "C. Set paddr's link to point to 'sat'",
+      "D. Set 'cat's link to point to 'mat'"
+    ],
+    "answer": "B",
+    "explanation": "The first step is: 1. Get a node that is currently unused; let its address be paddr."
+  },
+  {
+    "question": "When inserting a node 'mat' between 'cat' and 'sat', what must the node containing 'cat' point to in the final step?",
+    "options": [
+      "A. NULL",
+      "B. 'sat'",
+      "C. paddr (the address of 'mat')",
+      "D. The head of the list"
+    ],
+    "answer": "C",
+    "explanation": "Step 4: Set the link field of the node containing 'cat' to point to paddr."
+  },
+  {
+    "question": "To delete 'mat' from the list 'bat -> cat -> mat -> sat', what needs to be done?",
+    "options": [
+      "A. Set 'mat's link to NULL",
+      "B. Find the element immediately preceding 'mat' ('cat') and set its link field to point to 'mat's link field ('sat')",
+      "C. Delete 'cat' from the list",
+      "D. Set the head pointer to 'sat'"
+    ],
+    "answer": "B",
+    "explanation": "Find the element that immediately precedes mat, which is cat, and set its link field to point to mat’s link field."
+  },
+  {
+    "question": "In the `traverseList` implementation, what is the continuation condition for the `for` loop?",
+    "options": [
+      "A. p != NULL",
+      "B. p == NULL",
+      "C. p->next != NULL",
+      "D. p (which implicitly checks if p is not NULL)"
+    ],
+    "answer": "D",
+    "explanation": "The loop is written as `for ( ; p ; p = p->next)`, meaning it continues as long as `p` evaluates to true (not NULL)."
+  },
+  {
+    "question": "In the linked list declarations provided, what does `IS_FULL(ptr)` do?",
+    "options": [
+      "A. Checks if the array is full",
+      "B. Checks if the pointer is NULL `(!(ptr))` to determine if memory is full",
+      "C. Evaluates the size of the list",
+      "D. Checks if the disk is full"
+    ],
+    "answer": "B",
+    "explanation": "`#define IS_FULL(ptr) (!(ptr))` tests if memory allocation failed (returned NULL)."
+  },
+  {
+    "question": "What happens if memory is full during the `insertAfter` function?",
+    "options": [
+      "A. It returns NULL",
+      "B. It deletes a node to free space",
+      "C. It prints 'The memory is full' to stderr and exits",
+      "D. It continues without inserting"
+    ],
+    "answer": "C",
+    "explanation": "If IS_FULL(temp) is true, it runs `fprintf(stderr, \"The memory is full\\n\"); exit (1);`."
+  },
+  {
+    "question": "In `insertAfter`, if you are inserting into an empty list (`!node`), what does `temp->next` get set to?",
+    "options": [
+      "A. node",
+      "B. temp",
+      "C. node->next",
+      "D. NULL"
+    ],
+    "answer": "D",
+    "explanation": "The `else` block for an empty list sets `temp->next = NULL; node = temp;`."
+  },
+  {
+    "question": "Which C function is used in `removeAfter` to deallocate the memory of the removed node?",
+    "options": [
+      "A. delete()",
+      "B. remove()",
+      "C. free()",
+      "D. dealloc()"
+    ],
+    "answer": "C",
+    "explanation": "The function uses `free(tmp);` to deallocate the node."
+  },
+  {
+    "question": "The `invertList` function uses three pointers to reverse the list. What are they?",
+    "options": [
+      "A. head, tail, middle",
+      "B. first, second, third",
+      "C. lead, middle, trail",
+      "D. prev, curr, next"
+    ],
+    "answer": "C",
+    "explanation": "The `invertList` implementation uses `lead`, `middle`, and `trail` pointers."
+  },
+  {
+    "question": "In a circularly linked list, where does the link field of the last node point to?",
+    "options": [
+      "A. NULL",
+      "B. The previous node",
+      "C. The first node in the list",
+      "D. The head node's data field"
+    ],
+    "answer": "C",
+    "explanation": "The link field of the last node points to the first node in the list."
+  },
+  {
+    "question": "When working with a circularly linked list, why is it convenient for the name of the list to point to the last node?",
+    "options": [
+      "A. It saves memory",
+      "B. It makes inserting a new node more convenient",
+      "C. It prevents memory leaks",
+      "D. It speeds up element deletion at the middle"
+    ],
+    "answer": "B",
+    "explanation": "The document states: 'It is more convenient when insert a new node if the name of the circular list points to the last node'."
+  },
+  {
+    "question": "In the `insertFront` function for a circularly linked list, if the list is empty, what does the new node point to?",
+    "options": [
+      "A. NULL",
+      "B. Itself (node->next = node)",
+      "C. The previous node",
+      "D. The last node"
+    ],
+    "answer": "B",
+    "explanation": "If the list is empty, it sets `node->next = node; /* circular link */`."
+  },
+  {
+    "question": "When computing the length of a circularly linked list, when does the `do-while` loop terminate?",
+    "options": [
+      "A. When `temp == NULL`",
+      "B. When `count == 0`",
+      "C. When `temp == ptr` (it has circled back to the start)",
+      "D. When `temp->next == NULL`"
+    ],
+    "answer": "C",
+    "explanation": "The loop condition is `} while (temp!=ptr);`, terminating when the temporary pointer reaches the starting pointer."
+  },
+  {
+    "question": "Which two operations are mentioned as being 'expensive' on singly linked lists?",
+    "options": [
+      "A. insertFirst, size",
+      "B. insertLast, removeAfter",
+      "C. traverseList, printList",
+      "D. isEmpty, invertList"
+    ],
+    "answer": "B",
+    "explanation": "Under the Doubly linked lists section, it notes: 'Some operations are expensive: insertLast, removeAfter'."
+  },
+  {
+    "question": "Why are `insertLast` and `removeAfter` expensive in a singly linked list?",
+    "options": [
+      "A. Because they require traversing the list",
+      "B. Because memory allocation takes too long",
+      "C. Because they use multiple pointers",
+      "D. Because they must update the head pointer"
+    ],
+    "answer": "A",
+    "explanation": "The document explains: 'Why? => need for traversing the list'."
+  },
+  {
+    "question": "What is the proposed solution to make `insertLast` and `removeAfter` less expensive?",
+    "options": [
+      "A. Convert the linked list into an array",
+      "B. Add a previous link to elements (create a doubly linked list)",
+      "C. Keep a count variable",
+      "D. Use a stack"
+    ],
+    "answer": "B",
+    "explanation": "The solution is to 'add previous link to elements', which introduces doubly linked lists."
+  },
+  {
+    "question": "A node in a doubly linked list has at least how many fields?",
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4"
+    ],
+    "answer": "C",
+    "explanation": "Doubly linked list has at least three fields: a left link field (llink), a data field (item), a right link field (rlink)."
+  },
+  {
+    "question": "What are the names of the link fields in the provided doubly linked list declaration?",
+    "options": [
+      "A. prev and next",
+      "B. llink and rlink",
+      "C. left and right",
+      "D. back and forward"
+    ],
+    "answer": "B",
+    "explanation": "The struct node uses `node_pointer llink;` and `node_pointer rlink;`."
+  },
+  {
+    "question": "In a doubly linked circular list with a head node, what does the head node's `rlink` and `llink` point to when the list is empty?",
+    "options": [
+      "A. NULL",
+      "B. A dummy tail node",
+      "C. They point back to the head node itself",
+      "D. They point to the first inserted data"
+    ],
+    "answer": "C",
+    "explanation": "The diagram for 'Empty doubly linked circular list with head node' shows the pointer looping back to itself."
+  },
+  {
+    "question": "One of the applications of linked lists mentioned in the document is for representing what type of mathematical expression?",
+    "options": [
+      "A. Trigonometric functions",
+      "B. Logarithmic graphs",
+      "C. Polynomials",
+      "D. Differential equations"
+    ],
+    "answer": "C",
+    "explanation": "The section 'Applications' lists 'Polynomial representation'."
+  },
+  {
+    "question": "In polynomial representation, each node contains which of the following combinations?",
+    "options": [
+      "A. Data, value, right link",
+      "B. Tag, row, column",
+      "C. Coefficient, exponent, link",
+      "D. Left link, item, right link"
+    ],
+    "answer": "C",
+    "explanation": "The declaration for `poly_node` includes `int coef;`, `int expon;`, and `poly_pointer link;`."
+  },
+  {
+    "question": "When analyzing the addition of two polynomials with 'm' and 'n' terms, what is the maximum number of coefficient additions?",
+    "options": [
+      "A. max(m, n)",
+      "B. min(m, n)",
+      "C. m + n",
+      "D. m * n"
+    ],
+    "answer": "B",
+    "explanation": "The analysis slide states: '0 <= additions <= min(m, n)'."
+  },
+  {
+    "question": "What is the extreme case for the number of exponent comparisons when adding two polynomials of sizes m and n?",
+    "options": [
+      "A. m * n comparisons",
+      "B. m + n comparisons",
+      "C. m + n - 1 comparisons",
+      "D. min(m, n) comparisons"
+    ],
+    "answer": "C",
+    "explanation": "The analysis specifies: 'extreme case... m+n-1 comparisons'."
+  },
+  {
+    "question": "What is the overall time complexity for adding two polynomials represented by linked lists?",
+    "options": [
+      "A. O(1)",
+      "B. O(m * n)",
+      "C. O(m + n)",
+      "D. O(max(m, n))"
+    ],
+    "answer": "C",
+    "explanation": "The summary for the analysis is O(m+n)."
+  },
+  {
+    "question": "In the Equivalence Relations program, what array is used to track whether a class has been output?",
+    "options": [
+      "A. seq[]",
+      "B. out[]",
+      "C. check[]",
+      "D. data[]"
+    ],
+    "answer": "B",
+    "explanation": "The code uses `short int out[MAX_SIZE];` and sets `out[i] = FALSE; //mark class as output`."
+  },
+  {
+    "question": "In the Equivalence Relations program, what data structure logic is initialized using `top = NULL` to process the entire class?",
+    "options": [
+      "A. A Queue",
+      "B. A Stack",
+      "C. A Hash Table",
+      "D. A Binary Tree"
+    ],
+    "answer": "B",
+    "explanation": "The comment explicitly states: `top = NULL; //initialize stack`."
+  },
+  {
+    "question": "How is each column of a sparse matrix represented?",
+    "options": [
+      "A. As an array of integers",
+      "B. As a singly linked list ending in NULL",
+      "C. As a circularly linked list with a head node",
+      "D. As a doubly linked list without a head node"
+    ],
+    "answer": "C",
+    "explanation": "The document states: 'Each column of a sparse matrix is represented as a circularly linked list with a head node'."
+  },
+  {
+    "question": "What field is used to distinguish between head nodes and entry nodes in a sparse matrix representation?",
+    "options": [
+      "A. value field",
+      "B. tag field",
+      "C. row field",
+      "D. down field"
+    ],
+    "answer": "B",
+    "explanation": "The document notes: 'Each node has a tag field that is used to distinguish between head nodes and entry nodes'."
+  },
+  {
+    "question": "In a sparse matrix head node, what does the `down` field link to?",
+    "options": [
+      "A. Into a row list",
+      "B. The head nodes together",
+      "C. Into a column list",
+      "D. The previous matrix"
+    ],
+    "answer": "C",
+    "explanation": "The head node properties indicate: 'down field: links into a column list'."
+  },
+  {
+    "question": "In a sparse matrix entry node, how many total fields are present?",
+    "options": [
+      "A. 3",
+      "B. 4",
+      "C. 5",
+      "D. 6"
+    ],
+    "answer": "D",
+    "explanation": "It explicitly states: 'Each entry node has 6 fields: tag, row, col, down, right, value'."
+  },
+  {
+    "question": "What is the formula for the number of nodes required to represent a `num_rows × num_cols` sparse matrix with `num_terms` nonzero terms?",
+    "options": [
+      "A. num_rows * num_cols",
+      "B. max{num_rows, num_cols} + num_terms + 1",
+      "C. num_rows + num_cols + num_terms",
+      "D. num_terms + 1"
+    ],
+    "answer": "B",
+    "explanation": "The text specifies: 'needs max{num_rows, num_cols} + num_terms + 1 node'."
+  },
+  {
+    "question": "In the sparse matrix node formula, what does `max{num_rows, num_cols}` account for?",
+    "options": [
+      "A. The number of nonzero terms",
+      "B. The number of entry nodes",
+      "C. The number of head nodes",
+      "D. The total matrix size"
+    ],
+    "answer": "C",
+    "explanation": "The document explains that `max{num_rows, num_cols}` is the 'number of head nodes'."
+  },
+  {
+    "question": "What is the purpose of the '+ 1 node' in the sparse matrix node formula?",
+    "options": [
+      "A. It acts as a NULL terminator",
+      "B. It is a special head node for the list of row and column head nodes that contains the dimensions",
+      "C. It stores the total number of nonzero entries",
+      "D. It links to the next matrix in memory"
+    ],
+    "answer": "B",
+    "explanation": "The text says: '1 node: a special head node for the list of row and column head nodes contains the dimensions of the matrix'."
+  }
+]

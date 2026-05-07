@@ -1,0 +1,552 @@
+[
+    {
+        "question": "What type of data structure is a stack?",
+        "options": [
+            "A. A non-linear data structure",
+            "B. A linear data structure",
+            "C. A hierarchical data structure",
+            "D. A tree-based data structure"
+        ],
+        "answer": "B",
+        "explanation": "The document introduces a stack as 'a linear data structure'."
+    },
+    {
+        "question": "Which principle describes the order in which elements are added and removed from a stack?",
+        "options": [
+            "A. FIFO (First-In-First-Out)",
+            "B. LILO (Last-In-Last-Out)",
+            "C. LIFO (Last-In-First-Out)",
+            "D. FILO (First-In-Last-Out)"
+        ],
+        "answer": "C",
+        "explanation": "A stack is called a LIFO (Last-In-First-Out) data structure."
+    },
+    {
+        "question": "In a stack, where are elements added and deleted?",
+        "options": [
+            "A. At both the front and rear",
+            "B. Only from the middle",
+            "C. Only from one end called the bottom",
+            "D. Only from one end called the top"
+        ],
+        "answer": "D",
+        "explanation": "Elements in a stack are added/deleted only from one end, which is called the 'top'."
+    },
+    {
+        "question": "What are the two primary operations performed on a stack?",
+        "options": [
+            "A. add() and delete()",
+            "B. enqueue() and dequeue()",
+            "C. push() and pop()",
+            "D. insert() and remove()"
+        ],
+        "answer": "C",
+        "explanation": "The basic operations on a stack are listed as 'push(), pop()'."
+    },
+    {
+        "question": "How can stacks be implemented in programming?",
+        "options": [
+            "A. Only using arrays",
+            "B. Only using linked lists",
+            "C. Using either arrays or linked lists",
+            "D. Using only graphs"
+        ],
+        "answer": "C",
+        "explanation": "The document states: 'Stacks can be implemented using either arrays or linked lists'."
+    },
+    {
+        "question": "In the array representation of a stack, what is the purpose of the 'top' variable?",
+        "options": [
+            "A. It counts the total number of items pushed",
+            "B. It stores the address/index of the topmost element",
+            "C. It defines the maximum capacity of the stack",
+            "D. It points to the first element inserted"
+        ],
+        "answer": "B",
+        "explanation": "Variable 'top' stores the address of the topmost element of the stack, and elements will be added to or deleted from it."
+    },
+    {
+        "question": "In an array representation, what condition indicates that the stack is empty?",
+        "options": [
+            "A. top == 0",
+            "B. top == MAX",
+            "C. top == 1",
+            "D. top == -1"
+        ],
+        "answer": "D",
+        "explanation": "The document states that when 'top = -1', the stack is empty."
+    },
+    {
+        "question": "In an array representation with a maximum capacity 'MAX', what condition indicates that the stack is full?",
+        "options": [
+            "A. top == MAX - 1",
+            "B. top == MAX",
+            "C. top == -1",
+            "D. top == 0"
+        ],
+        "answer": "A",
+        "explanation": "The document indicates that when 'top = MAX - 1', the stack is full."
+    },
+    {
+        "question": "In the C implementation of `push` for an array stack, what is the first check performed?",
+        "options": [
+            "A. if (top == -1)",
+            "B. if (top == MAX - 1)",
+            "C. if (stack == NULL)",
+            "D. if (item == 0)"
+        ],
+        "answer": "B",
+        "explanation": "Before pushing, the function checks `if (top == MAX-1)` to verify if the stack is full."
+    },
+    {
+        "question": "How is the 'top' variable modified when pushing an item into an array stack?",
+        "options": [
+            "A. stack[top++] = item;",
+            "B. stack[--top] = item;",
+            "C. stack[++top] = item;",
+            "D. stack[top--] = item;"
+        ],
+        "answer": "C",
+        "explanation": "The code uses `stack[++top] = item;` to increment the top before assigning the item."
+    },
+    {
+        "question": "In the linked representation of a stack, each node consists of data and what else?",
+        "options": [
+            "A. The address of the previous node",
+            "B. The size of the stack",
+            "C. The address of the next node",
+            "D. An index integer"
+        ],
+        "answer": "C",
+        "explanation": "Every node has two parts: data & the address of the next node."
+    },
+    {
+        "question": "In a linked stack, which pointer is used to represent the 'top'?",
+        "options": [
+            "A. The end pointer of the linked list",
+            "B. The middle pointer of the linked list",
+            "C. The start pointer of the linked list",
+            "D. The rear pointer"
+        ],
+        "answer": "C",
+        "explanation": "The start pointer of the linked list is used as 'top'."
+    },
+    {
+        "question": "What signifies an empty stack in a linked representation?",
+        "options": [
+            "A. top = -1",
+            "B. top = MAX",
+            "C. top = 0",
+            "D. top = NULL"
+        ],
+        "answer": "D",
+        "explanation": "The boundary condition states: 'top = NULL, stack is empty'."
+    },
+    {
+        "question": "When implementing a linked stack in C, which function is used to allocate a new node during a `push`?",
+        "options": [
+            "A. calloc()",
+            "B. free()",
+            "C. realloc()",
+            "D. malloc()"
+        ],
+        "answer": "D",
+        "explanation": "The code uses `malloc(sizeof(stack))` to dynamically allocate a new node."
+    },
+    {
+        "question": "What is an inherent disadvantage of using an array representation for a stack?",
+        "options": [
+            "A. Push and pop operations are very slow",
+            "B. It has a fixed size and cannot grow or shrink dynamically",
+            "C. It requires constant use of malloc and free",
+            "D. It cannot store integers"
+        ],
+        "answer": "B",
+        "explanation": "Under comparing representations, the array representation is noted to have a 'Fixed size (cannot grow and shrink dynamically)'."
+    },
+    {
+        "question": "According to the slide comparing stack representations, what might happen when the currently allocated size of a linked representation is exceeded?",
+        "options": [
+            "A. The program must be rebooted",
+            "B. It may need to perform realloc() calls",
+            "C. The stack automatically deletes old elements",
+            "D. It causes a stack overflow immediately"
+        ],
+        "answer": "B",
+        "explanation": "The slide literally lists for linked representation: 'May need to perform realloc() calls when the currently allocated size is exceeded'."
+    },
+    {
+        "question": "What error might occur if a program makes too many recursive function calls?",
+        "options": [
+            "A. Memory leak",
+            "B. Stack overflow",
+            "C. Queue overflow",
+            "D. Array out of bounds"
+        ],
+        "answer": "B",
+        "explanation": "The document warns: 'We can get stack overflow error if a function makes too many recursive calls'."
+    },
+    {
+        "question": "How do compilers typically implement recursive methods?",
+        "options": [
+            "A. Using queues",
+            "B. Using circular arrays",
+            "C. Using hash tables",
+            "D. Using stacks"
+        ],
+        "answer": "D",
+        "explanation": "Typically, stacks are used by compilers to implement recursive methods."
+    },
+    {
+        "question": "During the execution of a recursive function, what is generated and pushed onto the stack?",
+        "options": [
+            "A. A new queue",
+            "B. An activation record",
+            "C. A circular node",
+            "D. A dynamic array"
+        ],
+        "answer": "B",
+        "explanation": "During execution, each recursive call generates an activation record that is pushed onto a stack."
+    },
+    {
+        "question": "When checking for balanced braces, what action should you take when you encounter an opening brace '{'?",
+        "options": [
+            "A. Print it",
+            "B. Delete it",
+            "C. Push it onto the stack",
+            "D. Pop from the stack"
+        ],
+        "answer": "C",
+        "explanation": "The algorithm specifies: 'When an ‘(’ is entered, push it into the stack'."
+    },
+    {
+        "question": "When verifying balanced braces using a stack, what indicates that the braces are successfully balanced at the end of the string?",
+        "options": [
+            "A. The stack is full",
+            "B. The stack is empty",
+            "C. The queue is empty",
+            "D. The top element is a closing brace"
+        ],
+        "answer": "B",
+        "explanation": "If the stack is empty after processing all characters, it implies every opening brace was matched, meaning it is 'balanced'."
+    },
+    {
+        "question": "Which algebraic notation places the operator between the operands?",
+        "options": [
+            "A. Infix notation",
+            "B. Postfix notation",
+            "C. Prefix notation",
+            "D. Suffix notation"
+        ],
+        "answer": "A",
+        "explanation": "Infix is defined as: 'operator in b/w operands'."
+    },
+    {
+        "question": "What is the primary advantage of postfix and prefix notations for machines?",
+        "options": [
+            "A. They are easier for humans to read",
+            "B. They require fewer operators",
+            "C. There never arise any questions like operator precedence",
+            "D. They use less memory"
+        ],
+        "answer": "C",
+        "explanation": "The big advantage in pre-/postfix notation is that there never arise any questions like operator precedence, making them easier to parse."
+    },
+    {
+        "question": "What is the postfix expression for the infix expression '5 + 2 * 3'?",
+        "options": [
+            "A. + 5 * 2 3",
+            "B. 5 2 3 * +",
+            "C. 5 2 + 3 *",
+            "D. * + 5 2 3"
+        ],
+        "answer": "B",
+        "explanation": "The table shows '5 + 2 * 3' corresponds to the postfix expression '5 2 3 * +'."
+    },
+    {
+        "question": "What is the prefix expression for the infix expression '5 + 2 * 3'?",
+        "options": [
+            "A. + 5 * 2 3",
+            "B. 5 2 3 * +",
+            "C. 5 2 + 3 *",
+            "D. * + 5 2 3"
+        ],
+        "answer": "A",
+        "explanation": "The table shows '5 + 2 * 3' corresponds to the prefix expression '+ 5 * 2 3'."
+    },
+    {
+        "question": "When a calculator evaluates a postfix expression and encounters an operand, what does it do?",
+        "options": [
+            "A. Applies it to an operator",
+            "B. Pops it from the stack",
+            "C. Prints it to the screen",
+            "D. Pushes it onto a stack"
+        ],
+        "answer": "D",
+        "explanation": "When an operand is entered, the calculator pushes it onto a stack."
+    },
+    {
+        "question": "When evaluating a postfix expression, what happens when an operator is encountered?",
+        "options": [
+            "A. It pushes the operator onto the stack",
+            "B. It pops the top two operands, applies the operator, and pushes the result",
+            "C. It ignores the operator",
+            "D. It clears the stack completely"
+        ],
+        "answer": "B",
+        "explanation": "When an operator is entered, the calculator pops the operands from the stack, applies the operation, and pushes the result."
+    },
+    {
+        "question": "When converting an infix expression to a postfix expression, what should happen when a ')' is encountered?",
+        "options": [
+            "A. Push it onto the stack",
+            "B. Stop the algorithm entirely",
+            "C. Pop operators from the stack to the postfix expression until a matching '(' is found",
+            "D. Append it directly to the postfix expression"
+        ],
+        "answer": "C",
+        "explanation": "The rule is: 'When an ‘)’ is entered, move operators from the stack to the end of postfix expression until ‘(’'."
+    },
+    {
+        "question": "What does FIFO stand for in the context of Queues?",
+        "options": [
+            "A. First-In-First-Out",
+            "B. Fast-In-Fast-Out",
+            "C. First-Insert-First-Omit",
+            "D. First-In-First-Over"
+        ],
+        "answer": "A",
+        "explanation": "Queue is a FIFO (First-In, First-Out) data structure."
+    },
+    {
+        "question": "In a queue, from which end are elements deleted?",
+        "options": [
+            "A. The top",
+            "B. The rear",
+            "C. The front",
+            "D. The middle"
+        ],
+        "answer": "C",
+        "explanation": "The elements are added at one end (called rear) and deleted from the other end (called front)."
+    },
+    {
+        "question": "What are the two basic operations on a queue?",
+        "options": [
+            "A. push() and pop()",
+            "B. add() and delete()",
+            "C. insert() and sort()",
+            "D. create() and destroy()"
+        ],
+        "answer": "B",
+        "explanation": "Operations on a queue are listed as 'add(), delete()'."
+    },
+    {
+        "question": "In a simple array representation of a queue, what are the initial values for the 'front' and 'rear' variables?",
+        "options": [
+            "A. 0",
+            "B. 1",
+            "C. -1",
+            "D. MAX"
+        ],
+        "answer": "C",
+        "explanation": "The document specifies: 'Initially, front = rear = -1'."
+    },
+    {
+        "question": "In a basic array representation, what condition denotes that the queue is empty?",
+        "options": [
+            "A. front == -1 and rear == 0",
+            "B. front == rear",
+            "C. rear == MAX - 1",
+            "D. front == MAX"
+        ],
+        "answer": "B",
+        "explanation": "The slide says: 'Queues is empty, front == rear'."
+    },
+    {
+        "question": "In a basic array representation, what signifies that the queue is full?",
+        "options": [
+            "A. front == 0",
+            "B. rear == -1",
+            "C. front == rear",
+            "D. rear == MAX - 1"
+        ],
+        "answer": "D",
+        "explanation": "The slide says: 'Queues is full, rear == MAX - 1'."
+    },
+    {
+        "question": "What problem exists with a linear array representation of a queue over time?",
+        "options": [
+            "A. The front pointer moves faster than the rear",
+            "B. The array size automatically shrinks",
+            "C. Pointers only increment, eventually falling off the right end",
+            "D. Elements get randomly shuffled"
+        ],
+        "answer": "C",
+        "explanation": "Problem: 'The two pointers only increments, never decrements. We eventually fall off the right end of the array'."
+    },
+    {
+        "question": "What data structure is used to solve the problem of pointers falling off the right end of a queue?",
+        "options": [
+            "A. A stack",
+            "B. A circular array",
+            "C. A double-ended queue",
+            "D. A binary tree"
+        ],
+        "answer": "B",
+        "explanation": "This problem can be solved by periodically moving the elements to the left, or using a 'Circular array'."
+    },
+    {
+        "question": "In a circular array representation of a queue, where does the 'front' index point?",
+        "options": [
+            "A. Exactly at the first element",
+            "B. One position counterclockwise from the first element",
+            "C. At the last inserted element",
+            "D. Always at index 0"
+        ],
+        "answer": "B",
+        "explanation": "The front index always points one position counterclockwise from the first element in the queue."
+    },
+    {
+        "question": "If a circular array for a queue has a capacity of MAX slots, what is the maximum number of elements it can hold at any instant?",
+        "options": [
+            "A. MAX",
+            "B. MAX + 1",
+            "C. MAX - 1",
+            "D. MAX / 2"
+        ],
+        "answer": "C",
+        "explanation": "Though there are MAX slots in the circular array, we can store at most MAX - 1 elements in the circular array at any instant."
+    },
+    {
+        "question": "How is the 'rear' index mathematically updated when adding an element to a circular queue?",
+        "options": [
+            "A. rear = rear + 1",
+            "B. rear = (rear - 1) % MAX",
+            "C. rear = MAX % rear",
+            "D. rear = (rear + 1) % MAX"
+        ],
+        "answer": "D",
+        "explanation": "The calculation to increment the rear pointer circularly is `*rear = (*rear + 1) % MAX;`."
+    },
+    {
+        "question": "In a circular queue, after incrementing the rear pointer, how does the program verify if the queue is full?",
+        "options": [
+            "A. By checking if rear == MAX - 1",
+            "B. By checking if front == rear",
+            "C. By checking if front == -1",
+            "D. By checking if front == rear + 1"
+        ],
+        "answer": "B",
+        "explanation": "In `addQ` function: after `*rear = (*rear + 1) % MAX`, it checks `if (front == *rear)` to invoke `queue_full(rear)`."
+    },
+    {
+        "question": "How is the 'front' index mathematically updated when deleting an element from a circular queue?",
+        "options": [
+            "A. front = front + 1",
+            "B. front = (front + 1) % MAX",
+            "C. front = front % MAX",
+            "D. front = (front - 1) % MAX"
+        ],
+        "answer": "B",
+        "explanation": "The formula to advance the front pointer circularly is `*front = (*front + 1) % MAX;`."
+    },
+    {
+        "question": "In a linked representation of a queue, where are additions performed?",
+        "options": [
+            "A. At the front",
+            "B. At the middle",
+            "C. At the rear",
+            "D. At a random node"
+        ],
+        "answer": "C",
+        "explanation": "Additions will be done at the rear, deletions will be done at the front."
+    },
+    {
+        "question": "In a linked queue, what condition indicates that the queue is currently empty?",
+        "options": [
+            "A. front = rear = MAX",
+            "B. front = rear = 0",
+            "C. front = rear = NULL",
+            "D. front != NULL"
+        ],
+        "answer": "C",
+        "explanation": "The boundary condition states: 'front = rear = NULL, the queue is empty'."
+    },
+    {
+        "question": "In a linked representation of a queue, what pointers define the structure?",
+        "options": [
+            "A. top and bottom",
+            "B. head and tail",
+            "C. front and rear",
+            "D. start and end"
+        ],
+        "answer": "C",
+        "explanation": "The start pointer of the linked list is used as 'front', and the 'rear' pointer stores the address of the last element."
+    },
+    {
+        "question": "Which of the following is an application of a queue?",
+        "options": [
+            "A. Reversing a list",
+            "B. Parentheses checking",
+            "C. Tower of Hanoi",
+            "D. Job scheduling"
+        ],
+        "answer": "D",
+        "explanation": "Job scheduling is explicitly listed under 'Applications of Queues'."
+    },
+    {
+        "question": "What type of list relies on queues to handle shared resources like a printer or CPU?",
+        "options": [
+            "A. Waiting lists",
+            "B. Recursive lists",
+            "C. Expression lists",
+            "D. Static lists"
+        ],
+        "answer": "A",
+        "explanation": "Queues are used in 'Waiting lists for a single shared resource like printer, disk, CPU'."
+    },
+    {
+        "question": "Which data structure is appropriate for buffers on MP3 players and handling OS interrupts?",
+        "options": [
+            "A. Stacks",
+            "B. Arrays only",
+            "C. Queues",
+            "D. Trees"
+        ],
+        "answer": "C",
+        "explanation": "These are explicitly listed under 'Applications of Queues'."
+    },
+    {
+        "question": "What defines a palindrome?",
+        "options": [
+            "A. A sequence of randomly generated numbers",
+            "B. A string that reads the same from left to right as it does from right to left",
+            "C. An algorithm to balance braces",
+            "D. An expression in postfix notation"
+        ],
+        "answer": "B",
+        "explanation": "A palindrome is a string of characters that reads the same from left to right as it does from right to left."
+    },
+    {
+        "question": "To recognize a palindrome programmatically, which two data structures can be used together?",
+        "options": [
+            "A. Two stacks",
+            "B. Two queues",
+            "C. A stack and a queue",
+            "D. A linked list and an array"
+        ],
+        "answer": "C",
+        "explanation": "To recognize a palindrome, a queue can be used in conjunction with a stack."
+    },
+    {
+        "question": "When recognizing a palindrome, what is the specific role of the stack and the queue?",
+        "options": [
+            "A. Both stack and queue preserve order",
+            "B. Both stack and queue reverse order",
+            "C. A stack reverses the order, while a queue preserves the order",
+            "D. A stack preserves the order, while a queue reverses the order"
+        ],
+        "answer": "C",
+        "explanation": "A stack reverses the order of occurrences, while a queue preserves the order of occurrences."
+    }
+]

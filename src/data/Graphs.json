@@ -1,0 +1,167 @@
+[
+    {
+        "question": "What is the primary subject of Chapter 6?",
+        "options": [
+            "A. Trees",
+            "B. Heaps",
+            "C. Graphs",
+            "D. Hash Tables"
+        ],
+        "answer": "C",
+        "explanation": "The title of the chapter is 'Graphs'."
+    },
+    {
+        "question": "According to the summary slide of Chapter 6, what are the three main topics discussed?",
+        "options": [
+            "A. Stacks, Queues, and Linked Lists",
+            "B. Terminology, Graph Representations, and Graph Traversals",
+            "C. Directed Graphs, Undirected Graphs, and Weighted Graphs",
+            "D. Depth First Search, Breadth First Search, and Shortest Path"
+        ],
+        "answer": "B",
+        "explanation": "The summary slide explicitly lists three bullet points: 'Terminology', 'Graph Representations', and 'Graph Traversals'."
+    },
+    {
+        "question": "Which specific graph traversal algorithm is illustrated step-by-step in the document?",
+        "options": [
+            "A. Depth First Search",
+            "B. Breadth First Search",
+            "C. Dijkstra's Algorithm",
+            "D. Kruskal's Algorithm"
+        ],
+        "answer": "B",
+        "explanation": "The slides contain a detailed, step-by-step trace of 'Graph Traversals – Breadth First Search'."
+    },
+    {
+        "question": "What data structure is explicitly used to manage the traversal state in Breadth First Search?",
+        "options": [
+            "A. Stack",
+            "B. Array",
+            "C. Queue",
+            "D. Hash Table"
+        ],
+        "answer": "C",
+        "explanation": "The traversal examples show a 'Queue' being used to keep track of the next vertices to visit (e.g., 'Queue [A]', 'Queue [B,C]')."
+    },
+    {
+        "question": "In the Level-Order Breadth First Search tree example, what actions are taken after node C is dequeued?",
+        "options": [
+            "A. Stop the algorithm",
+            "B. Push C onto a stack",
+            "C. Print C and enqueue children of C",
+            "D. Delete C from the graph"
+        ],
+        "answer": "C",
+        "explanation": "The slide clearly states the steps: 'Dequeue C', 'Print C', 'Enqueue children of C'."
+    },
+    {
+        "question": "In the detailed graph example provided in the slides, what are the adjacent vertices of vertex A?",
+        "options": [
+            "A. B, C",
+            "B. A, C, G, F, H",
+            "C. B, H",
+            "D. D, F"
+        ],
+        "answer": "C",
+        "explanation": "The 'Vertex / Adjacent Vertices' table shows that A is adjacent to 'B, H'."
+    },
+    {
+        "question": "According to the detailed graph example, which vertex has the adjacent vertices 'A, C, G, F, H'?",
+        "options": [
+            "A. Vertex A",
+            "B. Vertex B",
+            "C. Vertex F",
+            "D. Vertex G"
+        ],
+        "answer": "B",
+        "explanation": "The table lists the adjacent vertices for B as 'A, C, G, F, H'."
+    },
+    {
+        "question": "In the detailed graph example, what are the adjacent vertices of vertex C?",
+        "options": [
+            "A. B, D, F",
+            "B. B, C, D, E, G",
+            "C. A, B, G",
+            "D. C, E, F"
+        ],
+        "answer": "A",
+        "explanation": "The table lists the adjacent vertices for C as 'B, D, F'."
+    },
+    {
+        "question": "In the detailed graph example, what are the adjacent vertices of vertex F?",
+        "options": [
+            "A. B, H",
+            "B. B, F, H",
+            "C. B, C, D, E, G",
+            "D. D, F"
+        ],
+        "answer": "C",
+        "explanation": "The table lists the adjacent vertices for F as 'B, C, D, E, G'."
+    },
+    {
+        "question": "What is the name of the array used in the algorithm trace to keep track of which vertices have been encountered?",
+        "options": [
+            "A. Track",
+            "B. Output",
+            "C. Visit",
+            "D. Seen"
+        ],
+        "answer": "C",
+        "explanation": "The algorithm trace displays an array named 'Visit' with boolean values (e.g., 'Visit [ T, T, T, F, F, F, T, T ]')."
+    },
+    {
+        "question": "During the graph Breadth First Search trace, when vertex B is processed, its unvisited adjacent vertices are queued. What does the queue look like after this step?",
+        "options": [
+            "A. [H, C]",
+            "B. [C, G, F]",
+            "C. [H, C, G, F]",
+            "D. [A, B, C]"
+        ],
+        "answer": "C",
+        "explanation": "As the algorithm processes the adjacent vertices of B (A, C, G, F, H), it adds the unvisited ones to the queue, resulting in 'Q: [H, C, G, F]'."
+    },
+    {
+        "question": "During the BFS trace, when vertex H is processed, its adjacent vertices are A, B, and G. What happens to the queue `[C, G, F]`?",
+        "options": [
+            "A. A, B, and G are added to the queue",
+            "B. The queue remains `[C, G, F]` because A, B, and G are already visited or in the queue",
+            "C. The queue is emptied",
+            "D. H is added back to the queue"
+        ],
+        "answer": "B",
+        "explanation": "When 'v: H -> A, B, G' is processed, no new vertices are added because A, B, and G are already marked as visited or are currently in the queue. The queue remains '[C, G, F]'."
+    },
+    {
+        "question": "During the BFS trace, when vertex C is dequeued from `[C, G, F]`, its adjacent vertices are B, D, and F. Which vertex is newly added to the queue?",
+        "options": [
+            "A. B",
+            "B. F",
+            "C. D",
+            "D. None of them"
+        ],
+        "answer": "C",
+        "explanation": "When 'v: C -> B, D, F' is processed, B and F are already encountered, but D is new. Therefore, D is added, making the queue '[G, F, D]'."
+    },
+    {
+        "question": "What does the BFS algorithm do when the Queue becomes empty (`Q: []`)?",
+        "options": [
+            "A. It restarts from vertex A",
+            "B. It indicates that the traversal is complete",
+            "C. It switches to Depth First Search",
+            "D. It crashes"
+        ],
+        "answer": "B",
+        "explanation": "When the queue becomes `Q: []`, the traversal finishes, and the final output is completely formed."
+    },
+    {
+        "question": "What is the final traversal output order demonstrated in the detailed Breadth First Search example?",
+        "options": [
+            "A. A B C D E F G H",
+            "B. A B H C G F D E",
+            "C. A H B G F C D E",
+            "D. A B C G F H D E"
+        ],
+        "answer": "B",
+        "explanation": "The final state of the 'Output' shown in the last slide of the trace is 'A B H C G F D E'."
+    }
+]

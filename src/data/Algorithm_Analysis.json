@@ -1,0 +1,222 @@
+[
+    {
+        "question": "According to the source material, what is an algorithm?",
+        "options": [
+            "A. A specific programming language",
+            "B. A hardware component of a computer",
+            "C. A sequence of instructions to be followed to solve a problem",
+            "D. A mathematical equation"
+        ],
+        "answer": "C",
+        "explanation": "An algorithm is a sequence of instructions to be followed to solve a problem [1]."
+    },
+    {
+        "question": "Which of the following is true regarding solving a given problem?",
+        "options": [
+            "A. There is always only one correct algorithm",
+            "B. Algorithms cannot be used to solve problems",
+            "C. There are often many solutions/algorithms to solve a given problem",
+            "D. Problems can only be solved using hardware"
+        ],
+        "answer": "C",
+        "explanation": "There are often many solutions/algorithms to solve a given problem [1]."
+    },
+    {
+        "question": "How can an algorithm be implemented?",
+        "options": [
+            "A. Using different programming",
+            "B. Only using the C++ language",
+            "C. By changing the computer's CPU",
+            "D. Exclusively through flowcharts"
+        ],
+        "answer": "A",
+        "explanation": "An algorithm can be implemented using different programming [1]."
+    },
+    {
+        "question": "In asymptotic notations, which function represents the upper bound?",
+        "options": [
+            "A. Ω(g(n))",
+            "B. Θ(g(n))",
+            "C. O(g(n))",
+            "D. f(n)"
+        ],
+        "answer": "C",
+        "explanation": "The notation for the upper bound is O(g(n)) [2]."
+    },
+    {
+        "question": "In asymptotic notations, which function represents the lower bound?",
+        "options": [
+            "A. O(g(n))",
+            "B. Ω(g(n))",
+            "C. Θ(g(n))",
+            "D. f(n)"
+        ],
+        "answer": "B",
+        "explanation": "The notation for the lower bound is Ω(g(n)) [2]."
+    },
+    {
+        "question": "In asymptotic notations, which function represents the tight bound?",
+        "options": [
+            "A. O(g(n))",
+            "B. Ω(g(n))",
+            "C. Θ(g(n))",
+            "D. f(n)"
+        ],
+        "answer": "C",
+        "explanation": "The notation for the tight bound is Θ(g(n)) [2]."
+    },
+    {
+        "question": "For Big O notation, f(n) = O(g(n)) means there exist positive constants c and n0 such that:",
+        "options": [
+            "A. f(n) >= c g(n) when n >= n0",
+            "B. f(n) = c g(n) when n = n0",
+            "C. f(n) <= c g(n) when n >= n0",
+            "D. f(n) < g(n) when n < n0"
+        ],
+        "answer": "C",
+        "explanation": "There are positive constants c and n0 such that f(n) <= c g(n) when n >= n0 [2]."
+    },
+    {
+        "question": "If f(n) = O(g(n)), how does the growth rate of f(n) relate to g(n)?",
+        "options": [
+            "A. growth rate of f(n) > growth rate of g(n)",
+            "B. growth rate of f(n) <= growth rate of g(n)",
+            "C. growth rate of f(n) >= growth rate of g(n)",
+            "D. growth rate of f(n) = growth rate of g(n)^2"
+        ],
+        "answer": "B",
+        "explanation": "The relationship is defined as: growth rate of f(n) <= growth rate of g(n) [2]."
+    },
+    {
+        "question": "In the notation f(n) = O(g(n)), what is g(n) considered to be?",
+        "options": [
+            "A. A tight bound on f(n)",
+            "B. A lower bound on f(n)",
+            "C. An upper bound on f(n)",
+            "D. The exact same as f(n)"
+        ],
+        "answer": "C",
+        "explanation": "The function g(n) is an upper bound on f(n) [2]."
+    },
+    {
+        "question": "If Algorithm A requires time proportional to g(n), how is this denoted?",
+        "options": [
+            "A. O(1)",
+            "B. Ω(g(n))",
+            "C. O(g(n))",
+            "D. Θ(g(n))"
+        ],
+        "answer": "C",
+        "explanation": "If Algorithm A requires time proportional to g(n), Algorithm A is said to be order g(n), and it is denoted as O(g(n)) [2]."
+    },
+    {
+        "question": "What is the function g(n) formally called in the context of an algorithm's time requirement?",
+        "options": [
+            "A. The algorithmic constant",
+            "B. The algorithm's growth-rate function",
+            "C. The algorithm's execution limit",
+            "D. The algorithm's minimum threshold"
+        ],
+        "answer": "B",
+        "explanation": "The function g(n) is called the algorithm’s growth-rate function [2]."
+    },
+    {
+        "question": "If Algorithm A requires time proportional to n^2, what is its Big O notation?",
+        "options": [
+            "A. O(n)",
+            "B. O(n^3)",
+            "C. O(n^2)",
+            "D. O(log n)"
+        ],
+        "answer": "C",
+        "explanation": "If Algorithm A requires time proportional to n^2, it is O(n^2) [2]."
+    },
+    {
+        "question": "If Algorithm A requires time proportional to n, what is its Big O notation?",
+        "options": [
+            "A. O(1)",
+            "B. O(n^2)",
+            "C. O(n)",
+            "D. O(n*log n)"
+        ],
+        "answer": "C",
+        "explanation": "If Algorithm A requires time proportional to n, it is O(n) [2]."
+    },
+    {
+        "question": "Which time requirement is constant and independent of the input size?",
+        "options": [
+            "A. O(1)",
+            "B. O(n)",
+            "C. O(log2n)",
+            "D. O(n^2)"
+        ],
+        "answer": "A",
+        "explanation": "For O(1), the time requirement is constant, and it is independent of the input size [3]."
+    },
+    {
+        "question": "How does the time requirement for an O(log2n) logarithmic algorithm change as the input size increases?",
+        "options": [
+            "A. It remains constant",
+            "B. It increases directly with input size",
+            "C. It increases slowly",
+            "D. It increases rapidly"
+        ],
+        "answer": "C",
+        "explanation": "The time requirement for a logarithmic algorithm increases slowly as the input size increases [3]."
+    },
+    {
+        "question": "Which type of algorithm has a time requirement that increases directly with the input size?",
+        "options": [
+            "A. Logarithmic algorithm",
+            "B. Linear algorithm",
+            "C. Quadratic algorithm",
+            "D. Cubic algorithm"
+        ],
+        "answer": "B",
+        "explanation": "The time requirement for a linear algorithm, O(n), increases directly with the input size [3]."
+    },
+    {
+        "question": "How does the time requirement for an O(n*log2n) algorithm compare to a linear algorithm?",
+        "options": [
+            "A. It increases more rapidly than a linear algorithm",
+            "B. It increases slower than a linear algorithm",
+            "C. It increases at the exact same rate",
+            "D. It does not increase at all"
+        ],
+        "answer": "A",
+        "explanation": "The time requirement for a n*log2n algorithm increases more rapidly than a linear algorithm [3]."
+    },
+    {
+        "question": "What is the term used for an algorithm with an O(n^2) time requirement?",
+        "options": [
+            "A. Linear algorithm",
+            "B. Cubic algorithm",
+            "C. Constant algorithm",
+            "D. Quadratic algorithm"
+        ],
+        "answer": "D",
+        "explanation": "O(n^2) represents the time requirement for a quadratic algorithm [3]."
+    },
+    {
+        "question": "What is the term used for an algorithm with an O(n^3) time requirement?",
+        "options": [
+            "A. Linear algorithm",
+            "B. Quadratic algorithm",
+            "C. Cubic algorithm",
+            "D. Logarithmic algorithm"
+        ],
+        "answer": "C",
+        "explanation": "O(n^3) represents the time requirement for a cubic algorithm [3]."
+    },
+    {
+        "question": "How does the time requirement for a quadratic algorithm (O(n^2)) behave as input size increases?",
+        "options": [
+            "A. It remains constant",
+            "B. It increases rapidly with the input size",
+            "C. It decreases rapidly",
+            "D. It increases slowly"
+        ],
+        "answer": "B",
+        "explanation": "The time requirement for a quadratic algorithm increases rapidly with the input size [3]."
+    }
+]

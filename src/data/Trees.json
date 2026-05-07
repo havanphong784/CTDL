@@ -1,0 +1,46 @@
+[
+    {
+        "question": "According to the summary slide of Chapter 4, which of the following is a main topic covered?",
+        "options": [
+            "A. Hash Tables",
+            "B. Binary Trees",
+            "C. Sequential Search",
+            "D. Directed Graphs"
+        ],
+        "answer": "B",
+        "explanation": "The summary slide for the Trees chapter explicitly lists 'Binary Trees' as one of the topics [1]."
+    },
+    {
+        "question": "Which specific variation of trees is mentioned in the Chapter 4 summary?",
+        "options": [
+            "A. AVL Trees",
+            "B. Red-Black Trees",
+            "C. Binary Search Trees",
+            "D. B-Trees"
+        ],
+        "answer": "C",
+        "explanation": "The document's summary includes 'Binary Search Trees' as a key topic [1]."
+    },
+    {
+        "question": "Besides Binary Trees and Binary Search Trees, what other related concept is listed in the summary of Chapter 4?",
+        "options": [
+            "A. Forests",
+            "B. Heaps",
+            "C. Hash functions",
+            "D. Linked representations"
+        ],
+        "answer": "A",
+        "explanation": "The summary slide lists 'Forests' along with Introduction, Binary Trees, and Binary Search Trees [1]."
+    },
+    {
+        "question": "What is the overall subject of Chapter 4?",
+        "options": [
+            "A. Graphs",
+            "B. Stacks and Queues",
+            "C. Trees",
+            "D. Algorithm Analysis"
+        ],
+        "answer": "C",
+        "explanation": "The file provided for this section is titled '4-Trees.pdf', making Trees the primary subject of the chapter [1]."
+    }
+]
