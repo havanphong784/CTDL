@@ -1,167 +1,552 @@
 [
-    {
-        "question": "What is the primary subject of Chapter 6?",
-        "options": [
-            "A. Trees",
-            "B. Heaps",
-            "C. Graphs",
-            "D. Hash Tables"
-        ],
-        "answer": "C",
-        "explanation": "The title of the chapter is 'Graphs'."
-    },
-    {
-        "question": "According to the summary slide of Chapter 6, what are the three main topics discussed?",
-        "options": [
-            "A. Stacks, Queues, and Linked Lists",
-            "B. Terminology, Graph Representations, and Graph Traversals",
-            "C. Directed Graphs, Undirected Graphs, and Weighted Graphs",
-            "D. Depth First Search, Breadth First Search, and Shortest Path"
-        ],
-        "answer": "B",
-        "explanation": "The summary slide explicitly lists three bullet points: 'Terminology', 'Graph Representations', and 'Graph Traversals'."
-    },
-    {
-        "question": "Which specific graph traversal algorithm is illustrated step-by-step in the document?",
-        "options": [
-            "A. Depth First Search",
-            "B. Breadth First Search",
-            "C. Dijkstra's Algorithm",
-            "D. Kruskal's Algorithm"
-        ],
-        "answer": "B",
-        "explanation": "The slides contain a detailed, step-by-step trace of 'Graph Traversals – Breadth First Search'."
-    },
-    {
-        "question": "What data structure is explicitly used to manage the traversal state in Breadth First Search?",
-        "options": [
-            "A. Stack",
-            "B. Array",
-            "C. Queue",
-            "D. Hash Table"
-        ],
-        "answer": "C",
-        "explanation": "The traversal examples show a 'Queue' being used to keep track of the next vertices to visit (e.g., 'Queue [A]', 'Queue [B,C]')."
-    },
-    {
-        "question": "In the Level-Order Breadth First Search tree example, what actions are taken after node C is dequeued?",
-        "options": [
-            "A. Stop the algorithm",
-            "B. Push C onto a stack",
-            "C. Print C and enqueue children of C",
-            "D. Delete C from the graph"
-        ],
-        "answer": "C",
-        "explanation": "The slide clearly states the steps: 'Dequeue C', 'Print C', 'Enqueue children of C'."
-    },
-    {
-        "question": "In the detailed graph example provided in the slides, what are the adjacent vertices of vertex A?",
-        "options": [
-            "A. B, C",
-            "B. A, C, G, F, H",
-            "C. B, H",
-            "D. D, F"
-        ],
-        "answer": "C",
-        "explanation": "The 'Vertex / Adjacent Vertices' table shows that A is adjacent to 'B, H'."
-    },
-    {
-        "question": "According to the detailed graph example, which vertex has the adjacent vertices 'A, C, G, F, H'?",
-        "options": [
-            "A. Vertex A",
-            "B. Vertex B",
-            "C. Vertex F",
-            "D. Vertex G"
-        ],
-        "answer": "B",
-        "explanation": "The table lists the adjacent vertices for B as 'A, C, G, F, H'."
-    },
-    {
-        "question": "In the detailed graph example, what are the adjacent vertices of vertex C?",
-        "options": [
-            "A. B, D, F",
-            "B. B, C, D, E, G",
-            "C. A, B, G",
-            "D. C, E, F"
-        ],
-        "answer": "A",
-        "explanation": "The table lists the adjacent vertices for C as 'B, D, F'."
-    },
-    {
-        "question": "In the detailed graph example, what are the adjacent vertices of vertex F?",
-        "options": [
-            "A. B, H",
-            "B. B, F, H",
-            "C. B, C, D, E, G",
-            "D. D, F"
-        ],
-        "answer": "C",
-        "explanation": "The table lists the adjacent vertices for F as 'B, C, D, E, G'."
-    },
-    {
-        "question": "What is the name of the array used in the algorithm trace to keep track of which vertices have been encountered?",
-        "options": [
-            "A. Track",
-            "B. Output",
-            "C. Visit",
-            "D. Seen"
-        ],
-        "answer": "C",
-        "explanation": "The algorithm trace displays an array named 'Visit' with boolean values (e.g., 'Visit [ T, T, T, F, F, F, T, T ]')."
-    },
-    {
-        "question": "During the graph Breadth First Search trace, when vertex B is processed, its unvisited adjacent vertices are queued. What does the queue look like after this step?",
-        "options": [
-            "A. [H, C]",
-            "B. [C, G, F]",
-            "C. [H, C, G, F]",
-            "D. [A, B, C]"
-        ],
-        "answer": "C",
-        "explanation": "As the algorithm processes the adjacent vertices of B (A, C, G, F, H), it adds the unvisited ones to the queue, resulting in 'Q: [H, C, G, F]'."
-    },
-    {
-        "question": "During the BFS trace, when vertex H is processed, its adjacent vertices are A, B, and G. What happens to the queue `[C, G, F]`?",
-        "options": [
-            "A. A, B, and G are added to the queue",
-            "B. The queue remains `[C, G, F]` because A, B, and G are already visited or in the queue",
-            "C. The queue is emptied",
-            "D. H is added back to the queue"
-        ],
-        "answer": "B",
-        "explanation": "When 'v: H -> A, B, G' is processed, no new vertices are added because A, B, and G are already marked as visited or are currently in the queue. The queue remains '[C, G, F]'."
-    },
-    {
-        "question": "During the BFS trace, when vertex C is dequeued from `[C, G, F]`, its adjacent vertices are B, D, and F. Which vertex is newly added to the queue?",
-        "options": [
-            "A. B",
-            "B. F",
-            "C. D",
-            "D. None of them"
-        ],
-        "answer": "C",
-        "explanation": "When 'v: C -> B, D, F' is processed, B and F are already encountered, but D is new. Therefore, D is added, making the queue '[G, F, D]'."
-    },
-    {
-        "question": "What does the BFS algorithm do when the Queue becomes empty (`Q: []`)?",
-        "options": [
-            "A. It restarts from vertex A",
-            "B. It indicates that the traversal is complete",
-            "C. It switches to Depth First Search",
-            "D. It crashes"
-        ],
-        "answer": "B",
-        "explanation": "When the queue becomes `Q: []`, the traversal finishes, and the final output is completely formed."
-    },
-    {
-        "question": "What is the final traversal output order demonstrated in the detailed Breadth First Search example?",
-        "options": [
-            "A. A B C D E F G H",
-            "B. A B H C G F D E",
-            "C. A H B G F C D E",
-            "D. A B C G F H D E"
-        ],
-        "answer": "B",
-        "explanation": "The final state of the 'Output' shown in the last slide of the trace is 'A B H C G F D E'."
-    }
+  {
+    "question": "In the terminology of graphs, what do V and E stand for in a graph G=(V,E)?",
+    "options": [
+      "A. Variables and Equations",
+      "B. Vertices and Edges",
+      "C. Values and Elements",
+      "D. Vectors and Extensions"
+    ],
+    "answer": "B",
+    "explanation": "According to the terminology, a graph G=(V,E) consists of V (a finite non-empty set of vertices) and E (a set of edges)."
+  },
+  {
+    "question": "What defines the set V in a graph G=(V,E)?",
+    "options": [
+      "A. A finite empty set",
+      "B. An infinite set of paths",
+      "C. A finite non-empty set of vertices",
+      "D. A set of ordered pairs"
+    ],
+    "answer": "C",
+    "explanation": "The document defines V as a 'finite non-empty set of vertices'."
+  },
+  {
+    "question": "How is an edge represented in an undirected graph?",
+    "options": [
+      "A. As an ordered pair <u,v>",
+      "B. As a matrix A(i,j)",
+      "C. As an unordered pair (u,v)",
+      "D. As a linked list node"
+    ],
+    "answer": "C",
+    "explanation": "For an undirected graph, the pair of vertices representing any edge is unordered. Thus, the pairs (u,v) and (v,u) represent the same edge."
+  },
+  {
+    "question": "How is an edge represented in a directed graph (digraph)?",
+    "options": [
+      "A. As an unordered pair (u,v)",
+      "B. As an ordered pair <u,v>",
+      "C. By the sum of its degrees",
+      "D. By a symmetric matrix"
+    ],
+    "answer": "B",
+    "explanation": "For a directed graph, each edge is represented by an ordered pair <u,v>."
+  },
+  {
+    "question": "According to the document, what is the relationship between a tree and a graph?",
+    "options": [
+      "A. A graph is a special case of a tree",
+      "B. They are completely unrelated",
+      "C. A tree is a special case of a graph",
+      "D. A tree can never be represented as a graph"
+    ],
+    "answer": "C",
+    "explanation": "The text explicitly states: 'Tree is a special case of graph'."
+  },
+  {
+    "question": "What is a Complete Graph?",
+    "options": [
+      "A. A graph with no edges",
+      "B. A graph that contains a cycle",
+      "C. A graph that has the maximum number of edges",
+      "D. A graph with an equal number of vertices and edges"
+    ],
+    "answer": "C",
+    "explanation": "Complete Graph is a graph that has the maximum number of edges."
+  },
+  {
+    "question": "What is the maximum number of edges for an undirected graph with n vertices?",
+    "options": [
+      "A. n(n-1)",
+      "B. n(n+1)/2",
+      "C. n^2",
+      "D. n(n-1)/2"
+    ],
+    "answer": "D",
+    "explanation": "For an undirected graph with n vertices, the maximum number of edges is n(n-1)/2."
+  },
+  {
+    "question": "What is the maximum number of edges for a directed graph with n vertices?",
+    "options": [
+      "A. n(n-1)/2",
+      "B. n(n-1)",
+      "C. n^2 / 2",
+      "D. n^2"
+    ],
+    "answer": "B",
+    "explanation": "For a directed graph with n vertices, the maximum number of edges is n(n-1)."
+  },
+  {
+    "question": "If (u,v) is an edge in an undirected graph, what is the term used to describe the relationship between vertices u and v?",
+    "options": [
+      "A. Subgraphs",
+      "B. Directed",
+      "C. Adjacent",
+      "D. Disjoint"
+    ],
+    "answer": "C",
+    "explanation": "If (u,v) is an edge in an undirected graph, u and v are adjacent."
+  },
+  {
+    "question": "In an undirected graph, what term describes the relationship between the edge (u,v) and the vertices u and v?",
+    "options": [
+      "A. Incident",
+      "B. Adjacent",
+      "C. Connected",
+      "D. Directed"
+    ],
+    "answer": "A",
+    "explanation": "The edge (u,v) is incident on vertices u and v."
+  },
+  {
+    "question": "If <u,v> is an edge in a directed graph, which of the following statements is correct?",
+    "options": [
+      "A. u and v are unordered",
+      "B. u is adjacent to v, and v is adjacent from u",
+      "C. v is adjacent to u",
+      "D. Neither is adjacent"
+    ],
+    "answer": "B",
+    "explanation": "If <u,v> is an edge in a directed graph, u is adjacent to v, and v is adjacent from u."
+  },
+  {
+    "question": "What defines a subgraph G' of a graph G?",
+    "options": [
+      "A. V(G') >= V(G)",
+      "B. V(G') ⊆ V(G) and E(G') ⊆ E(G)",
+      "C. E(G') must be greater than E(G)",
+      "D. G' must have exactly the same vertices as G"
+    ],
+    "answer": "B",
+    "explanation": "A subgraph of G is a graph G' such that V(G') ⊆ V(G) and E(G') ⊆ E(G)."
+  },
+  {
+    "question": "What is a sequence of vertices u, i1, i2, ..., ik, v called in a graph?",
+    "options": [
+      "A. A cycle",
+      "B. A subgraph",
+      "C. A path from u to v",
+      "D. A tree"
+    ],
+    "answer": "C",
+    "explanation": "A path from u to v in G is a sequence of vertices u, i1, i2,...,ik, v."
+  },
+  {
+    "question": "How is the length of a path determined?",
+    "options": [
+      "A. By the number of vertices on it",
+      "B. By the sum of their degrees",
+      "C. By the number of edges on it",
+      "D. By the maximum distance"
+    ],
+    "answer": "C",
+    "explanation": "The length of a path is the number of edges on it."
+  },
+  {
+    "question": "What is the length of the path 0, 1, 3, 2 in the provided example?",
+    "options": [
+      "A. 4",
+      "B. 3",
+      "C. 2",
+      "D. 5"
+    ],
+    "answer": "B",
+    "explanation": "The slide explicitly notes: 'Length of 0,1,3,2 is 3'."
+  },
+  {
+    "question": "What defines a simple path?",
+    "options": [
+      "A. A path where all edges are directed",
+      "B. A path where the first and last vertices are exactly the same",
+      "C. A path in which all vertices except possibly the first and last are distinct",
+      "D. A path that has no edges"
+    ],
+    "answer": "C",
+    "explanation": "A Simple Path is a path in which all vertices except possibly the first and last are distinct."
+  },
+  {
+    "question": "Why is the path 0, 1, 3, 1 considered NOT simple?",
+    "options": [
+      "A. Because it is too short",
+      "B. Because vertex 1 is repeated (it is neither the first nor solely the last vertex)",
+      "C. Because it has directed edges",
+      "D. Because it is a complete cycle"
+    ],
+    "answer": "B",
+    "explanation": "0,1,3,1 is path but not simple because vertex 1 appears twice and isn't just the endpoints matching."
+  },
+  {
+    "question": "What is the definition of a cycle in graph terminology?",
+    "options": [
+      "A. A graph with no edges",
+      "B. A simple path where the first and last vertices are the same",
+      "C. A path with a length of 1",
+      "D. A path that visits all vertices in the graph"
+    ],
+    "answer": "B",
+    "explanation": "Cycle – a simple path, first and last vertices are same."
+  },
+  {
+    "question": "What is an acyclic graph?",
+    "options": [
+      "A. A graph with only one cycle",
+      "B. A graph that forms a perfect circle",
+      "C. A graph where no cycle is present",
+      "D. A complete graph"
+    ],
+    "answer": "C",
+    "explanation": "Acyclic graph – No cycle is in graph."
+  },
+  {
+    "question": "When are two vertices u and v considered 'connected' in an undirected graph?",
+    "options": [
+      "A. When they are placed in the same array",
+      "B. If there is a path in G from u to v",
+      "C. Only if they are directly adjacent",
+      "D. Only if they form a cycle"
+    ],
+    "answer": "B",
+    "explanation": "Two vertices u and v are connected if in an undirected graph G, there exists a path in G from u to v."
+  },
+  {
+    "question": "What makes a graph G a 'connected graph'?",
+    "options": [
+      "A. If any vertex pair u, v is connected",
+      "B. If every vertex has a degree of 2",
+      "C. If it has the maximum number of edges",
+      "D. If it contains at least one cycle"
+    ],
+    "answer": "A",
+    "explanation": "A graph G is connected, if any vertex pair u,v is connected."
+  },
+  {
+    "question": "What is a 'connected component'?",
+    "options": [
+      "A. A minimal unconnected subgraph",
+      "B. A directed cycle",
+      "C. A maximal connected subgraph",
+      "D. A single vertex without edges"
+    ],
+    "answer": "C",
+    "explanation": "Connected Component is defined as a maximal connected subgraph."
+  },
+  {
+    "question": "How is a Tree defined using graph terminology?",
+    "options": [
+      "A. A cyclic graph",
+      "B. A connected acyclic graph",
+      "C. A directed weighted graph",
+      "D. An unconnected graph"
+    ],
+    "answer": "B",
+    "explanation": "Tree is a connected acyclic graph."
+  },
+  {
+    "question": "In many applications, edges of a graph are assigned weights. What can these weights represent?",
+    "options": [
+      "A. The color of the vertex",
+      "B. The shape of the node",
+      "C. The distance from one vertex to another",
+      "D. The maximum number of vertices"
+    ],
+    "answer": "C",
+    "explanation": "These weights may represent the distance from one vertex to another."
+  },
+  {
+    "question": "What do we call a graph that has weighted edges?",
+    "options": [
+      "A. A pure graph",
+      "B. A network",
+      "C. An unweighted graph",
+      "D. A sparse matrix"
+    ],
+    "answer": "B",
+    "explanation": "A graph with weighted edges is called a network."
+  },
+  {
+    "question": "Which of the following is NOT listed as a Graph Representation in the document?",
+    "options": [
+      "A. Adjacency Matrix",
+      "B. Adjacency Lists",
+      "C. Hash Table Representation",
+      "D. Adjacency Multilists"
+    ],
+    "answer": "C",
+    "explanation": "The listed representations are: Adjacency Matrix, Adjacency Lists, and Adjacency Multilists."
+  },
+  {
+    "question": "What defines the dimensions of an Adjacency Matrix for a graph with n vertices?",
+    "options": [
+      "A. n x 2",
+      "B. 2 x n",
+      "C. n x n",
+      "D. n x e"
+    ],
+    "answer": "C",
+    "explanation": "The adjacency matrix of G is a 2-dimensional n x n matrix, A."
+  },
+  {
+    "question": "In an Adjacency Matrix A, what does A(i, j) = 1 signify?",
+    "options": [
+      "A. There is no edge between vi and vj",
+      "B. Vertex i is isolated",
+      "C. (vi, vj) is an edge in E(G)",
+      "D. The graph has exactly 1 edge"
+    ],
+    "answer": "C",
+    "explanation": "A(i, j) = 1 iff (vi, vj) ∈ E(G)."
+  },
+  {
+    "question": "In an Adjacency Matrix A, what does A(i, j) = 0 signify?",
+    "options": [
+      "A. (vi, vj) is an edge in E(G)",
+      "B. The graph is undirected",
+      "C. Otherwise (there is no edge between vi and vj)",
+      "D. The vertices are adjacent"
+    ],
+    "answer": "C",
+    "explanation": "A(i, j) = 0 otherwise."
+  },
+  {
+    "question": "What characteristic is true for the adjacency matrix of an undirected graph?",
+    "options": [
+      "A. It is always asymmetric",
+      "B. It only contains zeros",
+      "C. It is symmetric",
+      "D. Its size is n x 2"
+    ],
+    "answer": "C",
+    "explanation": "The adjacency matrix for an undirected graph is symmetric."
+  },
+  {
+    "question": "What characteristic is true for the adjacency matrix of a directed graph (digraph)?",
+    "options": [
+      "A. It is completely symmetric",
+      "B. It need not be symmetric",
+      "C. It contains only ones",
+      "D. It cannot be represented as a matrix"
+    ],
+    "answer": "B",
+    "explanation": "The adjacency matrix for a digraph need not be symmetric."
+  },
+  {
+    "question": "What is one of the merits of using an Adjacency Matrix?",
+    "options": [
+      "A. It takes very little memory for large sparse graphs",
+      "B. It is difficult to find adjacent vertices",
+      "C. To determine the connection of vertices is easy",
+      "D. It eliminates the need for loops"
+    ],
+    "answer": "C",
+    "explanation": "Merits of Adjacency Matrix: From the adjacency matrix, to determine the connection of vertices is easy."
+  },
+  {
+    "question": "How is the degree of a vertex computed using an Adjacency Matrix?",
+    "options": [
+      "A. By summing the elements of a specific row (or column)",
+      "B. By multiplying the rows",
+      "C. By finding the determinant of the matrix",
+      "D. By subtracting the diagonal"
+    ],
+    "answer": "A",
+    "explanation": "The degree of a vertex is the sum from j=0 to n-1 of adj_mat[i][j]."
+  },
+  {
+    "question": "For a digraph represented by an adjacency matrix, what does the row sum represent?",
+    "options": [
+      "A. The in-degree",
+      "B. The total number of vertices",
+      "C. The out-degree",
+      "D. The path length"
+    ],
+    "answer": "C",
+    "explanation": "For a digraph, the row sum is the out_degree."
+  },
+  {
+    "question": "For a digraph represented by an adjacency matrix, what does the column sum represent?",
+    "options": [
+      "A. The out-degree",
+      "B. The in-degree",
+      "C. The total edges",
+      "D. The number of disconnected components"
+    ],
+    "answer": "B",
+    "explanation": "For a digraph... while the column sum is the in_degree."
+  },
+  {
+    "question": "How does the Adjacency Lists representation structure a graph?",
+    "options": [
+      "A. By replacing n rows of the adjacency matrix with n linked lists",
+      "B. By using a single array of size n",
+      "C. By generating a hash map for edges",
+      "D. By creating a binary search tree for each vertex"
+    ],
+    "answer": "A",
+    "explanation": "Adjacency List: Replace n rows of the adjacency matrix with n linked list."
+  },
+  {
+    "question": "In an Adjacency List representation of an undirected graph with n vertices and e edges, how many head nodes and list nodes are required?",
+    "options": [
+      "A. n head nodes and e list nodes",
+      "B. e head nodes and n list nodes",
+      "C. n head nodes and 2e list nodes",
+      "D. 2n head nodes and e list nodes"
+    ],
+    "answer": "C",
+    "explanation": "An undirected graph with n vertices and e edges => n head nodes and 2e list nodes."
+  },
+  {
+    "question": "In the Depth First Search (DFS) algorithm implementation shown, what array is used to keep track of processed vertices?",
+    "options": [
+      "A. output[MAX_VERTICES]",
+      "B. queue[MAX_VERTICES]",
+      "C. visited[MAX_VERTICES]",
+      "D. path[MAX_VERTICES]"
+    ],
+    "answer": "C",
+    "explanation": "The code uses: short int visited[MAX_VERTICES];"
+  },
+  {
+    "question": "What is the first step when the `Depth_First_Search(VERTEX V)` function is called?",
+    "options": [
+      "A. Enqueue V",
+      "B. Visit V and set the visit flag for the vertex V to TRUE",
+      "C. Return if V is 0",
+      "D. Delete V from the graph"
+    ],
+    "answer": "B",
+    "explanation": "Depth_First_Search(VERTEX V) { Visit V; Set the visit flag for the vertex V to TRUE; ... }"
+  },
+  {
+    "question": "In DFS, before recursively calling `Depth_First_Search(Vi)` on an adjacent vertex `Vi`, what condition is checked?",
+    "options": [
+      "A. if (Vi is the root)",
+      "B. if (Vi has not been previously visited)",
+      "C. if (Vi has a degree greater than 1)",
+      "D. if (Vi is null)"
+    ],
+    "answer": "B",
+    "explanation": "The algorithm checks: 'if (Vi has not been previously visited) Depth_First_Search (Vi)'."
+  },
+  {
+    "question": "In the provided code, what are the macro definitions for FALSE and TRUE?",
+    "options": [
+      "A. #define FALSE -1, #define TRUE 1",
+      "B. #define FALSE 0, #define TRUE 1",
+      "C. #define FALSE null, #define TRUE !null",
+      "D. #define FALSE 0, #define TRUE 2"
+    ],
+    "answer": "B",
+    "explanation": "The code includes: #define FALSE 0 and #define TRUE 1."
+  },
+  {
+    "question": "Which data structure is heavily visualized to manage vertices in the Breadth First Search (BFS) trace?",
+    "options": [
+      "A. Stack",
+      "B. Hash Table",
+      "C. Queue (Q)",
+      "D. Binary Tree"
+    ],
+    "answer": "C",
+    "explanation": "The trace continuously updates 'Q: [ ... ]' which stands for a Queue to process breadth level."
+  },
+  {
+    "question": "In the Graph Traversals trace starting at vertex A, what are the adjacent vertices of A?",
+    "options": [
+      "A. C, G",
+      "B. B, H",
+      "C. B, D, F",
+      "D. C, E, F"
+    ],
+    "answer": "B",
+    "explanation": "The table shows Vertex A -> Adjacent Vertices: B, H."
+  },
+  {
+    "question": "In the Breadth First Search trace, what happens when vertex A is processed initially?",
+    "options": [
+      "A. Its unvisited adjacent vertices B and H are added to the Queue",
+      "B. Only vertex B is added",
+      "C. The queue is emptied",
+      "D. It traverses deep into H's children"
+    ],
+    "answer": "A",
+    "explanation": "v: A -> B, H. The queue becomes Q: [B, H]."
+  },
+  {
+    "question": "In the BFS trace, when vertex B is popped from the queue `[B, H]`, its adjacent vertices are A, C, G, F, H. Why isn't A added to the queue?",
+    "options": [
+      "A. Because A is the root",
+      "B. Because A is a directed edge only",
+      "C. Because A has already been visited (marked T)",
+      "D. Because the queue is full"
+    ],
+    "answer": "C",
+    "explanation": "A is already marked as Visited (T), so it is not added again. The queue becomes [H, C, G, F]."
+  },
+  {
+    "question": "In the BFS trace, what is the status of the 'Visit' array when all nodes are queued or processed at the very end?",
+    "options": [
+      "A. All F",
+      "B. Alternating T and F",
+      "C. All T",
+      "D. It becomes empty"
+    ],
+    "answer": "C",
+    "explanation": "By the end of the algorithm, the Visit array is [T, T, T, T, T, T, T, T]."
+  },
+  {
+    "question": "According to the SUMMARY slide of the chapter, what are the main subjects covered?",
+    "options": [
+      "A. Terminology, Graph Representations, Graph Traversals",
+      "B. Stacks, Queues, Lists",
+      "C. Static Hashing, Dynamic Hashing",
+      "D. Insert, Delete, Sort"
+    ],
+    "answer": "A",
+    "explanation": "The SUMMARY slide lists: Terminology, Graph Representations, Graph Traversals."
+  },
+  {
+    "question": "What does an edge representing (1,3) mean in graph G1?",
+    "options": [
+      "A. It's a directed edge from 1 to 3",
+      "B. Vertex 1 and 3 are connected by an undirected edge",
+      "C. Vertex 1 is a parent of 3",
+      "D. The distance is 3"
+    ],
+    "answer": "B",
+    "explanation": "Since G1 is an undirected graph, (1,3) means vertices 1 and 3 are connected symmetrically."
+  },
+  {
+    "question": "In the adjacency matrix for graph G2, what is the value of the diagonal A(i,i) assuming no self-loops?",
+    "options": [
+      "A. 1",
+      "B. -1",
+      "C. 0",
+      "D. Infinity"
+    ],
+    "answer": "C",
+    "explanation": "A(i,j)=0 otherwise. Since there are no edges from a node to itself in the example, the diagonal is 0."
+  },
+  {
+    "question": "What is the final traversal sequence generated by the Breadth First Search trace in the document?",
+    "options": [
+      "A. A B C D E F G H",
+      "B. A H G F E D C B",
+      "C. A B H C G F D E",
+      "D. A B F C D E G H"
+    ],
+    "answer": "C",
+    "explanation": "The final trace output accumulates as: A, then B, H, then C, G, F, then D, then E -> A B H C G F D E."
+  }
 ]

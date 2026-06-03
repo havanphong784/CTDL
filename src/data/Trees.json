@@ -1,46 +1,552 @@
 [
-    {
-        "question": "According to the summary slide of Chapter 4, which of the following is a main topic covered?",
-        "options": [
-            "A. Hash Tables",
-            "B. Binary Trees",
-            "C. Sequential Search",
-            "D. Directed Graphs"
-        ],
-        "answer": "B",
-        "explanation": "The summary slide for the Trees chapter explicitly lists 'Binary Trees' as one of the topics [1]."
-    },
-    {
-        "question": "Which specific variation of trees is mentioned in the Chapter 4 summary?",
-        "options": [
-            "A. AVL Trees",
-            "B. Red-Black Trees",
-            "C. Binary Search Trees",
-            "D. B-Trees"
-        ],
-        "answer": "C",
-        "explanation": "The document's summary includes 'Binary Search Trees' as a key topic [1]."
-    },
-    {
-        "question": "Besides Binary Trees and Binary Search Trees, what other related concept is listed in the summary of Chapter 4?",
-        "options": [
-            "A. Forests",
-            "B. Heaps",
-            "C. Hash functions",
-            "D. Linked representations"
-        ],
-        "answer": "A",
-        "explanation": "The summary slide lists 'Forests' along with Introduction, Binary Trees, and Binary Search Trees [1]."
-    },
-    {
-        "question": "What is the overall subject of Chapter 4?",
-        "options": [
-            "A. Graphs",
-            "B. Stacks and Queues",
-            "C. Trees",
-            "D. Algorithm Analysis"
-        ],
-        "answer": "C",
-        "explanation": "The file provided for this section is titled '4-Trees.pdf', making Trees the primary subject of the chapter [1]."
-    }
+  {
+    "question": "What is the definition of a tree according to the document?",
+    "options": [
+      "A. A linear data structure with sequential nodes",
+      "B. A finite set of one or more nodes with a specially designated root",
+      "C. A circular data structure",
+      "D. A graph with multiple roots"
+    ],
+    "answer": "B",
+    "explanation": "A tree is a finite set of one/more nodes such that there is a specially designated node called the root [1]."
+  },
+  {
+    "question": "In a tree, the remaining nodes (excluding the root) are partitioned into disjoint sets. What are these sets called?",
+    "options": [
+      "A. Sibling sets",
+      "B. Sub-trees",
+      "C. Leaves",
+      "D. Child nodes"
+    ],
+    "answer": "B",
+    "explanation": "The remaining nodes are partitioned into n >= 0 disjoint sets T1, ..., Tn, where each of these sets is a tree, called the sub-trees [1]."
+  },
+  {
+    "question": "Based on the tree terminology, what is a node that does not have any children called?",
+    "options": [
+      "A. Parent",
+      "B. Root",
+      "C. Sibling",
+      "D. Leaf"
+    ],
+    "answer": "D",
+    "explanation": "Nodes like K, L, F, G, M, I, J that do not have sub-trees or children are defined as Leaf / Leaves [5]."
+  },
+  {
+    "question": "What does the 'degree' of a node refer to?",
+    "options": [
+      "A. The level of the node in the tree",
+      "B. The number of sub-trees of the node",
+      "C. The number of parents the node has",
+      "D. The distance from the root"
+    ],
+    "answer": "B",
+    "explanation": "The degree of a node is the number of sub-trees of the node [6]."
+  },
+  {
+    "question": "By convention in this document, what is the initial level assigned to the root node?",
+    "options": [
+      "A. Level 0",
+      "B. Level 1",
+      "C. Level -1",
+      "D. It depends on the height"
+    ],
+    "answer": "B",
+    "explanation": "The level of a node is defined by initially letting the root be at level one [6]."
+  },
+  {
+    "question": "How is the level of any node (other than the root) calculated?",
+    "options": [
+      "A. By multiplying the parent's level by 2",
+      "B. It is equal to the degree of the node",
+      "C. It is the level of the node's parent plus one",
+      "D. By counting its children"
+    ],
+    "answer": "C",
+    "explanation": "For all other nodes, the level is the level of the node's parent plus one [6]."
+  },
+  {
+    "question": "What is the 'height' or 'depth' of a tree?",
+    "options": [
+      "A. The number of leaves in the tree",
+      "B. The maximum degree of any node",
+      "C. The total number of nodes",
+      "D. The maximum level of any node in the tree"
+    ],
+    "answer": "D",
+    "explanation": "The height or depth of a tree is the maximum level of any node in the tree [6]."
+  },
+  {
+    "question": "In the standard List Representation of a tree, what element comes first?",
+    "options": [
+      "A. The root",
+      "B. The left-most leaf",
+      "C. The largest sub-tree",
+      "D. The right-most sibling"
+    ],
+    "answer": "A",
+    "explanation": "In List Representation, the root comes first, followed by a list of sub-trees [6]."
+  },
+  {
+    "question": "What is a major limitation of using a direct List Representation for nodes with multiple branches?",
+    "options": [
+      "A. It cannot store integers",
+      "B. A node must have a varying number of link fields depending on the number of branches",
+      "C. It only supports binary trees",
+      "D. It requires dynamic hashing"
+    ],
+    "answer": "B",
+    "explanation": "A node must have a varying number of link fields depending on the number of branches [6]."
+  },
+  {
+    "question": "In the Left Child-Right Sibling representation of a tree, what does the 'leftChild' pointer do?",
+    "options": [
+      "A. It points to the parent node",
+      "B. It goes left to right",
+      "C. It is an arrow that points downward",
+      "D. It points to the root"
+    ],
+    "answer": "C",
+    "explanation": "In Left Child-Right Sibling Representation, the leftChild pointer is an arrow that points downward [6]."
+  },
+  {
+    "question": "In the Left Child-Right Sibling representation, what does the 'rightSibling' pointer do?",
+    "options": [
+      "A. It goes left to right",
+      "B. It points upward to the root",
+      "C. It points downward to the children",
+      "D. It points to a hash table"
+    ],
+    "answer": "A",
+    "explanation": "The rightSibling pointer is an arrow that goes left to right [6]."
+  },
+  {
+    "question": "According to Lemma 3 for the Array Representation of a complete binary tree with n nodes, if a node has index i, where is its parent located (for i != 1)?",
+    "options": [
+      "A. at 2i",
+      "B. at i/2",
+      "C. at 2i + 1",
+      "D. at i - 1"
+    ],
+    "answer": "B",
+    "explanation": "Lemma 3 states that parent (i) is at i/2, if i != 1 [2]."
+  },
+  {
+    "question": "In the Array Representation of a complete binary tree, where is the left-child of node i located?",
+    "options": [
+      "A. at i/2",
+      "B. at 2i + 1",
+      "C. at 2i",
+      "D. at i + 2"
+    ],
+    "answer": "C",
+    "explanation": "Lemma 3 states that left-child (i) is 2i, if 2i <= n [2]."
+  },
+  {
+    "question": "In the Array Representation of a complete binary tree, where is the right-child of node i located?",
+    "options": [
+      "A. at 2i",
+      "B. at i/2",
+      "C. at 2i + 1",
+      "D. at i + 1"
+    ],
+    "answer": "C",
+    "explanation": "Lemma 3 states that right-child (i) is 2i+1, if 2i+1 <= n [2]."
+  },
+  {
+    "question": "For which type of tree is the array representation considered ideal because it wastes no space?",
+    "options": [
+      "A. Skewed binary trees",
+      "B. Forests",
+      "C. Binary Search Trees only",
+      "D. Complete binary trees"
+    ],
+    "answer": "D",
+    "explanation": "For complete binary trees, this representation is ideal since it wastes no space [2]."
+  },
+  {
+    "question": "What is a disadvantage of using array representation for a skewed binary tree?",
+    "options": [
+      "A. It cannot be traversed",
+      "B. Less than half of the array is utilized, wasting space",
+      "C. It causes a stack overflow",
+      "D. It requires too many pointers"
+    ],
+    "answer": "B",
+    "explanation": "However, for the skewed tree, less than half of the array is utilized [2]."
+  },
+  {
+    "question": "In the Linked Representation of a Binary Tree, what fields are defined in the `node` struct?",
+    "options": [
+      "A. tag, row, col",
+      "B. data, left_child, right_child",
+      "C. element, rightSibling",
+      "D. key, parent"
+    ],
+    "answer": "B",
+    "explanation": "The struct node contains: int data, tree_pointer left_child, and tree_pointer right_child [2]."
+  },
+  {
+    "question": "In Binary Tree Traversal notations, what does the order LVR stand for?",
+    "options": [
+      "A. Preorder Traversal",
+      "B. Postorder Traversal",
+      "C. Inorder Traversal",
+      "D. Level Order Traversal"
+    ],
+    "answer": "C",
+    "explanation": "The traversing order LVR stands for Inorder Traversal [2]."
+  },
+  {
+    "question": "In Binary Tree Traversal notations, what does the order VLR stand for?",
+    "options": [
+      "A. Preorder Traversal",
+      "B. Inorder Traversal",
+      "C. Postorder Traversal",
+      "D. Random Traversal"
+    ],
+    "answer": "A",
+    "explanation": "The traversing order VLR stands for Preorder Traversal [2]."
+  },
+  {
+    "question": "In Binary Tree Traversal notations, what does the order LRV stand for?",
+    "options": [
+      "A. Inorder Traversal",
+      "B. Preorder Traversal",
+      "C. Level Order Traversal",
+      "D. Postorder Traversal"
+    ],
+    "answer": "D",
+    "explanation": "The traversing order LRV stands for Postorder Traversal [2]."
+  },
+  {
+    "question": "What are the recursive steps to perform a Preorder Traversal?",
+    "options": [
+      "A. Move left, Visit node, Move right",
+      "B. Move left, Move right, Visit node",
+      "C. Visit node, Move left, Move right",
+      "D. Visit node, Move right, Move left"
+    ],
+    "answer": "C",
+    "explanation": "Preorder Traversal uses a recursive function: Visit node -> Move left -> Move right [7]."
+  },
+  {
+    "question": "What are the recursive steps to perform a Postorder Traversal?",
+    "options": [
+      "A. Visit node, Move left, Move right",
+      "B. Move left, Visit node, Move right",
+      "C. Move left, Move right, Visit node",
+      "D. Move right, Move left, Visit node"
+    ],
+    "answer": "C",
+    "explanation": "Postorder Traversal uses a recursive function: Move left -> Move right -> Visit node [8]."
+  },
+  {
+    "question": "What data structure is utilized to simulate recursion in an Iterative Inorder Traversal?",
+    "options": [
+      "A. Queue",
+      "B. Stack",
+      "C. Hash Table",
+      "D. Array only"
+    ],
+    "answer": "B",
+    "explanation": "Iterative Inorder Traversal uses a stack to simulate recursion [8]."
+  },
+  {
+    "question": "What is the time complexity of an Iterative Inorder Traversal for a tree with n nodes?",
+    "options": [
+      "A. O(1)",
+      "B. O(log n)",
+      "C. O(n)",
+      "D. O(n^2)"
+    ],
+    "answer": "C",
+    "explanation": "The Time Complexity of Iterative Inorder Traversal is O(n), where n is the number of nodes [8]."
+  },
+  {
+    "question": "Which traversal visits nodes at each new level from the left-most node to the right-most node?",
+    "options": [
+      "A. Inorder Traversal",
+      "B. Level Order Traversal",
+      "C. Postorder Traversal",
+      "D. Preorder Traversal"
+    ],
+    "answer": "B",
+    "explanation": "Level Order Traversal is defined as visiting at each new level from the left-most node to the right-most [8]."
+  },
+  {
+    "question": "What data structure must be used to implement a Level Order Traversal?",
+    "options": [
+      "A. Queue",
+      "B. Stack",
+      "C. Linked List",
+      "D. Hash Map"
+    ],
+    "answer": "A",
+    "explanation": "Level Order Traversal uses the Data Structure: Queue [8]."
+  },
+  {
+    "question": "When implementing a function to copy a binary tree to another one, which traversal program is it modified from?",
+    "options": [
+      "A. Preorder traversal",
+      "B. Inorder traversal",
+      "C. Postorder traversal",
+      "D. Level order traversal"
+    ],
+    "answer": "C",
+    "explanation": "Copying Binary Trees is modified from the postorder traversal program [9]."
+  },
+  {
+    "question": "When testing for equality of binary trees, what two conditions must be identical for the trees to be considered equivalent?",
+    "options": [
+      "A. Memory addresses and pointers",
+      "B. Topology and data",
+      "C. Root node and height",
+      "D. Number of leaves and depth"
+    ],
+    "answer": "B",
+    "explanation": "Two binary trees having identical topology and data are said to be equivalent [9]."
+  },
+  {
+    "question": "Which of the following is listed as an additional operation to implement on binary trees?",
+    "options": [
+      "A. Calculate the hash of the tree",
+      "B. Transform it into an array",
+      "C. Count the number of leaves in a binary tree",
+      "D. Sort all nodes using Quick Sort"
+    ],
+    "answer": "C",
+    "explanation": "Functions to implement include: Count the number of nodes, Count the number of leaves in a binary tree, etc [3]."
+  },
+  {
+    "question": "In a Binary Search Tree (BST), what rule applies to the keys?",
+    "options": [
+      "A. They can have duplicates",
+      "B. Every element has a unique key",
+      "C. They must be strings",
+      "D. They must be sorted randomly"
+    ],
+    "answer": "B",
+    "explanation": "In a BST, every element has a unique key [3]."
+  },
+  {
+    "question": "In a BST, how do the keys in a non-empty left sub-tree compare to the root?",
+    "options": [
+      "A. They must be larger than the root",
+      "B. They must be equal to the root",
+      "C. They must be smaller than the key in the root",
+      "D. There is no strict relation"
+    ],
+    "answer": "C",
+    "explanation": "The keys in a nonempty left sub-tree must be smaller than the key in the root of the sub-tree [3]."
+  },
+  {
+    "question": "In a BST, how do the keys in a non-empty right sub-tree compare to the root?",
+    "options": [
+      "A. They must be smaller than the root",
+      "B. They must be equal to the root",
+      "C. They must be larger than the key in the root",
+      "D. They must be zero"
+    ],
+    "answer": "C",
+    "explanation": "The keys in a nonempty right sub-tree must be larger than the key in the root of the sub-tree [3]."
+  },
+  {
+    "question": "In a Binary Search Tree, are the left and right sub-trees also Binary Search Trees?",
+    "options": [
+      "A. Yes, always",
+      "B. No, never",
+      "C. Only the left sub-tree is a BST",
+      "D. Only the right sub-tree is a BST"
+    ],
+    "answer": "A",
+    "explanation": "A property of BST is that the left and right sub-trees are also binary search trees [3]."
+  },
+  {
+    "question": "When performing a recursive search in a BST, if the target 'x' is less than the current node's element, what happens next?",
+    "options": [
+      "A. It searches the right sub-tree",
+      "B. It returns the current node",
+      "C. It searches the left sub-tree",
+      "D. It terminates and returns NULL"
+    ],
+    "answer": "C",
+    "explanation": "In recSearch, if( x < T->element ), it returns recSearch( x, T->left ) [10]."
+  },
+  {
+    "question": "In the iterative search implementation for a BST, what loop structure is primarily used?",
+    "options": [
+      "A. for(int i=0; i<n; i++)",
+      "B. do ... while()",
+      "C. while (T)",
+      "D. for(;;)"
+    ],
+    "answer": "C",
+    "explanation": "The iterative search function `iteSearch` uses a `while (T)` loop to traverse down the tree [10]."
+  },
+  {
+    "question": "When inserting an element into a BST, the first step is to search for the key. Where does this search always terminate if the element is not found?",
+    "options": [
+      "A. At the root",
+      "B. At a null sub-tree",
+      "C. At the maximum element",
+      "D. At the sibling node"
+    ],
+    "answer": "B",
+    "explanation": "First search key in the tree. Note search always terminates at a null sub-tree [11]."
+  },
+  {
+    "question": "During a BST insertion, if the element to be inserted is already found in the tree, what action is taken?",
+    "options": [
+      "A. The tree is duplicated",
+      "B. An error is thrown",
+      "C. The new element replaces the old one",
+      "D. It does nothing"
+    ],
+    "answer": "D",
+    "explanation": "The comment in the code states: /* else x is in the tree already. We'll do nothing */ [11]."
+  },
+  {
+    "question": "When deleting a node from a BST, what is 'Case 1'?",
+    "options": [
+      "A. The node is the root",
+      "B. The node has no left child",
+      "C. The node has 2 empty sub-trees",
+      "D. The node has 2 children"
+    ],
+    "answer": "C",
+    "explanation": "Case 1 is: if the node has 2 empty sub-trees [12]."
+  },
+  {
+    "question": "In 'Case 1' of deleting a node from a BST, how is the node removed?",
+    "options": [
+      "A. By linking the parent to the left sub-tree",
+      "B. By replacing the link in the parent with null",
+      "C. By replacing the node with the largest element",
+      "D. By calling make_empty()"
+    ],
+    "answer": "B",
+    "explanation": "For Case 1 (2 empty sub-trees), then replace the link in the parent with null [12]."
+  },
+  {
+    "question": "In 'Case 2' of deleting a node from a BST (the node has no left child), what action is taken?",
+    "options": [
+      "A. Link the parent of the node to the right (non-empty) sub-tree",
+      "B. Link the parent to null",
+      "C. Replace the node with the root",
+      "D. Delete the whole tree"
+    ],
+    "answer": "A",
+    "explanation": "Case 2: if the node has no left child, then link the parent of the node to the right (non-empty) sub-tree [12]."
+  },
+  {
+    "question": "In 'Case 3' of deleting a node from a BST (the node has no right child), what action is taken?",
+    "options": [
+      "A. Link the parent of the node to the right sub-tree",
+      "B. Replace the link in the parent with null",
+      "C. Link the parent of the node to the left (non-empty) sub-tree",
+      "D. Replace the node with the smallest element"
+    ],
+    "answer": "C",
+    "explanation": "Case 3: if the node has no right child then link the parent of the node to the left (non-empty) sub-tree [13]."
+  },
+  {
+    "question": "In 'Case 4' of deleting a node from a BST (the node has two sub-trees), which element can be used to replace the node?",
+    "options": [
+      "A. The parent node",
+      "B. The smallest element in the left sub-tree",
+      "C. The largest element in the right sub-tree",
+      "D. The largest element in the left sub-tree or the smallest element from the right sub-tree"
+    ],
+    "answer": "D",
+    "explanation": "Case 4: if the node has a left sub-tree and a right sub-tree, then Replace the node with the largest element in the left sub-tree or the smallest element from the right sub-tree [13]."
+  },
+  {
+    "question": "After replacing the target node in Case 4 of BST deletion, what is the final step?",
+    "options": [
+      "A. Rebalance the tree",
+      "B. Print the tree",
+      "C. Delete the largest (or smallest) element in the respective sub-tree",
+      "D. Add the node to a stack"
+    ],
+    "answer": "C",
+    "explanation": "After replacement, the final step is to: Delete the largest (or smallest, respectively) element in the respective sub-tree [13]."
+  },
+  {
+    "question": "What is the purpose of the `make_empty` function in a BST?",
+    "options": [
+      "A. To set the root data to 0",
+      "B. To delete all nodes and return a NULL pointer",
+      "C. To remove only the leaves",
+      "D. To balance the tree"
+    ],
+    "answer": "B",
+    "explanation": "The `make_empty` function recursively frees all nodes and returns NULL to make a BST empty [9]."
+  },
+  {
+    "question": "According to the document, what is the definition of a forest?",
+    "options": [
+      "A. A single tree with maximum degree",
+      "B. A completely balanced binary tree",
+      "C. An ordered set of n >= 0 disjoint trees",
+      "D. An array of hash tables"
+    ],
+    "answer": "C",
+    "explanation": "A forest is an ordered set of n >= 0 disjoint trees [4]."
+  },
+  {
+    "question": "To transform a forest into a binary tree, what representation scheme is applied to each tree?",
+    "options": [
+      "A. Left-child right-sibling representation",
+      "B. Array representation",
+      "C. Doubly linked list representation",
+      "D. Hash representation"
+    ],
+    "answer": "A",
+    "explanation": "To transform a forest into a binary tree, transform each tree into a binary tree by using left-child right-sibling [4]."
+  },
+  {
+    "question": "When transforming a forest into a single binary tree, how are the individual binary trees connected?",
+    "options": [
+      "A. They are stacked on top of each other",
+      "B. They are connected into a single tree (by linking roots as right siblings)",
+      "C. They are placed in an array",
+      "D. They are added to a queue"
+    ],
+    "answer": "B",
+    "explanation": "After transforming each tree, you connect the binary trees into a single tree [4]."
+  },
+  {
+    "question": "When performing an In-order traversal on a forest, what traversal does this map to in its corresponding binary tree?",
+    "options": [
+      "A. Pre-order",
+      "B. Post-order",
+      "C. In-order",
+      "D. Level-order"
+    ],
+    "answer": "C",
+    "explanation": "The In-order traversal of a forest translates directly to traversing the subtrees and remaining trees in tree inorder [4]."
+  },
+  {
+    "question": "When performing a Pre-order traversal on a forest, what traversal does this map to in its corresponding binary tree?",
+    "options": [
+      "A. In-order",
+      "B. Pre-order",
+      "C. Post-order",
+      "D. Level-order"
+    ],
+    "answer": "B",
+    "explanation": "The Pre-order traversal of a forest maps to traversing the subtrees and remaining trees in tree preorder [4]."
+  },
+  {
+    "question": "According to the summary of Chapter 4, which four major topics are covered?",
+    "options": [
+      "A. Arrays, Linked Lists, Stacks, Queues",
+      "B. Heaps, Graphs, Traversals, Hashing",
+      "C. Introduction, Binary Trees, Binary Search Trees, Forests",
+      "D. Inserting, Deleting, Copying, Equality"
+    ],
+    "answer": "C",
+    "explanation": "The SUMMARY slide explicitly lists: Introduction, Binary Trees, Binary Search Trees, and Forests [14]."
+  }
 ]
