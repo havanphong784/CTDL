@@ -30,60 +30,75 @@ const dictionaryData = [
 
 const availablePacks = [
     {
-        id: 'algo_analysis',
-        title: 'Phân Tích Thuật Toán',
-        desc: 'Đánh giá độ phức tạp O-lớn, Omega, Theta.',
-        file: './src/data/Algorithm_Analysis.json'
+        id: "algo_analysis",
+        title: "Phân tích thuật toán",
+        desc: "Đánh giá độ phức tạp O-lớn, Omega và Theta.",
+        file: "./src/data/Algorithm_Analysis.json",
+        count: 20,
+        accent: "blue"
     },
     {
-        id: 'linked_lists',
-        title: 'Danh Sách Liên Kết',
-        desc: 'Singly, Doubly, Circular Linked Lists và ứng dụng.',
-        file: './src/data/Linked_Lists.json'
+        id: "linked_lists",
+        title: "Danh sách liên kết",
+        desc: "Singly, Doubly, Circular Linked Lists và ứng dụng.",
+        file: "./src/data/Linked_Lists.json",
+        count: 50,
+        accent: "teal"
     },
     {
-        id: 'stacks_queues',
-        title: 'Ngăn Xếp & Hàng Đợi',
-        desc: 'Cấu trúc LIFO/FIFO, cài đặt mảng và danh sách liên kết.',
-        file: './src/data/Stacks-Queues.json'
+        id: "stacks_queues",
+        title: "Ngăn xếp & Hàng đợi",
+        desc: "Cấu trúc LIFO/FIFO, cài đặt bằng mảng và danh sách liên kết.",
+        file: "./src/data/Stacks-Queues.json",
+        count: 50,
+        accent: "amber"
     },
     {
-        id: 'search_sort',
-        title: 'Tìm Kiếm & Sắp Xếp',
-        desc: 'Sequential, Binary Search và các thuật toán sắp xếp cơ bản.',
-        file: './src/data/Searching_Sorting.json'
+        id: "search_sort",
+        title: "Tìm kiếm & Sắp xếp",
+        desc: "Sequential, Binary Search và các thuật toán sắp xếp cơ bản.",
+        file: "./src/data/Searching_Sorting.json",
+        count: 50,
+        accent: "violet"
     },
     {
-        id: 'trees',
-        title: 'Cây (Trees)',
-        desc: 'Binary Trees, Binary Search Trees và Forests.',
-        file: './src/data/Trees.json'
+        id: "trees",
+        title: "Cây (Trees)",
+        desc: "Binary Trees, Binary Search Trees và Forests.",
+        file: "./src/data/Trees.json",
+        count: 50,
+        accent: "blue"
     },
     {
-        id: 'heaps',
-        title: 'Hàng Đợi Ưu Tiên (Heap)',
-        desc: 'Max/Min Heap, Heap Sort và các thao tác cơ bản.',
-        file: './src/data/Heaps.json'
+        id: "heaps",
+        title: "Hàng đợi ưu tiên (Heap)",
+        desc: "Max/Min Heap, Heap Sort và các thao tác cơ bản.",
+        file: "./src/data/Heaps.json",
+        count: 50,
+        accent: "teal"
     },
     {
-        id: 'graphs',
-        title: 'Đồ Thị (Graphs)',
-        desc: 'Thuật ngữ, biểu diễn đồ thị và các thuật toán duyệt BFS/DFS.',
-        file: './src/data/Graphs.json'
+        id: "graphs",
+        title: "Đồ thị (Graphs)",
+        desc: "Thuật ngữ, biểu diễn đồ thị và các thuật toán duyệt BFS/DFS.",
+        file: "./src/data/Graphs.json",
+        count: 50,
+        accent: "amber"
     },
     {
-        id: 'hash_table',
-        title: 'Bảng Băm (Hash Table)',
-        desc: 'Static Hashing, Dynamic Hashing và giải quyết xung đột.',
-        file: './src/data/Hash_Table.json'
+        id: "hash_table",
+        title: "Bảng băm (Hash Table)",
+        desc: "Static Hashing, Dynamic Hashing và giải quyết xung đột.",
+        file: "./src/data/Hash_Table.json",
+        count: 50,
+        accent: "violet"
     }
 ];
 
-const STORAGE_STATS_KEY = 'ctdlgt_quiz_stats_v1';
-const STORAGE_COLLAPSE_KEY = 'ctdlgt_sidebar_collapse_v1';
+const STORAGE_STATS_KEY = "ctdlgt_quiz_stats_v1";
 const translationCache = new Map();
 const sentenceCache = new Map();
-const stopWords = new Set(['the', 'is', 'at', 'which', 'on', 'in', 'to', 'a', 'an', 'and', 'for', 'of', 'with', 'by', 'as', 'it', 'that', 'this', 'be', 'are', 'or', 'not', 'if', 'then', 'there', 'such', 'can', 'has', 'have', 'from', 'but', 'when', 'how', 'what', 'why', 'will', 'would', 'should', 'could', 'about', 'into', 'only', 'than', 'over', 'also', 'some', 'any', 'very', 'much', 'more', 'most']);
+const stopWords = new Set(["the", "is", "at", "which", "on", "in", "to", "a", "an", "and", "for", "of", "with", "by", "as", "it", "that", "this", "be", "are", "or", "not", "if", "then", "there", "such", "can", "has", "have", "from", "but", "when", "how", "what", "why", "will", "would", "should", "could", "about", "into", "only", "than", "over", "also", "some", "any", "very", "much", "more", "most"]);
 
 dictionaryData.forEach(item => translationCache.set(item.term.toLowerCase(), item.def));
 
@@ -94,7 +109,7 @@ let activePack = null;
 let currentQuestionIndex = 0;
 let userAnswers = {};
 let score = 0;
-let studyMode = 'practice';
+let studyMode = "practice";
 let isWrongPractice = false;
 let quizFinished = false;
 let sessionRecorded = false;
@@ -104,157 +119,120 @@ let timerInterval = null;
 let elapsedSeconds = 0;
 let remainingSeconds = 0;
 
-const packListEl = document.getElementById('pack-list');
-const quizContainer = document.getElementById('quiz-container');
-const emptyState = document.getElementById('empty-state');
-const quizTitle = document.getElementById('quiz-title');
-const questionText = document.getElementById('question-text');
-const optionsContainer = document.getElementById('options-container');
-const explanationContainer = document.getElementById('explanation-card');
-const explanationText = document.getElementById('explanation-text');
-const explanationTranslated = document.getElementById('explanation-translated');
-const resultCard = document.getElementById('result-card');
-const sessionGate = document.getElementById('session-gate');
-const sessionStatus = document.getElementById('session-status');
-const startHint = document.getElementById('start-hint');
-const btnStart = document.getElementById('btn-start');
-const btnPrev = document.getElementById('btn-prev');
-const btnNext = document.getElementById('btn-next');
-const btnFinish = document.getElementById('btn-finish');
-const questionCounter = document.getElementById('question-counter');
-const scoreDisplay = document.getElementById('score-display');
-const timerDisplay = document.getElementById('timer-display');
-const progressBar = document.getElementById('overall-progress-bar');
-const progressText = document.getElementById('progress-text');
-const modePracticeBtn = document.getElementById('mode-practice');
-const modeTestBtn = document.getElementById('mode-test');
-const timeLimitEl = document.getElementById('time-limit');
-const btnPracticeWrong = document.getElementById('btn-practice-wrong');
-const statSessions = document.getElementById('stat-sessions');
-const statAccuracy = document.getElementById('stat-accuracy');
-const statBest = document.getElementById('stat-best');
-const statWrong = document.getElementById('stat-wrong');
-const statAccuracyLabel = document.getElementById('stat-accuracy-label');
-const statBestLabel = document.getElementById('stat-best-label');
-const statWrongLabel = document.getElementById('stat-wrong-label');
-const statAccuracyBar = document.getElementById('stat-accuracy-bar');
-const statBestBar = document.getElementById('stat-best-bar');
-const statWrongBar = document.getElementById('stat-wrong-bar');
-const dictListEl = document.getElementById('dict-list');
-const dictSearchEl = document.getElementById('dict-search');
+const packListEl = document.getElementById("pack-list");
+const quizContainer = document.getElementById("quiz-container");
+const emptyState = document.getElementById("empty-state");
+const quizTitle = document.getElementById("quiz-title");
+const questionText = document.getElementById("question-text");
+const optionsContainer = document.getElementById("options-container");
+const explanationContainer = document.getElementById("explanation-card");
+const explanationText = document.getElementById("explanation-text");
+const explanationTranslated = document.getElementById("explanation-translated");
+const resultCard = document.getElementById("result-card");
+const sessionGate = document.getElementById("session-gate");
+const sessionStatus = document.getElementById("session-status");
+const startHint = document.getElementById("start-hint");
+const btnStart = document.getElementById("btn-start");
+const btnPrev = document.getElementById("btn-prev");
+const btnNext = document.getElementById("btn-next");
+const btnFinish = document.getElementById("btn-finish");
+const questionCounter = document.getElementById("question-counter");
+const scoreDisplay = document.getElementById("score-display");
+const timerDisplay = document.getElementById("timer-display");
+const progressBar = document.getElementById("overall-progress-bar");
+const progressText = document.getElementById("progress-text");
+const modePracticeBtn = document.getElementById("mode-practice");
+const modeTestBtn = document.getElementById("mode-test");
+const timeLimitEl = document.getElementById("time-limit");
+const btnPracticeWrong = document.getElementById("btn-practice-wrong");
+const statSessions = document.getElementById("stat-sessions");
+const statAccuracy = document.getElementById("stat-accuracy");
+const statBest = document.getElementById("stat-best");
+const statWrong = document.getElementById("stat-wrong");
+const statAccuracyLabel = document.getElementById("stat-accuracy-label");
+const statBestLabel = document.getElementById("stat-best-label");
+const statWrongLabel = document.getElementById("stat-wrong-label");
+const statAccuracyBar = document.getElementById("stat-accuracy-bar");
+const statBestBar = document.getElementById("stat-best-bar");
+const statWrongBar = document.getElementById("stat-wrong-bar");
+const dictListEl = document.getElementById("dict-list");
+const dictSearchEl = document.getElementById("dict-search");
+const metricPackCount = document.getElementById("metric-pack-count");
+const metricQuestionCount = document.getElementById("metric-question-count");
+const metricActiveMode = document.getElementById("metric-active-mode");
 
 function init() {
-    setupSidebarToggles();
     renderPacks();
     renderDictionary(dictionaryData);
     updateStatsDisplay();
     updateModeUI();
     updateTimerDisplay(0);
+    updateHeaderMetrics();
 
-    dictSearchEl.addEventListener('input', handleDictionarySearch);
-    btnNext.addEventListener('click', handleNext);
-    btnPrev.addEventListener('click', handlePrev);
-    btnStart.addEventListener('click', startQuizSession);
-    btnFinish.addEventListener('click', () => finishQuiz(false));
-    modePracticeBtn.addEventListener('click', () => setStudyMode('practice'));
-    modeTestBtn.addEventListener('click', () => setStudyMode('test'));
-    btnPracticeWrong.addEventListener('click', startWrongPractice);
+    dictSearchEl.addEventListener("input", handleDictionarySearch);
+    btnNext.addEventListener("click", handleNext);
+    btnPrev.addEventListener("click", handlePrev);
+    btnStart.addEventListener("click", startQuizSession);
+    btnFinish.addEventListener("click", () => finishQuiz(false));
+    modePracticeBtn.addEventListener("click", () => setStudyMode("practice"));
+    modeTestBtn.addEventListener("click", () => setStudyMode("test"));
+    btnPracticeWrong.addEventListener("click", startWrongPractice);
 }
 
-function setupSidebarToggles() {
-    const savedState = readCollapseState();
-    const sections = [
-        { selector: '.settings-section', key: 'settings', defaultCollapsed: true },
-        { selector: '.progress-section', key: 'progress', defaultCollapsed: true },
-        { selector: '.stats-section', key: 'stats', defaultCollapsed: true }
-    ];
-
-    sections.forEach(({ selector, key, defaultCollapsed }) => {
-        const section = document.querySelector(selector);
-        const title = section?.querySelector('h3');
-        if (!section || !title) return;
-
-        const content = document.createElement('div');
-        content.className = 'section-content';
-        while (title.nextSibling) {
-            content.appendChild(title.nextSibling);
-        }
-
-        const toggle = document.createElement('button');
-        toggle.className = 'collapse-toggle';
-        toggle.type = 'button';
-        toggle.setAttribute('aria-expanded', 'true');
-        toggle.innerHTML = `
-            <span class="collapse-toggle-title">${title.textContent}</span>
-            <span class="collapse-toggle-icon" aria-hidden="true">-</span>
-        `;
-
-        title.replaceWith(toggle);
-        section.appendChild(content);
-        section.classList.add('collapsible-section');
-
-        const isCollapsed = savedState[key] ?? defaultCollapsed;
-        setSectionCollapsed(section, toggle, isCollapsed);
-
-        toggle.addEventListener('click', () => {
-            const nextCollapsed = !section.classList.contains('is-collapsed');
-            setSectionCollapsed(section, toggle, nextCollapsed);
-            const nextState = readCollapseState();
-            nextState[key] = nextCollapsed;
-            localStorage.setItem(STORAGE_COLLAPSE_KEY, JSON.stringify(nextState));
-        });
-    });
-}
-
-function setSectionCollapsed(section, toggle, isCollapsed) {
-    section.classList.toggle('is-collapsed', isCollapsed);
-    toggle.setAttribute('aria-expanded', String(!isCollapsed));
-    const icon = toggle.querySelector('.collapse-toggle-icon');
-    if (icon) {
-        icon.textContent = isCollapsed ? '+' : '-';
-    }
-}
-
-function readCollapseState() {
-    try {
-        return JSON.parse(localStorage.getItem(STORAGE_COLLAPSE_KEY)) || {};
-    } catch {
-        return {};
-    }
+function updateHeaderMetrics() {
+    metricPackCount.textContent = String(availablePacks.length);
+    metricQuestionCount.textContent = String(availablePacks.reduce((sum, pack) => sum + pack.count, 0));
+    metricActiveMode.textContent = studyMode === "practice" ? "Luyện tập" : "Kiểm tra";
 }
 
 function setStudyMode(mode) {
     studyMode = mode;
     updateModeUI();
+    updateHeaderMetrics();
     if (activePack) {
         startSession(baseQuestions, false);
     }
 }
 
 function updateModeUI() {
-    modePracticeBtn.classList.toggle('active', studyMode === 'practice');
-    modeTestBtn.classList.toggle('active', studyMode === 'test');
-    timeLimitEl.disabled = studyMode !== 'test';
+    modePracticeBtn.classList.toggle("active", studyMode === "practice");
+    modeTestBtn.classList.toggle("active", studyMode === "test");
+    timeLimitEl.disabled = studyMode !== "test";
 }
 
 function renderPacks() {
-    packListEl.innerHTML = '';
+    packListEl.innerHTML = "";
     availablePacks.forEach(pack => {
-        const item = document.createElement('div');
-        item.className = `pack-item ${currentPackId === pack.id && !isWrongPractice ? 'active' : ''}`;
+        const item = document.createElement("button");
+        item.className = `pack-item ${currentPackId === pack.id && !isWrongPractice ? "active" : ""}`;
+        item.type = "button";
         item.innerHTML = `
             <h3>${pack.title}</h3>
             <p>${pack.desc}</p>
+            <div class="pack-meta">
+                <span class="topic-badge">${pack.count} câu</span>
+                <span class="topic-badge">${packLabel(pack.accent)}</span>
+            </div>
         `;
-        item.addEventListener('click', () => loadPack(pack));
+        item.addEventListener("click", () => loadPack(pack));
         packListEl.appendChild(item);
     });
+}
+
+function packLabel(accent) {
+    const labels = {
+        blue: "Nền tảng",
+        teal: "Cấu trúc",
+        amber: "Vận dụng",
+        violet: "Thuật toán"
+    };
+    return labels[accent] || "Chủ đề";
 }
 
 async function loadPack(pack) {
     try {
         const response = await fetch(pack.file);
-        if (!response.ok) throw new Error('Network response was not ok');
+        if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
 
         activePack = pack;
@@ -265,8 +243,8 @@ async function loadPack(pack) {
         renderPacks();
         updateStatsDisplay(pack.id);
     } catch (error) {
-        console.error('Lỗi khi tải bộ câu hỏi:', error);
-        alert('Không thể tải bộ câu hỏi này. Vui lòng thử lại sau.');
+        console.error("Lỗi khi tải bộ câu hỏi:", error);
+        alert("Không thể tải bộ câu hỏi này. Nếu bạn đang mở file trực tiếp, hãy chạy bằng local server.");
     }
 }
 
@@ -282,17 +260,17 @@ function startSession(questions, wrongPractice) {
     sessionStarted = false;
     sessionStartedAt = null;
     elapsedSeconds = 0;
-    remainingSeconds = studyMode === 'test' ? Number(timeLimitEl.value) : 0;
-    resultCard.style.display = 'none';
+    remainingSeconds = studyMode === "test" ? Number(timeLimitEl.value) : 0;
+    resultCard.style.display = "none";
 
-    if (studyMode === 'practice' && !wrongPractice) {
+    if (studyMode === "practice" && !wrongPractice) {
         loadProgress(currentPackId);
     }
 
-    quizTitle.textContent = `${activePack.title}${wrongPractice ? ' - Luyện câu sai' : ''}`;
-    emptyState.style.display = 'none';
-    quizContainer.style.display = 'flex';
-    updateTimerDisplay(studyMode === 'test' ? remainingSeconds : 0);
+    quizTitle.textContent = `${activePack.title}${wrongPractice ? " - Luyện câu sai" : ""}`;
+    emptyState.style.display = "none";
+    quizContainer.style.display = "flex";
+    updateTimerDisplay(studyMode === "test" ? remainingSeconds : 0);
     updateOverallProgress();
     showQuestion();
 }
@@ -303,7 +281,7 @@ function startQuizSession() {
     sessionStarted = true;
     sessionStartedAt = Date.now();
     elapsedSeconds = 0;
-    if (studyMode === 'test') {
+    if (studyMode === "test") {
         remainingSeconds = Number(timeLimitEl.value);
     }
     startTimer();
@@ -317,12 +295,13 @@ function startWrongPractice() {
     const wrongQuestions = baseQuestions.filter(question => wrongIds.has(question.__originalIndex));
 
     if (wrongQuestions.length === 0) {
-        alert('Chưa có câu sai để luyện lại trong gói này.');
+        alert("Chưa có câu sai để luyện lại trong gói này.");
         return;
     }
 
-    studyMode = 'practice';
+    studyMode = "practice";
     updateModeUI();
+    updateHeaderMetrics();
     startSession(wrongQuestions, true);
 }
 
@@ -343,7 +322,7 @@ function loadProgress(packId) {
 }
 
 function saveProgress() {
-    if (!currentPackId || studyMode !== 'practice' || isWrongPractice) return;
+    if (!currentPackId || studyMode !== "practice" || isWrongPractice) return;
     localStorage.setItem(`quiz_progress_${currentPackId}`, JSON.stringify({
         answers: userAnswers,
         currentIndex: currentQuestionIndex
@@ -378,7 +357,7 @@ function showQuestion() {
     calculateScore();
     const question = currentQuestions[currentQuestionIndex];
     const hasAnswered = userAnswers[currentQuestionIndex] !== undefined;
-    const showAnswers = studyMode === 'practice' || quizFinished;
+    const showAnswers = studyMode === "practice" || quizFinished;
     const canInteract = sessionStarted && !quizFinished;
 
     questionCounter.textContent = `Câu ${currentQuestionIndex + 1} / ${currentQuestions.length}`;
@@ -386,14 +365,15 @@ function showQuestion() {
         ? `Đúng: ${score}`
         : `Đã trả lời: ${Object.keys(userAnswers).length}`;
     questionText.textContent = question.question;
-    optionsContainer.innerHTML = '';
-    explanationContainer.style.display = 'none';
-    explanationContainer.className = 'explanation-card';
-    explanationTranslated.textContent = '';
+    optionsContainer.innerHTML = "";
+    explanationContainer.style.display = "none";
+    explanationContainer.className = "explanation-card";
+    explanationTranslated.textContent = "";
 
     question.options.forEach((optText, idx) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.type = "button";
         btn.textContent = optText;
 
         const isSelectedOption = userAnswers[currentQuestionIndex] === idx;
@@ -404,16 +384,16 @@ function showQuestion() {
         } else if (showAnswers && hasAnswered) {
             btn.disabled = true;
             if (isCorrectOption) {
-                btn.classList.add('correct');
+                btn.classList.add("correct");
             } else if (isSelectedOption) {
-                btn.classList.add('wrong');
+                btn.classList.add("wrong");
             }
         } else if (quizFinished) {
             btn.disabled = true;
-            if (isCorrectOption) btn.classList.add('correct');
+            if (isCorrectOption) btn.classList.add("correct");
         } else {
-            if (isSelectedOption) btn.classList.add('selected');
-            btn.addEventListener('click', () => handleOptionSelect(idx));
+            if (isSelectedOption) btn.classList.add("selected");
+            btn.addEventListener("click", () => handleOptionSelect(idx));
         }
 
         optionsContainer.appendChild(btn);
@@ -423,24 +403,24 @@ function showQuestion() {
         showFeedback(question, userAnswers[currentQuestionIndex]);
     }
 
-    sessionGate.classList.toggle('running', sessionStarted && !quizFinished);
+    sessionGate.classList.toggle("running", sessionStarted && !quizFinished);
     sessionStatus.textContent = quizFinished
-        ? 'Đã hoàn thành'
+        ? "Đã hoàn thành"
         : sessionStarted
-            ? 'Đang làm bài'
-            : 'Sẵn sàng';
+            ? "Đang làm bài"
+            : "Sẵn sàng";
     startHint.textContent = quizFinished
-        ? 'Xem lại đáp án hoặc chọn gói khác để làm phiên mới.'
+        ? "Xem lại đáp án hoặc chọn gói khác để bắt đầu phiên mới."
         : sessionStarted
-            ? 'Thời gian đang được tính cho phiên hiện tại.'
-            : 'Bấm Bắt đầu để mở câu hỏi và bắt đầu tính thời gian.';
-    btnStart.style.display = sessionStarted || quizFinished ? 'none' : 'inline-block';
+            ? "Thời gian đang được tính cho phiên hiện tại."
+            : "Bấm Bắt đầu để mở câu hỏi và tính thời gian.";
+    btnStart.style.display = sessionStarted || quizFinished ? "none" : "inline-flex";
 
     btnPrev.disabled = quizFinished
         ? currentQuestionIndex === 0
         : !canInteract || currentQuestionIndex === 0;
-    btnNext.textContent = currentQuestionIndex === currentQuestions.length - 1 ? 'Kết thúc' : 'Câu tiếp theo';
-    btnFinish.style.display = studyMode === 'test' && !quizFinished ? 'inline-block' : 'none';
+    btnNext.textContent = currentQuestionIndex === currentQuestions.length - 1 ? "Kết thúc" : "Câu tiếp theo";
+    btnFinish.style.display = studyMode === "test" && !quizFinished ? "inline-flex" : "none";
     btnFinish.disabled = !canInteract;
     btnNext.disabled = quizFinished
         ? currentQuestionIndex === currentQuestions.length - 1
@@ -460,9 +440,9 @@ function handleOptionSelect(optionIdx) {
 
 function showFeedback(question, selectedIdx) {
     const isCorrect = isAnswerCorrect(question, selectedIdx);
-    explanationContainer.style.display = 'block';
-    explanationContainer.classList.add(isCorrect ? 'correct' : 'wrong');
-    explanationText.innerHTML = `<strong>${isCorrect ? 'Chính xác!' : 'Không chính xác!'}</strong><br>${question.explanation || 'Không có giải thích chi tiết cho câu này.'}`;
+    explanationContainer.style.display = "block";
+    explanationContainer.classList.add(isCorrect ? "correct" : "wrong");
+    explanationText.innerHTML = `<strong>${isCorrect ? "Chính xác!" : "Chưa chính xác."}</strong><br>${question.explanation || "Không có giải thích chi tiết cho câu này."}`;
 
     if (question.explanation) {
         translateExplanation(question.explanation);
@@ -513,13 +493,13 @@ function showResult(autoSubmitted) {
     const percent = total ? Math.round((score / total) * 100) : 0;
     const duration = formatTime(getSessionDuration());
 
-    resultCard.style.display = 'block';
+    resultCard.style.display = "block";
     resultCard.innerHTML = `
-        <h2>${autoSubmitted ? 'Hết giờ' : 'Kết quả làm bài'}</h2>
+        <h2>${autoSubmitted ? "Hết giờ" : "Kết quả phiên học"}</h2>
         <p>${getResultMessage(percent)}</p>
         <div class="result-grid">
             <div class="result-stat"><strong>${score}/${total}</strong><span>Điểm</span></div>
-            <div class="result-stat"><strong>${percent}%</strong><span>Độ chính xác</span></div>
+            <div class="result-stat"><strong>${percent}%</strong><span>Chính xác</span></div>
             <div class="result-stat"><strong>${answered}</strong><span>Đã trả lời</span></div>
             <div class="result-stat"><strong>${wrong}</strong><span>Cần ôn lại</span></div>
         </div>
@@ -528,9 +508,9 @@ function showResult(autoSubmitted) {
 }
 
 function getResultMessage(percent) {
-    if (percent >= 85) return 'Bạn đang nắm khá chắc chủ đề này. Tiếp tục luyện các câu sai để giữ phong độ.';
-    if (percent >= 60) return 'Kết quả ổn, nhưng vẫn còn một số phần nên ôn lại.';
-    return 'Nên quay lại phần lý thuyết và luyện lại các câu sai trong gói này.';
+    if (percent >= 85) return "Bạn đang nắm khá chắc chủ đề này. Tiếp tục luyện các câu sai để giữ phong độ.";
+    if (percent >= 60) return "Kết quả ổn, nhưng vẫn còn một số phần nên ôn lại.";
+    return "Nên quay lại phần lý thuyết và luyện lại các câu sai trong gói này.";
 }
 
 function recordSession() {
@@ -614,6 +594,7 @@ function updateStatsDisplay(packId = currentPackId) {
     statAccuracy.textContent = `${accuracy}%`;
     statBest.textContent = `${packStats ? packStats.bestScore : 0}%`;
     statWrong.textContent = String(packStats ? packStats.wrongQuestionIds.length : 0);
+
     const bestScore = packStats ? packStats.bestScore : 0;
     const wrongTotal = packStats ? packStats.wrongQuestionIds.length : 0;
     const wrongBase = packStats && baseQuestions.length > 0 ? baseQuestions.length : totalQuestions;
@@ -629,7 +610,7 @@ function updateStatsDisplay(packId = currentPackId) {
 }
 
 function startTimer() {
-    if (studyMode === 'test') {
+    if (studyMode === "test") {
         remainingSeconds = Number(timeLimitEl.value);
         updateTimerDisplay(remainingSeconds);
     } else {
@@ -638,7 +619,7 @@ function startTimer() {
     }
 
     timerInterval = setInterval(() => {
-        if (studyMode === 'test') {
+        if (studyMode === "test") {
             remainingSeconds -= 1;
             updateTimerDisplay(remainingSeconds);
             if (remainingSeconds <= 0) {
@@ -660,7 +641,7 @@ function stopTimer() {
 
 function updateTimerDisplay(seconds) {
     timerDisplay.textContent = formatTime(Math.max(seconds, 0));
-    timerDisplay.classList.toggle('warning', studyMode === 'test' && seconds <= 60);
+    timerDisplay.classList.toggle("warning", studyMode === "test" && seconds <= 60);
 }
 
 function getSessionDuration() {
@@ -669,15 +650,15 @@ function getSessionDuration() {
 }
 
 function formatTime(totalSeconds) {
-    const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
-    const seconds = Math.floor(totalSeconds % 60).toString().padStart(2, '0');
+    const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, "0");
+    const seconds = Math.floor(totalSeconds % 60).toString().padStart(2, "0");
     return `${minutes}:${seconds}`;
 }
 
 function handleDictionarySearch(e) {
     const query = e.target.value.toLowerCase();
 
-    if (query === '') {
+    if (query === "") {
         if (currentQuestions.length > 0) {
             updateDictionaryForCurrentQuestion(currentQuestions[currentQuestionIndex]);
         } else {
@@ -694,42 +675,57 @@ function handleDictionarySearch(e) {
 }
 
 function renderDictionary(data) {
-    dictListEl.innerHTML = '';
+    dictListEl.innerHTML = "";
     if (data.length === 0) {
-        dictListEl.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 20px;">Không tìm thấy từ vựng.</p>';
+        const empty = document.createElement("p");
+        empty.style.color = "var(--text-secondary)";
+        empty.style.textAlign = "center";
+        empty.style.padding = "20px";
+        empty.textContent = "Không tìm thấy từ vựng.";
+        dictListEl.appendChild(empty);
         return;
     }
 
     data.forEach(item => {
-        const el = document.createElement('div');
-        el.className = 'dict-item';
-        el.innerHTML = `
-            <div class="dict-term">${item.term}</div>
-            <div class="dict-def">${item.def}</div>
-        `;
-        dictListEl.appendChild(el);
+        dictListEl.appendChild(createDictionaryItem(item));
     });
 }
 
-function showLoadingIndicator() {
-    if (document.getElementById('dict-loader')) return;
+function createDictionaryItem(item, highlighted = false) {
+    const el = document.createElement("div");
+    el.className = "dict-item";
+    if (highlighted) {
+        el.style.borderLeft = "3px solid var(--accent-primary)";
+        el.style.backgroundColor = "#eff6ff";
+    }
 
-    const div = document.createElement('div');
-    div.id = 'dict-loader';
-    div.style.textAlign = 'center';
-    div.style.padding = '10px';
-    div.style.color = 'var(--text-secondary)';
-    div.style.fontSize = '0.85rem';
-    div.style.fontStyle = 'italic';
-    div.textContent = 'Đang dịch thêm từ mới bằng API...';
-    dictListEl.insertBefore(div, dictListEl.firstChild);
+    const term = document.createElement("div");
+    term.className = "dict-term";
+    term.textContent = item.term;
+
+    const def = document.createElement("div");
+    def.className = "dict-def";
+    def.textContent = item.def;
+
+    el.append(term, def);
+    return el;
+}
+
+function showLoadingIndicator() {
+    if (document.getElementById("dict-loader")) return;
+
+    const div = document.createElement("div");
+    div.id = "dict-loader";
+    div.className = "dict-context-title";
+    div.textContent = "Đang dịch thêm từ mới...";
+    dictListEl.prepend(div);
 }
 
 async function updateDictionaryForCurrentQuestion(question) {
-    if (dictSearchEl.value.trim() !== '') return;
+    if (dictSearchEl.value.trim() !== "") return;
 
-    const fullText = `${question.question} ${question.options.join(' ')} ${question.explanation || ''}`.toLowerCase();
-    const words = fullText.replace(/[^a-z0-9\s]/g, ' ')
+    const fullText = `${question.question} ${question.options.join(" ")} ${question.explanation || ""}`.toLowerCase();
+    const words = fullText.replace(/[^a-z0-9\s]/g, " ")
         .split(/\s+/)
         .filter(word => word.length > 3 && !stopWords.has(word));
     const uniqueWords = [...new Set(words)];
@@ -737,14 +733,14 @@ async function updateDictionaryForCurrentQuestion(question) {
     const unknownWords = [];
 
     dictionaryData.forEach(item => {
-        if (item.term.includes(' ') && fullText.includes(item.term.toLowerCase())) {
+        if (item.term.includes(" ") && fullText.includes(item.term.toLowerCase())) {
             knownTerms.push(item);
         }
     });
 
     uniqueWords.forEach(word => {
         if (translationCache.has(word)) {
-            if (!knownTerms.find(item => item.term.toLowerCase() === word) && translationCache.get(word) !== 'Không rõ') {
+            if (!knownTerms.find(item => item.term.toLowerCase() === word) && translationCache.get(word) !== "Không rõ") {
                 knownTerms.push({ term: word.charAt(0).toUpperCase() + word.slice(1), def: translationCache.get(word) });
             }
         } else {
@@ -764,7 +760,7 @@ async function updateDictionaryForCurrentQuestion(question) {
     showLoadingIndicator();
     await Promise.all(wordsToFetch.map(fetchWordTranslation));
 
-    if (dictSearchEl.value.trim() === '') {
+    if (dictSearchEl.value.trim() === "") {
         renderDictionaryWithHighlight(knownTerms, dictionaryData);
     }
 }
@@ -777,57 +773,36 @@ async function fetchWordTranslation(word) {
 
         if (translated && translated.toLowerCase() !== word.toLowerCase()) {
             translationCache.set(word, translated);
-            const newTerm = { term: word.charAt(0).toUpperCase() + word.slice(1), def: translated };
-            dictionaryData.push(newTerm);
+            dictionaryData.push({ term: word.charAt(0).toUpperCase() + word.slice(1), def: translated });
         } else {
-            translationCache.set(word, 'Không rõ');
+            translationCache.set(word, "Không rõ");
         }
     } catch (error) {
-        console.error('Lỗi khi gọi API dịch thuật:', error);
+        console.error("Lỗi khi gọi API dịch thuật:", error);
     }
 }
 
 function renderDictionaryWithHighlight(relevantTerms, allTerms) {
-    dictListEl.innerHTML = '';
+    dictListEl.innerHTML = "";
 
-    const headerEl = document.createElement('div');
-    headerEl.style.color = 'var(--accent-primary)';
-    headerEl.style.fontSize = '0.9rem';
-    headerEl.style.fontWeight = '600';
-    headerEl.style.padding = '0 10px 8px';
-    headerEl.style.marginTop = '4px';
-    headerEl.textContent = 'Từ vựng trong câu này:';
+    const headerEl = document.createElement("div");
+    headerEl.className = "dict-context-title";
+    headerEl.textContent = "Từ vựng trong câu này";
     dictListEl.appendChild(headerEl);
 
     relevantTerms.forEach(item => {
-        const el = document.createElement('div');
-        el.className = 'dict-item';
-        el.style.borderLeft = '3px solid var(--accent-primary)';
-        el.style.backgroundColor = 'rgba(14, 165, 233, 0.05)';
-        el.innerHTML = `
-            <div class="dict-term">${item.term}</div>
-            <div class="dict-def">${item.def}</div>
-        `;
-        dictListEl.appendChild(el);
+        dictListEl.appendChild(createDictionaryItem(item, true));
     });
 
-    const divider = document.createElement('hr');
-    divider.style.border = 'none';
-    divider.style.borderTop = '1px solid var(--border-color)';
-    divider.style.margin = '16px 0';
+    const divider = document.createElement("div");
+    divider.className = "dict-divider";
     dictListEl.appendChild(divider);
 
     const relevantKeys = new Set(relevantTerms.map(item => item.term.toLowerCase()));
     allTerms
         .filter(item => !relevantKeys.has(item.term.toLowerCase()))
         .forEach(item => {
-            const el = document.createElement('div');
-            el.className = 'dict-item';
-            el.innerHTML = `
-                <div class="dict-term">${item.term}</div>
-                <div class="dict-def">${item.def}</div>
-            `;
-            dictListEl.appendChild(el);
+            dictListEl.appendChild(createDictionaryItem(item));
         });
 }
 
@@ -837,7 +812,7 @@ async function translateExplanation(text) {
         return;
     }
 
-    explanationTranslated.textContent = 'Đang dịch giải thích...';
+    explanationTranslated.textContent = "Đang dịch giải thích...";
 
     try {
         const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|vi`);
@@ -848,12 +823,12 @@ async function translateExplanation(text) {
             sentenceCache.set(text, translated);
             explanationTranslated.textContent = translated;
         } else {
-            explanationTranslated.textContent = '';
+            explanationTranslated.textContent = "";
         }
     } catch (error) {
-        console.error('Lỗi dịch giải thích:', error);
-        explanationTranslated.textContent = '(Không thể tải bản dịch giải thích)';
+        console.error("Lỗi dịch giải thích:", error);
+        explanationTranslated.textContent = "(Không thể tải bản dịch giải thích)";
     }
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener("DOMContentLoaded", init);

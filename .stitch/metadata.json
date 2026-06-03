@@ -1,0 +1,26 @@
+{
+  "name": "projects/3018889939378508298",
+  "projectId": "3018889939378508298",
+  "title": "On CTDLVGT Redesign",
+  "visibility": "PRIVATE",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "OUTFIT",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#2563eb"
+  },
+  "screens": {
+    "index": {
+      "id": "0be1b15624614341ad735d03da777189",
+      "sourceScreen": "projects/3018889939378508298/screens/0be1b15624614341ad735d03da777189",
+      "width": 2560,
+      "height": 2052
+    }
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

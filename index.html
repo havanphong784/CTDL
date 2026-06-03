@@ -4,144 +4,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Cấu Trúc Dữ Liệu & Giải Thuật</title>
+    <title>Ôn tập Cấu trúc dữ liệu & Giải thuật</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/styles.css">
 </head>
 
 <body>
-    <div class="app-container">
-        <aside class="sidebar left-sidebar">
-            <div class="sidebar-header">
-                <h2>Gói Câu Hỏi</h2>
-            </div>
-            <div class="pack-list" id="pack-list"></div>
-
-            <div class="settings-section">
-                <h3>Chế độ học</h3>
-                <div class="mode-toggle" role="group" aria-label="Chọn chế độ học">
-                    <button class="mode-btn active" id="mode-practice" type="button">Luyện tập</button>
-                    <button class="mode-btn" id="mode-test" type="button">Kiểm tra</button>
-                </div>
-
-                <label class="field-label" for="time-limit">Thời gian kiểm tra</label>
-                <select id="time-limit">
-                    <option value="900">15 phút</option>
-                    <option value="1800" selected>30 phút</option>
-                    <option value="2700">45 phút</option>
-                    <option value="3600">60 phút</option>
-                </select>
-
-                <button class="btn btn-secondary full-width" id="btn-practice-wrong" type="button" disabled>Luyện câu sai</button>
-            </div>
-
-            <div class="progress-section">
-                <h3>Tiến trình hiện tại</h3>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="overall-progress-bar"></div>
-                </div>
-                <p id="progress-text">0 / 0 câu</p>
-            </div>
-
-            <div class="stats-section">
-                <h3>Thống kê học tập</h3>
-                <div class="stat-grid">
-                    <div class="stat-box">
-                        <span id="stat-sessions">0</span>
-                        <small>Lượt làm</small>
-                    </div>
-                    <div class="stat-box">
-                        <span id="stat-accuracy">0%</span>
-                        <small>Độ chính xác</small>
-                    </div>
-                    <div class="stat-box">
-                        <span id="stat-best">0%</span>
-                        <small>Tốt nhất</small>
-                    </div>
-                    <div class="stat-box">
-                        <span id="stat-wrong">0</span>
-                        <small>Câu sai</small>
-                    </div>
-                </div>
-                <div class="stat-bars">
-                    <div class="stat-bar-row">
-                        <div class="stat-bar-label"><span>Độ chính xác</span><strong id="stat-accuracy-label">0%</strong></div>
-                        <div class="mini-bar"><div id="stat-accuracy-bar"></div></div>
-                    </div>
-                    <div class="stat-bar-row">
-                        <div class="stat-bar-label"><span>Điểm tốt nhất</span><strong id="stat-best-label">0%</strong></div>
-                        <div class="mini-bar"><div id="stat-best-bar"></div></div>
-                    </div>
-                    <div class="stat-bar-row">
-                        <div class="stat-bar-label"><span>Cần ôn lại</span><strong id="stat-wrong-label">0%</strong></div>
-                        <div class="mini-bar warning-bar"><div id="stat-wrong-bar"></div></div>
-                    </div>
+    <div class="app-shell">
+        <header class="topbar">
+            <div class="brand-block">
+                <div class="brand-mark" aria-hidden="true">DS</div>
+                <div>
+                    <p class="eyebrow">Workspace học tập</p>
+                    <h1>Ôn tập CTDL & Giải thuật</h1>
                 </div>
             </div>
-        </aside>
-
-        <main class="main-content">
-            <header class="main-header">
-                <h1 id="quiz-title">Vui lòng chọn một bộ câu hỏi</h1>
-            </header>
-
-            <div class="quiz-container" id="quiz-container" style="display: none;">
-                <div class="question-header">
-                    <span class="question-counter" id="question-counter">Câu 1 / 20</span>
-                    <span class="timer-display" id="timer-display">00:00</span>
-                    <span class="score-display" id="score-display">Đúng: 0</span>
+            <div class="topbar-metrics" aria-label="Tổng quan học tập">
+                <div class="metric-chip">
+                    <span id="metric-pack-count">8</span>
+                    <small>Chủ đề</small>
                 </div>
+                <div class="metric-chip">
+                    <span id="metric-question-count">370</span>
+                    <small>Câu hỏi</small>
+                </div>
+                <div class="metric-chip">
+                    <span id="metric-active-mode">Luyện tập</span>
+                    <small>Chế độ</small>
+                </div>
+            </div>
+        </header>
 
-                <div class="session-gate" id="session-gate">
-                    <div>
-                        <strong id="session-status">Sẵn sàng</strong>
-                        <p id="start-hint">Bấm Bắt đầu để mở câu hỏi và bắt đầu tính thời gian.</p>
+        <div class="app-container">
+            <aside class="sidebar left-sidebar" aria-label="Chọn chủ đề và thiết lập học tập">
+                <section class="panel-section topic-section">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Ngân hàng câu hỏi</p>
+                            <h2>Chọn gói ôn tập</h2>
+                        </div>
+                        <span class="count-pill">8 gói</span>
                     </div>
-                    <button class="btn btn-primary" id="btn-start" type="button">Bắt đầu</button>
-                </div>
+                    <div class="pack-list" id="pack-list"></div>
+                </section>
 
-                <div class="question-card">
-                    <h2 class="question-text" id="question-text">Loading question...</h2>
-                </div>
-
-                <div class="options-container" id="options-container"></div>
-
-                <div class="explanation-card" id="explanation-card" style="display: none;">
-                    <div class="explanation-title">Giải thích:</div>
-                    <p class="explanation-text" id="explanation-text"></p>
-                    <div class="explanation-translation" id="explanation-translated"></div>
-                </div>
-
-                <div class="result-card" id="result-card" style="display: none;"></div>
-
-                <div class="controls-container">
-                    <div class="nav-controls">
-                        <button class="btn btn-secondary" id="btn-prev" disabled>Câu trước</button>
-                        <button class="btn btn-primary" id="btn-next">Câu tiếp theo</button>
+                <section class="panel-section settings-section">
+                    <h3>Chế độ học</h3>
+                    <div class="mode-toggle" role="group" aria-label="Chọn chế độ học">
+                        <button class="mode-btn active" id="mode-practice" type="button">Luyện tập</button>
+                        <button class="mode-btn" id="mode-test" type="button">Kiểm tra</button>
                     </div>
-                    <div class="submit-controls">
-                        <button class="btn btn-danger" id="btn-finish" type="button">Nộp bài</button>
+
+                    <label class="field-label" for="time-limit">Thời gian kiểm tra</label>
+                    <select id="time-limit">
+                        <option value="900">15 phút</option>
+                        <option value="1800" selected>30 phút</option>
+                        <option value="2700">45 phút</option>
+                        <option value="3600">60 phút</option>
+                    </select>
+
+                    <button class="btn btn-secondary full-width" id="btn-practice-wrong" type="button" disabled>Luyện câu sai</button>
+                </section>
+
+                <section class="panel-section progress-section">
+                    <div class="section-heading compact">
+                        <h3>Tiến trình hiện tại</h3>
+                        <span id="progress-text">0 / 0 câu</span>
                     </div>
-                </div>
-            </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="overall-progress-bar"></div>
+                    </div>
+                </section>
 
-            <div class="empty-state" id="empty-state">
-                <div class="icon">DSA</div>
-                <p>Chọn một bộ câu hỏi từ danh sách bên trái để bắt đầu ôn tập.</p>
-            </div>
-        </main>
+                <section class="panel-section stats-section">
+                    <h3>Thống kê học tập</h3>
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <span id="stat-sessions">0</span>
+                            <small>Lượt làm</small>
+                        </div>
+                        <div class="stat-box">
+                            <span id="stat-accuracy">0%</span>
+                            <small>Chính xác</small>
+                        </div>
+                        <div class="stat-box">
+                            <span id="stat-best">0%</span>
+                            <small>Tốt nhất</small>
+                        </div>
+                        <div class="stat-box">
+                            <span id="stat-wrong">0</span>
+                            <small>Cần ôn</small>
+                        </div>
+                    </div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <div class="stat-bar-label"><span>Độ chính xác</span><strong id="stat-accuracy-label">0%</strong></div>
+                            <div class="mini-bar"><div id="stat-accuracy-bar"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <div class="stat-bar-label"><span>Điểm tốt nhất</span><strong id="stat-best-label">0%</strong></div>
+                            <div class="mini-bar"><div id="stat-best-bar"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <div class="stat-bar-label"><span>Cần ôn lại</span><strong id="stat-wrong-label">0%</strong></div>
+                            <div class="mini-bar warning-bar"><div id="stat-wrong-bar"></div></div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
 
-        <aside class="sidebar right-sidebar">
-            <div class="sidebar-header">
-                <h2>Từ Điển CTDL&GT</h2>
-            </div>
-            <div class="search-container">
-                <input type="text" id="dict-search" placeholder="Tìm kiếm từ vựng...">
-            </div>
-            <div class="dict-list" id="dict-list"></div>
-        </aside>
+            <main class="main-content">
+                <section class="workspace-panel">
+                    <header class="main-header">
+                        <div>
+                            <p class="eyebrow">Phiên học hiện tại</p>
+                            <h2 id="quiz-title">Chọn một gói câu hỏi để bắt đầu</h2>
+                        </div>
+                        <div class="question-header">
+                            <span class="question-counter" id="question-counter">Câu 0 / 0</span>
+                            <span class="timer-display" id="timer-display">00:00</span>
+                            <span class="score-display" id="score-display">Đúng: 0</span>
+                        </div>
+                    </header>
+
+                    <div class="quiz-container" id="quiz-container" style="display: none;">
+                        <div class="session-gate" id="session-gate">
+                            <div>
+                                <strong id="session-status">Sẵn sàng</strong>
+                                <p id="start-hint">Bấm Bắt đầu để mở câu hỏi và tính thời gian.</p>
+                            </div>
+                            <button class="btn btn-primary" id="btn-start" type="button">Bắt đầu</button>
+                        </div>
+
+                        <div class="question-card">
+                            <div class="card-label">Câu hỏi</div>
+                            <h2 class="question-text" id="question-text">Đang tải câu hỏi...</h2>
+                        </div>
+
+                        <div class="options-container" id="options-container"></div>
+
+                        <div class="explanation-card" id="explanation-card" style="display: none;">
+                            <div class="explanation-title">Giải thích</div>
+                            <p class="explanation-text" id="explanation-text"></p>
+                            <div class="explanation-translation" id="explanation-translated"></div>
+                        </div>
+
+                        <div class="result-card" id="result-card" style="display: none;"></div>
+
+                        <div class="controls-container">
+                            <div class="nav-controls">
+                                <button class="btn btn-secondary" id="btn-prev" type="button" disabled>Câu trước</button>
+                                <button class="btn btn-primary" id="btn-next" type="button">Câu tiếp theo</button>
+                            </div>
+                            <div class="submit-controls">
+                                <button class="btn btn-danger" id="btn-finish" type="button">Nộp bài</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-visual" aria-hidden="true">
+                            <span>O(1)</span>
+                            <span>DFS</span>
+                            <span>Heap</span>
+                        </div>
+                        <h2>Sẵn sàng cho phiên ôn tập tiếp theo</h2>
+                        <p>Chọn một chủ đề ở cột bên trái để luyện câu hỏi, xem giải thích và theo dõi tiến trình học.</p>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="sidebar right-sidebar" aria-label="Từ điển thuật ngữ">
+                <section class="panel-section dictionary-section">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Study assistant</p>
+                            <h2>Từ điển CTDL & GT</h2>
+                        </div>
+                    </div>
+                    <div class="search-container">
+                        <label class="field-label" for="dict-search">Tra cứu thuật ngữ</label>
+                        <input type="text" id="dict-search" placeholder="Tìm từ vựng...">
+                    </div>
+                    <div class="dict-list" id="dict-list"></div>
+                </section>
+            </aside>
+        </div>
     </div>
 
     <script src="./src/js/script.js"></script>
