@@ -1,552 +1,189 @@
 [
-  {
-    "question": "What is the time complexity of the 'find' operation in an Unsorted Sequential Array?",
-    "options": [
-      "A. O(1)",
-      "B. O(n)",
-      "C. O(log n)",
-      "D. O(n^2)"
-    ],
-    "answer": "B",
-    "explanation": "In an Unsorted Sequential Array, the 'find' operation involves searching through the keys one at a time, resulting in an O(n) time complexity."
-  },
-  {
-    "question": "What is the ideal time complexity for basic operations (insert, find, remove) in a Hash Table?",
-    "options": [
-      "A. O(n)",
-      "B. O(log n)",
-      "C. O(1)",
-      "D. O(n log n)"
-    ],
-    "answer": "C",
-    "explanation": "The document states that for a Hash Table, the time complexity for insert, find, and remove operations are 'All are O(1) !'."
-  },
-  {
-    "question": "Which of the following is a practical application of Hash Tables mentioned in the document?",
-    "options": [
-      "A. Sorting a large array of floating-point numbers",
-      "B. Compilers using them to keep track of declared variables",
-      "C. Finding the shortest path in a network",
-      "D. Representing a complete binary tree"
-    ],
-    "answer": "B",
-    "explanation": "Under 'Applications of Hashing', it lists: 'Compilers use hash tables to keep track of declared variables'."
-  },
-  {
-    "question": "In which scenario are Hash Tables NOT considered suitable?",
-    "options": [
-      "A. When there is a need for many searches in a stable table",
-      "B. When there are many insertions and deletions, or if table traversals are needed",
-      "C. When checking for inequality",
-      "D. When storing sparse data"
-    ],
-    "answer": "B",
-    "explanation": "The text states: 'Hash tables are not so good if there are many insertions and deletions, or if table traversals are needed'."
-  },
-  {
-    "question": "In static hashing, a hash table is partitioned into many what?",
-    "options": [
-      "A. Binary trees",
-      "B. Internal nodes",
-      "C. Buckets",
-      "D. Graphs"
-    ],
-    "answer": "C",
-    "explanation": "A hash table is partitioned into many buckets."
-  },
-  {
-    "question": "In a static hash table, what does each bucket contain?",
-    "options": [
-      "A. Only one key",
-      "B. Multiple hash functions",
-      "C. An infinite array",
-      "D. Many slots"
-    ],
-    "answer": "D",
-    "explanation": "The slide specifies: 'Each bucket has many slots'."
-  },
-  {
-    "question": "What mathematical tool transforms a key into an address in the hash table?",
-    "options": [
-      "A. A linked list pointer",
-      "B. A hash function f(x)",
-      "C. A compiler variable",
-      "D. An adjacency matrix"
-    ],
-    "answer": "B",
-    "explanation": "A hash function f(x) transforms the identifier (i.e. key) into an address in the hash table."
-  },
-  {
-    "question": "What is it called when two different keys hash to the same hash value?",
-    "options": [
-      "A. Overflow",
-      "B. Chaining",
-      "C. Collision",
-      "D. Clustering"
-    ],
-    "answer": "C",
-    "explanation": "When two different k1 and k2 have Hash(k1) = Hash(k2), it states: 'This is called collision'."
-  },
-  {
-    "question": "In hash table terminology, what are keys that map to the same home bucket called?",
-    "options": [
-      "A. Duplicates",
-      "B. Sibling nodes",
-      "C. Colliders",
-      "D. Synonyms"
-    ],
-    "answer": "D",
-    "explanation": "Keys that have the same home bucket are synonyms."
-  },
-  {
-    "question": "What occurs when the home bucket for a new key-element pair has no available space?",
-    "options": [
-      "A. Synonym matching",
-      "B. Overflow",
-      "C. Rehashing automatically",
-      "D. Subgraph allocation"
-    ],
-    "answer": "B",
-    "explanation": "Overflow is defined as: 'there is no space in the bucket for the new pair'."
-  },
-  {
-    "question": "What is the characteristic of an ideal hashing function?",
-    "options": [
-      "A. It maps all keys to the same bucket",
-      "B. It distributes the key values uniformly throughout the range",
-      "C. It uses only the first digit of the key",
-      "D. It converts strings into uppercase characters"
-    ],
-    "answer": "B",
-    "explanation": "Ideally, distribution of keys to addresses is uniform and random. A good hashing function distributes the key values uniformly."
-  },
-  {
-    "question": "In the division method of hashing (f(k) = k % b), what is considered a 'good practice' for choosing 'b'?",
-    "options": [
-      "A. Set b to be a power of 2",
-      "B. Set b to be exactly 10",
-      "C. Set b to be a prime number",
-      "D. Set b to equal the total number of keys"
-    ],
-    "answer": "C",
-    "explanation": "The text states: 'It’s a good practice to set the table size b to be a prime number'."
-  },
-  {
-    "question": "Which hashing method involves squaring the key value and then extracting a number of bits from the center of the result?",
-    "options": [
-      "A. Truncation",
-      "B. Folding",
-      "C. Division",
-      "D. Mid-square"
-    ],
-    "answer": "D",
-    "explanation": "Mid-square method: 'This method squares the key value, and then takes out the number of bits from the middle of the square'."
-  },
-  {
-    "question": "If 'r' bits are extracted in the mid-square hashing method, what is the range of possible bucket addresses?",
-    "options": [
-      "A. 0 to r^2",
-      "B. 0 to 2r",
-      "C. 0 to 2^r - 1",
-      "D. 0 to 10^r - 1"
-    ],
-    "answer": "C",
-    "explanation": "If r bits are used, the range of values is 0 to 2^r - 1."
-  },
-  {
-    "question": "Which hashing method partitions the key into several parts of the same length and adds them together?",
-    "options": [
-      "A. Folding method",
-      "B. Division method",
-      "C. Truncation method",
-      "D. Digit analysis method"
-    ],
-    "answer": "A",
-    "explanation": "Folding method: 'Partition the key into several parts of the same length... These parts are then added together'."
-  },
-  {
-    "question": "Which of the following are two ways of carrying out the addition in the Folding hash method?",
-    "options": [
-      "A. Mid-square and Truncation",
-      "B. Shift folding and Folding and reverse",
-      "C. Linear probing and Quadratic probing",
-      "D. Static and Dynamic"
-    ],
-    "answer": "B",
-    "explanation": "Two ways of carrying out this addition: shift folding, and folding and reverse."
-  },
-  {
-    "question": "What is a prerequisite for using the Digit Analysis hashing method?",
-    "options": [
-      "A. The table must have an infinite size",
-      "B. All the identifiers/keys in the table must be known in advance",
-      "C. Keys must be purely alphabetical strings",
-      "D. The hash function must return a constant value"
-    ],
-    "answer": "B",
-    "explanation": "Digit analysis method: 'All the identifiers/keys in the table are known in advance'."
-  },
-  {
-    "question": "What is the core principle of Open Addressing for collision resolution?",
-    "options": [
-      "A. To use a linked list at every bucket",
-      "B. To automatically double the array size",
-      "C. To relocate the key to be inserted at an entry different from its home bucket",
-      "D. To reject the insertion entirely"
-    ],
-    "answer": "C",
-    "explanation": "Open addressing: 'relocate the key k to be inserted if it collides... we store k at an entry different from hash_table[f(k)]'."
-  },
-  {
-    "question": "Which of the following is NOT a common method for resolving a collision in Open Addressing?",
-    "options": [
-      "A. Linear probing",
-      "B. Quadratic probing",
-      "C. Separate chaining",
-      "D. Double hashing"
-    ],
-    "answer": "C",
-    "explanation": "Separate chaining is a different category of overflow handling entirely, distinct from Open Addressing methods (which include Linear, Quadratic, Double hashing, and Rehashing)."
-  },
-  {
-    "question": "In Linear Probing, how are alternative cells probed?",
-    "options": [
-      "A. By squaring the increment",
-      "B. Sequentially (with wraparound)",
-      "C. By applying a second hash function",
-      "D. By randomly generating indices"
-    ],
-    "answer": "B",
-    "explanation": "Linear Probing: 'g(i) = i ... cells are probed sequentially (with wraparound)'."
-  },
-  {
-    "question": "During insertion with Linear Probing, what does it mean if the loop completes without finding an empty entry?",
-    "options": [
-      "A. The table is full",
-      "B. The key already exists",
-      "C. The hash function returned a negative index",
-      "D. The bucket size needs to be reduced"
-    ],
-    "answer": "A",
-    "explanation": "If we cannot find an empty entry to put k, it means that the table is full and we should report an error."
-  },
-  {
-    "question": "During deletion in a Linear Probing hash table, what must be done after removing a key to maintain the table's integrity?",
-    "options": [
-      "A. Immediately halt the operation",
-      "B. Sort the entire table",
-      "C. Search the cluster for a pair (if any) to fill the vacated bucket",
-      "D. Re-insert all elements from scratch"
-    ],
-    "answer": "C",
-    "explanation": "The 'Linear Probing – Delete' trace clearly shows the step: 'Search cluster for pair (if any) to fill vacated bucket'."
-  },
-  {
-    "question": "What is the worst-case time complexity for find/insert/erase operations when using Linear Probing?",
-    "options": [
-      "A. O(1)",
-      "B. O(log n)",
-      "C. O(n)",
-      "D. O(n^2)"
-    ],
-    "answer": "C",
-    "explanation": "Performance Of Linear Probing states: 'Worst-case find/insert/erase time is O(n), where n is the number of pairs in the table'."
-  },
-  {
-    "question": "In Linear Probing, when does the worst-case O(n) scenario occur?",
-    "options": [
-      "A. When the table is mostly empty",
-      "B. When all pairs are distributed uniformly",
-      "C. When all pairs are in the same cluster (the same index/bucket)",
-      "D. When the table size is a prime number"
-    ],
-    "answer": "C",
-    "explanation": "The O(n) worst-case happens 'when all pairs are in the same cluster (the same index/bucket)'."
-  },
-  {
-    "question": "In Quadratic Probing, what does the increment function g(i) equal?",
-    "options": [
-      "A. i",
-      "B. i^2",
-      "C. 2i",
-      "D. i % b"
-    ],
-    "answer": "B",
-    "explanation": "Quadratic probing uses a quadratic function of i as the increment. It examines buckets like (f(x) + i^2) % b."
-  },
-  {
-    "question": "Which open addressing method calculates a second hash function and combines it with the first one when a slot is full?",
-    "options": [
-      "A. Linear probing",
-      "B. Quadratic probing",
-      "C. Double hashing",
-      "D. Separate chaining"
-    ],
-    "answer": "C",
-    "explanation": "Double hashing: 'If the slot is full, then a second hash function... is calculated and combined with the first... f(k, i) = (f1(k) + i*f2(k)) % b'."
-  },
-  {
-    "question": "What is the primary action taken during Rehashing?",
-    "options": [
-      "A. Extracting middle digits of keys",
-      "B. Creating a new table of double the size and transferring the entries by recomputing their positions",
-      "C. Deleting the oldest 50% of the table to make space",
-      "D. Changing the data type of the keys"
-    ],
-    "answer": "B",
-    "explanation": "To rehashing: 'Create a new table of double the size... Transfer the entries in the old table to the new table, by recomputing their positions'."
-  },
-  {
-    "question": "How does Separate Chaining resolve collisions?",
-    "options": [
-      "A. By relocating the key to the next sequential bucket",
-      "B. By replacing the entire array with a binary tree",
-      "C. By using a table of linked lists to keep keys that hash to the same value",
-      "D. By prompting the user to enter a new key"
-    ],
-    "answer": "C",
-    "explanation": "Separate Chaining: 'Instead of a hash table, we use a table of linked list. Keep a linked list of keys that hash to the same value'."
-  },
-  {
-    "question": "Which of the following is listed as an advantage of Separate Chaining?",
-    "options": [
-      "A. Deletion is easy, and array size is not a limitation",
-      "B. It avoids memory allocation completely",
-      "C. It uses a single slot bucket",
-      "D. It works well with the division method only"
-    ],
-    "answer": "A",
-    "explanation": "Under 'Separate Chaining' advantages: 'Deletion is easy', 'Array size is not a limitation'."
-  },
-  {
-    "question": "What is a major disadvantage of Separate Chaining?",
-    "options": [
-      "A. It causes severe clustering in the array",
-      "B. Deletion operations are very complex",
-      "C. Memory allocation in linked list manipulation will slow down the program",
-      "D. It cannot handle string-based keys"
-    ],
-    "answer": "C",
-    "explanation": "Under 'Separate Chaining' disadvantage: 'Memory allocation in linked list manipulation will slow down the program'."
-  },
-  {
-    "question": "What action is typically taken in Dynamic Hashing when a lot of identifiers are inserted into the table?",
-    "options": [
-      "A. The program rejects new identifiers",
-      "B. We may increase the table size",
-      "C. We switch to an unsorted array",
-      "D. We delete old entries to make space"
-    ],
-    "answer": "B",
-    "explanation": "Dynamic hashing: 'when a lot of identifiers are inserted into the table, we may increase the table size'."
-  },
-  {
-    "question": "What is another common name used for Dynamic Hashing?",
-    "options": [
-      "A. Static hashing",
-      "B. Constant hashing",
-      "C. Extendible hashing",
-      "D. Truncation hashing"
-    ],
-    "answer": "C",
-    "explanation": "The text states: 'This is called dynamic hashing or extendible hashing'."
-  },
-  {
-    "question": "In the context of Dynamic Hashing for databases, what is another term used for 'buckets'?",
-    "options": [
-      "A. Nodes",
-      "B. Clusters",
-      "C. Pages",
-      "D. Directories"
-    ],
-    "answer": "C",
-    "explanation": "The slide says: 'Dynamic hashing usually involves databases and buckets may also be called pages'."
-  },
-  {
-    "question": "What is the formula to calculate 'Space utilization' in dynamic hashing?",
-    "options": [
-      "A. n + m * p",
-      "B. n / (m * p)",
-      "C. m / (n * p)",
-      "D. p / (n * m)"
-    ],
-    "answer": "B",
-    "explanation": "Space utilization is calculated as 'n / mp' (which is n / (m*p))."
-  },
-  {
-    "question": "In the dynamic hashing space utilization formula (n/mp), what does 'm' represent?",
-    "options": [
-      "A. The number of actual records",
-      "B. The number of records per page",
-      "C. The number of pages reserved",
-      "D. The maximum value of the hash function"
-    ],
-    "answer": "C",
-    "explanation": "where m is the number of pages reserved."
-  },
-  {
-    "question": "Which of the following is a primary objective when finding an extendible hashing function?",
-    "options": [
-      "A. To maximize the number of pages accessed",
-      "B. To minimize the number of pages accessed",
-      "C. To make space utilization as low as possible",
-      "D. To eliminate the need for a directory"
-    ],
-    "answer": "B",
-    "explanation": "Objective: Find an extendible hashing function such that it minimizes the number of pages accessed."
-  },
-  {
-    "question": "What are the two main approaches to Dynamic Hashing mentioned in the chapter?",
-    "options": [
-      "A. Linear Probing and Quadratic Probing",
-      "B. Using Directories and without Using Directories",
-      "C. Shift Folding and Folding Reversal",
-      "D. Separate Chaining and Open Addressing"
-    ],
-    "answer": "B",
-    "explanation": "There are two approaches: Dynamic Hashing with Using Directories, and Dynamic Hashing without Using Directories."
-  },
-  {
-    "question": "When computing a folding hash for pointer-based character strings, what values are traditionally summed up?",
-    "options": [
-      "A. The byte sizes of each character",
-      "B. The length of the string",
-      "C. The ASCII values of each character",
-      "D. The memory addresses of the variables"
-    ],
-    "answer": "C",
-    "explanation": "Folding hash adds ASCII values of each character and takes the modulus with respect to the hash table size."
-  },
-  {
-    "question": "What term describes the phenomenon where a hashing function groups key values together in the array?",
-    "options": [
-      "A. Sorting",
-      "B. Partitioning",
-      "C. Chaining",
-      "D. Clustering"
-    ],
-    "answer": "D",
-    "explanation": "If a hashing function groups key values together, this is called clustering of the keys."
-  },
-  {
-    "question": "In an ideal hash function where 'b' is the number of buckets, what is the probability P(X = i) that a key hashes to bucket 'i'?",
-    "options": [
-      "A. 1 / i",
-      "B. 1 / b",
-      "C. i / b",
-      "D. b / 2"
-    ],
-    "answer": "B",
-    "explanation": "For a random variable X, P(X = i) = 1/b (where b is the number of buckets)."
-  },
-  {
-    "question": "How does the Truncation method of hashing operate?",
-    "options": [
-      "A. By reversing all the digits of the key",
-      "B. By ignoring part of the key and using the rest as the array index",
-      "C. By dividing the key by a prime number",
-      "D. By squaring the key and taking the middle"
-    ],
-    "answer": "B",
-    "explanation": "Truncation method: 'Ignore part of the key and use the rest as the array index'."
-  },
-  {
-    "question": "If the division hashing method f(k) = k % b is used, why should values of b like 2^p be avoided?",
-    "options": [
-      "A. Because the hash function would only depend on the p lowest-order bits of k",
-      "B. Because computers cannot calculate modulus with even numbers",
-      "C. Because it guarantees zero collisions",
-      "D. Because it requires multiple division operations"
-    ],
-    "answer": "A",
-    "explanation": "Certain values of b should be avoided: if b=2^p, then f(k) is just the p lowest-order bits of k; the hash function does not depend on all the bits."
-  },
-  {
-    "question": "In the Digit Analysis hashing method example, what manipulations are mentioned for the extracted digits 537?",
-    "options": [
-      "A. Adding them to a prime number",
-      "B. Reversing, circular shifting, or swapping pairs of digits",
-      "C. Squaring the extracted digits",
-      "D. Converting them to hexadecimal"
-    ],
-    "answer": "B",
-    "explanation": "The manipulation can take forms like: Reversing the digits (735), circular shift to right (753), circular shift to left (375), or swapping each pair (357)."
-  },
-  {
-    "question": "In the Linear Probing deletion example, what happens when element '34' is deleted from the table?",
-    "options": [
-      "A. The slot is left empty and the algorithm terminates",
-      "B. The cluster is searched and the next valid element (like 45) is moved back to fill the vacated bucket",
-      "C. The hash table triggers an automatic rehash",
-      "D. The entire cluster is cleared"
-    ],
-    "answer": "B",
-    "explanation": "After Delete(34), the slide demonstrates: 'Search cluster for pair (if any) to fill vacated bucket', moving 45 back into the spot where 34 was deleted."
-  },
-  {
-    "question": "When considering 'How should we implement a table?', which of the following is a relevant question asked in the document?",
-    "options": [
-      "A. What programming language is being used?",
-      "B. Is the table small enough to fit into memory?",
-      "C. Does the user have a high-speed internet connection?",
-      "D. How many CPU cores does the system have?"
-    ],
-    "answer": "B",
-    "explanation": "The slide 'How should we implement a table?' lists questions like: 'Is the table small enough to fit into memory?'."
-  },
-  {
-    "question": "In a user account table, what is typically used as the key?",
-    "options": [
-      "A. Password",
-      "B. Home folder",
-      "C. User id",
-      "D. Access level"
-    ],
-    "answer": "C",
-    "explanation": "The text states: 'In a user account table, the key is usually user id'."
-  },
-  {
-    "question": "Why does the document recommend storing the key and the entry separately?",
-    "options": [
-      "A. To save hard drive space",
-      "B. To encrypt the user's data",
-      "C. For searching purposes",
-      "D. To prevent hash collisions"
-    ],
-    "answer": "C",
-    "explanation": "The document advises: 'For searching purposes, it is best to store the key and the entry separately'."
-  },
-  {
-    "question": "What constitutes an 'Element' in the context of the introduction to hash tables?",
-    "options": [
-      "A. Just a memory address",
-      "B. A pointer to the next node",
-      "C. A hash function result",
-      "D. A key and its entry"
-    ],
-    "answer": "D",
-    "explanation": "The introduction defines an Element as: 'a key and its entry'."
-  },
-  {
-    "question": "If a hash table has a size of 10, using the division method f(k) = k % 10, where does the key 43 hash to?",
-    "options": [
-      "A. Index 4",
-      "B. Index 3",
-      "C. Index 10",
-      "D. Index 43"
-    ],
-    "answer": "B",
-    "explanation": "Using f(k) = k % 10, the key 43 yields 43 % 10 = 3, which maps to Index 3."
-  },
-  {
-    "question": "According to the Separate Chaining method, what occurs if the hash function works well?",
-    "options": [
-      "A. The number of keys in each linked list will be a small constant",
-      "B. All keys will end up in a single linked list",
-      "C. Linked lists will no longer be necessary",
-      "D. The table size will automatically shrink"
-    ],
-    "answer": "A",
-    "explanation": "The text states: 'If the hash function works well, the number of keys in each linked list will be a small constant'."
-  }
+    {
+        "question": "What is the primary subject of Chapter 7?",
+        "options": [
+            "A. Graphs",
+            "B. Trees",
+            "C. Hash Table",
+            "D. Heaps"
+        ],
+        "answer": "C",
+        "explanation": "The title of Chapter 7 is 'Hash Table'."
+    },
+    {
+        "question": "According to the content summary, what are the three main topics discussed in Chapter 7?",
+        "options": [
+            "A. Terminology, Graph Representations, Traversals",
+            "B. Basic Operations, Heap Sort, Introduction",
+            "C. Introduction, Static hashing, Dynamic hashing",
+            "D. Sequential Search, Binary Search, Sorting"
+        ],
+        "answer": "C",
+        "explanation": "The contents slide explicitly lists 'Introduction', 'Static hashing', and 'Dynamic hashing'."
+    },
+    {
+        "question": "In the context of the introduction, what does a table consist of?",
+        "options": [
+            "A. Only keys",
+            "B. Several fields (types of information)",
+            "C. Only numeric values",
+            "D. Nodes and edges"
+        ],
+        "answer": "B",
+        "explanation": "The document states: 'A table has several fields (types of information)'."
+    },
+    {
+        "question": "According to the introduction, which of the following fields might be found in a telephone book?",
+        "options": [
+            "A. user id, password, home folder",
+            "B. row, col, value",
+            "C. name, address, phone number",
+            "D. left link, item, right link"
+        ],
+        "answer": "C",
+        "explanation": "The text notes: 'A telephone book may have fields name, address, phone number'."
+    },
+    {
+        "question": "Which fields are typically found in a user account table?",
+        "options": [
+            "A. name, address, phone number",
+            "B. user id, password, home folder",
+            "C. tag, row, col",
+            "D. data and link"
+        ],
+        "answer": "B",
+        "explanation": "The text notes: 'A user account table may have fields user id, password, home folder'."
+    },
+    {
+        "question": "To find an entry in a table, how much information do you typically need to know?",
+        "options": [
+            "A. All of the fields",
+            "B. At least two fields",
+            "C. The exact memory address",
+            "D. Only the contents of one of the fields"
+        ],
+        "answer": "D",
+        "explanation": "The document explains: 'To find an entry in the table, you only need know the contents of one of the fields (not all of them)'."
+    },
+    {
+        "question": "What is the key field typically used in a telephone book?",
+        "options": [
+            "A. Address",
+            "B. Phone number",
+            "C. Name",
+            "D. Zip code"
+        ],
+        "answer": "C",
+        "explanation": "The document states: 'In a telephone book, the key is usually name'."
+    },
+    {
+        "question": "What is the key field typically used in a user account table?",
+        "options": [
+            "A. Password",
+            "B. Home folder",
+            "C. User id",
+            "D. IP address"
+        ],
+        "answer": "C",
+        "explanation": "The document states: 'In a user account table, the key is usually user id'."
+    },
+    {
+        "question": "In the provided Static Hashing example, what hash function is used?",
+        "options": [
+            "A. Hash(k) = k / 10",
+            "B. Hash(k) = k % 10",
+            "C. Hash(k) = 10 % k",
+            "D. Hash(k) = k * 10"
+        ],
+        "answer": "B",
+        "explanation": "The collision resolution slide explicitly defines the function as 'Hash(k) = k % 10'."
+    },
+    {
+        "question": "Based on the hash function Hash(k) = k % 10, which chain would a record with key = 33 be inserted into?",
+        "options": [
+            "A. Chain 0",
+            "B. Chain 1",
+            "C. Chain 3",
+            "D. Chain 9"
+        ],
+        "answer": "C",
+        "explanation": "33 % 10 = 3. The slide states: 'Insert in chain 3'."
+    },
+    {
+        "question": "When a record with key = 73 is inserted into a hash table using Hash(k) = k % 10, which chain does it go to?",
+        "options": [
+            "A. Chain 7",
+            "B. Chain 3",
+            "C. Chain 10",
+            "D. Chain 0"
+        ],
+        "answer": "B",
+        "explanation": "73 % 10 = 3. The slide states: 'Insert in chain 3'."
+    },
+    {
+        "question": "What happens when multiple keys (like 33, 73, and 13) result in the same hash value (3) in the static hashing example?",
+        "options": [
+            "A. The older records are deleted",
+            "B. They are placed in the same chain",
+            "C. The table size is doubled automatically",
+            "D. The program crashes permanently"
+        ],
+        "answer": "B",
+        "explanation": "The visual example demonstrates Collision Resolution by chaining, showing 33, 73, and 13 all being inserted into chain 3."
+    },
+    {
+        "question": "What is one of the primary objectives of finding an extendible hashing function in Dynamic Hashing?",
+        "options": [
+            "A. It maximizes the number of pages accessed",
+            "B. It minimizes the number of pages accessed",
+            "C. It eliminates all collisions entirely",
+            "D. It replaces the need for keys"
+        ],
+        "answer": "B",
+        "explanation": "Under 'Dynamic hashing' objectives, it lists: 'it minimizes the number of pages accessed'."
+    },
+    {
+        "question": "In Dynamic Hashing, how should space utilization be managed according to its objectives?",
+        "options": [
+            "A. As low as possible",
+            "B. Kept exactly at 50%",
+            "C. Ignored completely",
+            "D. As high as possible"
+        ],
+        "answer": "D",
+        "explanation": "The objective slide states: 'space utilization is as high as possible'."
+    },
+    {
+        "question": "How many approaches to Dynamic Hashing are listed in the document?",
+        "options": [
+            "A. One",
+            "B. Two",
+            "C. Three",
+            "D. Four"
+        ],
+        "answer": "B",
+        "explanation": "The document explicitly states: 'There are two approaches'."
+    },
+    {
+        "question": "What is the first approach to Dynamic Hashing mentioned?",
+        "options": [
+            "A. Dynamic Hashing using Binary Search",
+            "B. Dynamic Hashing with Using Directories",
+            "C. Dynamic Hashing with Stacks",
+            "D. Dynamic Hashing using Linked Lists"
+        ],
+        "answer": "B",
+        "explanation": "One of the two approaches listed is 'Dynamic Hashing with Using Directories'."
+    },
+    {
+        "question": "What is the second approach to Dynamic Hashing mentioned?",
+        "options": [
+            "A. Dynamic Hashing without Using Directories",
+            "B. Dynamic Hashing with Heaps",
+            "C. Dynamic Hashing with Graphs",
+            "D. Dynamic Hashing with Queues"
+        ],
+        "answer": "A",
+        "explanation": "The other approach listed is 'Dynamic Hashing without Using Directories'."
+    }
 ]

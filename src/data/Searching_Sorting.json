@@ -1,552 +1,299 @@
 [
-  {
-    "question": "What are the two main sections covered in Chapter 3?",
-    "options": [
-      "A. Trees and Graphs",
-      "B. Stacks and Queues",
-      "C. Searching and Sorting",
-      "D. Heaps and Hash Tables"
-    ],
-    "answer": "C",
-    "explanation": "The title and content slide of Chapter 3 specifically list 'Searching' and 'Sorting' as the main topics."
-  },
-  {
-    "question": "Which of the following is listed as a Searching algorithm in the document?",
-    "options": [
-      "A. Insertion Search",
-      "B. Sequential Search",
-      "C. Merge Search",
-      "D. Bubble Search"
-    ],
-    "answer": "B",
-    "explanation": "The Content slide lists 'Sequential Search' and 'Binary Search' under the Searching category."
-  },
-  {
-    "question": "Which of the following is NOT listed as a Sorting algorithm in the document?",
-    "options": [
-      "A. Bubble Sort",
-      "B. Quick Sort",
-      "C. Binary Sort",
-      "D. Merge Sort"
-    ],
-    "answer": "C",
-    "explanation": "The Sorting algorithms listed are Insertion, Selection, Bubble, Quick, and Merge. Binary is a search algorithm."
-  },
-  {
-    "question": "When performing a Sequential Search on an unsorted list of n numbers, how many comparisons are made in an unsuccessful search?",
-    "options": [
-      "A. n / 2",
-      "B. n",
-      "C. n + 1",
-      "D. log(n)"
-    ],
-    "answer": "B",
-    "explanation": "The analysis slide for Sequential Search states: 'unsuccessful search: n'."
-  },
-  {
-    "question": "What is the average number of comparisons for a successful Sequential Search?",
-    "options": [
-      "A. n",
-      "B. (n - 1) / 2",
-      "C. (n + 1) / 2",
-      "D. n^2"
-    ],
-    "answer": "C",
-    "explanation": "The document provides the formula for the average number of comparisons for a successful search: (n + 1) / 2."
-  },
-  {
-    "question": "In the `seqSearch` C function, what is the purpose of `list[n].key = searchNum;`?",
-    "options": [
-      "A. To resize the array",
-      "B. To sort the array",
-      "C. It acts as a sentinel that signals the end of the list",
-      "D. To return the first element"
-    ],
-    "answer": "C",
-    "explanation": "The comment in the code explicitly states: '// Sentinel that signals the end of the list'."
-  },
-  {
-    "question": "What does the `seqSearch` function return if the `searchNum` is NOT found in the list?",
-    "options": [
-      "A. 0",
-      "B. n",
-      "C. -1",
-      "D. A null pointer"
-    ],
-    "answer": "C",
-    "explanation": "The comment explains: 'Return -1, if searchNum is not in the list'. The return statement is `return ((i < n) ? i : -1);`."
-  },
-  {
-    "question": "What is the prerequisite for the input list when performing a Binary Search?",
-    "options": [
-      "A. It must be randomly shuffled",
-      "B. It must be a sorted list",
-      "C. It must contain only positive numbers",
-      "D. It must be a linked list"
-    ],
-    "answer": "B",
-    "explanation": "The Binary Search slide explicitly states: 'Input: sorted list'."
-  },
-  {
-    "question": "In Binary Search, how is the 'middle' index typically determined before a comparison?",
-    "options": [
-      "A. middle = n / 2",
-      "B. middle = (left - right) / 2",
-      "C. middle = (left + right) / 2",
-      "D. middle = left + 1"
-    ],
-    "answer": "C",
-    "explanation": "The code and explanation show that `middle = (left + right) / 2` (or initially `(n-1)/2`)."
-  },
-  {
-    "question": "In Binary Search, if `searchNum < list[middle].key`, what is the new search range?",
-    "options": [
-      "A. list[middle+1] ... list[n-1]",
-      "B. list ... list[middle-1]",
-      "C. list[middle] ... list[right]",
-      "D. The search terminates"
-    ],
-    "answer": "B",
-    "explanation": "The slide states: 'searchNum < list[middle].key => Search: list ... list[middle-1]'."
-  },
-  {
-    "question": "What happens in Binary Search if `searchNum == list[middle].key`?",
-    "options": [
-      "A. It searches the left half",
-      "B. It searches the right half",
-      "C. It terminates successfully and returns 'middle'",
-      "D. It returns -1"
-    ],
-    "answer": "C",
-    "explanation": "The slide states: 'searchNum = list[middle].key => Search terminal successfully: return middle'."
-  },
-  {
-    "question": "What is the maximum number of comparisons made by Binary Search?",
-    "options": [
-      "A. O(n)",
-      "B. O(n log n)",
-      "C. O(log n)",
-      "D. O(1)"
-    ],
-    "answer": "C",
-    "explanation": "The document states: 'Binary search makes no more than O(log n) comparisons'."
-  },
-  {
-    "question": "In the decision tree for Binary Search, what does O(log n) correspond to?",
-    "options": [
-      "A. The number of leaves",
-      "B. The width of the tree",
-      "C. The number of internal nodes",
-      "D. The height of the tree"
-    ],
-    "answer": "D",
-    "explanation": "The slide notes: 'O(log n) comparisons (i.e. height of tree)'."
-  },
-  {
-    "question": "In the List Verification problem (1st approach - unsorted), what is the time complexity?",
-    "options": [
-      "A. O(n log n)",
-      "B. O(mn)",
-      "C. O(m + n)",
-      "D. O(n^2)"
-    ],
-    "answer": "B",
-    "explanation": "The 1st approach lists '(O(mn) time)' by using a nested loop."
-  },
-  {
-    "question": "In the List Verification problem (2nd approach), what is the total time complexity after sorting both lists?",
-    "options": [
-      "A. O(mn)",
-      "B. O(m + n)",
-      "C. O(mlogm + nlogn + m + n)",
-      "D. O(1)"
-    ],
-    "answer": "C",
-    "explanation": "The 2nd approach specifies: '(O(mlogm + nlogn + m + n) time)'."
-  },
-  {
-    "question": "In the 2nd approach of List Verification, how long does it take to compare the two already sorted lists?",
-    "options": [
-      "A. O(mn)",
-      "B. O(m + n)",
-      "C. O(m log n)",
-      "D. O(1)"
-    ],
-    "answer": "B",
-    "explanation": "Step 3 says: 'Compare the two sorted lists in O(m + n) time'."
-  },
-  {
-    "question": "When is a sorting algorithm considered 'Stable'?",
-    "options": [
-      "A. When it does not crash",
-      "B. When it uses only memory",
-      "C. If i<j and Ki=Kj in the list, then Ri precedes Rj in the sorted list",
-      "D. When its worst-case is O(n log n)"
-    ],
-    "answer": "C",
-    "explanation": "Stable is defined as: 'If i<j and Ki=Kj in the list, then Ri precedes Rj in the sorted list'."
-  },
-  {
-    "question": "What defines an 'internal' sorting algorithm?",
-    "options": [
-      "A. It uses the CPU's internal registers only",
-      "B. It makes use of only memory",
-      "C. It relies on the operating system",
-      "D. It stores intermediate results on hard disks"
-    ],
-    "answer": "B",
-    "explanation": "Sorting algorithm is internal if it makes use of only memory."
-  },
-  {
-    "question": "What defines an 'external' sorting algorithm?",
-    "options": [
-      "A. It uses internet connections",
-      "B. It makes use of only memory",
-      "C. It stores intermediate results on hard disks",
-      "D. It relies on external APIs"
-    ],
-    "answer": "C",
-    "explanation": "Sorting algorithm is external if it stores intermediate results on hard disks."
-  },
-  {
-    "question": "How many steps are there in the insertion sorting algorithm for n records?",
-    "options": [
-      "A. n steps",
-      "B. n - 1 steps",
-      "C. n / 2 steps",
-      "D. log(n) steps"
-    ],
-    "answer": "B",
-    "explanation": "The slide says: 'n-1 steps in the insertion sorting algorithm'."
-  },
-  {
-    "question": "During step i of the Insertion Sort algorithm, what is the state of elements A to A[i-1]?",
-    "options": [
-      "A. They are completely unsorted",
-      "B. They are the largest elements",
-      "C. They are in sorted order",
-      "D. They are randomly shuffled"
-    ],
-    "answer": "C",
-    "explanation": "The text states: 'During step i, i-1 elements A,A, ..., A[i-1] are in sorted order'."
-  },
-  {
-    "question": "In Insertion Sort, what happens after the correct place 'k' is found for A[i]?",
-    "options": [
-      "A. A[i] is swapped with A[n-1]",
-      "B. The array is halved",
-      "C. Elements A[k] to A[i-1] are moved to the right one position and A[i] is copied to A[k]",
-      "D. A[k] is deleted"
-    ],
-    "answer": "C",
-    "explanation": "The text states: 'the elements A[k],A[k+1], ..., A[i-1] are moved to the right one position and A[i] is copied to A[k]'."
-  },
-  {
-    "question": "In the worst case, how many comparisons and movements are needed for Insertion Sort?",
-    "options": [
-      "A. O(1)",
-      "B. O(n)",
-      "C. O(n log n)",
-      "D. O(n^2)"
-    ],
-    "answer": "D",
-    "explanation": "The analysis slide says: 'In the worst case, we need (1+2+...+n-1) = n(n-1)/2 = O(n^2) comparisons and movements'."
-  },
-  {
-    "question": "In the analysis of Insertion Sort, what does a 'left-out-of-order' (LOO) record mean for A[i]?",
-    "options": [
-      "A. A[i] > max{A...A[i-1]}",
-      "B. A[i] == A[i-1]",
-      "C. A[i] < max{A; A; ... ; A[i-1]}",
-      "D. A[i] is a negative number"
-    ],
-    "answer": "C",
-    "explanation": "A record A[i] is said left-out-of-order (LOO) if A[i] < max{A;A;A;...;A[i-1]}."
-  },
-  {
-    "question": "Is the Insertion Sort algorithm stable?",
-    "options": [
-      "A. Yes",
-      "B. No",
-      "C. Only for small arrays",
-      "D. Only for linked lists"
-    ],
-    "answer": "A",
-    "explanation": "The analysis slide for Insertion Sort explicitly concludes: '=>This algorithm is stable'."
-  },
-  {
-    "question": "What is the primary benefit of the 'Binary insertion sort' variation?",
-    "options": [
-      "A. It requires zero data movement",
-      "B. It reduces the number of comparisons by using binary search",
-      "C. It uses a hash table",
-      "D. It converts the array to a tree"
-    ],
-    "answer": "B",
-    "explanation": "Under 'Variation': 'Binary insertion sort: sequential search --> binary search, reduce # of comparisons'."
-  },
-  {
-    "question": "In the 'List insertion sort' variation, what structure replaces the array?",
-    "options": [
-      "A. A hash map",
-      "B. A binary tree",
-      "C. A linked list",
-      "D. A stack"
-    ],
-    "answer": "C",
-    "explanation": "Under 'Variation': 'List insertion sort: array --> linked list'."
-  },
-  {
-    "question": "What is the main advantage of 'List insertion sort' regarding data manipulation?",
-    "options": [
-      "A. It reduces comparisons to O(1)",
-      "B. It allows random access",
-      "C. There is no movement, it adjusts pointers only",
-      "D. It uses less memory than an array"
-    ],
-    "answer": "C",
-    "explanation": "List insertion sort advantage: 'no movement, adjust pointers only'."
-  },
-  {
-    "question": "How many steps are there in the loop for the Selection Sorting algorithm?",
-    "options": [
-      "A. n steps",
-      "B. n - 1 steps",
-      "C. n / 2 steps",
-      "D. n^2 steps"
-    ],
-    "answer": "B",
-    "explanation": "The Selection Sort slide states: 'loop n-1 steps in the selection sorting algorithm'."
-  },
-  {
-    "question": "During step i of Selection Sort, what do the elements A to A[i-1] represent?",
-    "options": [
-      "A. The largest i elements",
-      "B. Unsorted random elements",
-      "C. The smallest i elements, arranged in sorted order",
-      "D. Pivot elements"
-    ],
-    "answer": "C",
-    "explanation": "The text says: 'During step i, A,A, ..., A[i-1] are the smallest i elements, arranged in sorted order'."
-  },
-  {
-    "question": "In Selection Sort, what action is taken with the remaining unsorted elements A[i]...A[n-1] at step i?",
-    "options": [
-      "A. They are reversed",
-      "B. The largest element is moved to the front",
-      "C. The smallest among them is selected and exchanged with A[i]",
-      "D. They are passed to a recursive function"
-    ],
-    "answer": "C",
-    "explanation": "The text states: 'Then the smallest among A[i],A[i+1], ... ,A[n-1] is selected and is exchanged with A[i]'."
-  },
-  {
-    "question": "In the worst case, how many comparisons are made in the Selection Sort algorithm?",
-    "options": [
-      "A. O(n)",
-      "B. O(n log n)",
-      "C. O(log n)",
-      "D. O(n^2)"
-    ],
-    "answer": "D",
-    "explanation": "Selection Sort analysis: 'In the worst case, there are (n - 1 + n - 2 + ... + 1) = n(n - 1)/2 = O(n^2) comparisons'."
-  },
-  {
-    "question": "How many steps are in the Bubble Sorting algorithm for an array of n records?",
-    "options": [
-      "A. n - 1 steps",
-      "B. n / 2 steps",
-      "C. n steps",
-      "D. n^2 steps"
-    ],
-    "answer": "C",
-    "explanation": "The Bubble Sort slide specifies: 'n steps in the bubble sorting algorithm'."
-  },
-  {
-    "question": "In Bubble Sort, what condition causes an adjacent pair to be exchanged?",
-    "options": [
-      "A. If they are equal",
-      "B. If they are in the correct order",
-      "C. If they are out of order",
-      "D. If the array is full"
-    ],
-    "answer": "C",
-    "explanation": "The text states: 'each pair ... will be exchanged if they are out of order'."
-  },
-  {
-    "question": "What is the visual analogy used to describe how the smallest element moves in step i of Bubble Sort?",
-    "options": [
-      "A. It sinks to the bottom",
-      "B. It bubbles up",
-      "C. It shifts right",
-      "D. It jumps to the center"
-    ],
-    "answer": "B",
-    "explanation": "The text states: 'At step i, the smallest element bubbles'."
-  },
-  {
-    "question": "In the C code provided for Bubble Sort, how does the inner loop variable `j` iterate?",
-    "options": [
-      "A. From 0 up to n-1",
-      "B. From i up to n",
-      "C. From n-1 down to i",
-      "D. From 1 to n"
-    ],
-    "answer": "C",
-    "explanation": "The inner loop is written as: `for (j = n-1; j > i; j--)`."
-  },
-  {
-    "question": "Quick Sort is based on which algorithmic paradigm?",
-    "options": [
-      "A. Dynamic Programming",
-      "B. Greedy Algorithm",
-      "C. Divide and Conquer",
-      "D. Backtracking"
-    ],
-    "answer": "C",
-    "explanation": "The slide for Quick Sort explicitly calls it a 'Divide and Conquer algorithm'."
-  },
-  {
-    "question": "What are the two main phases of the Quick Sort algorithm?",
-    "options": [
-      "A. Split and Merge",
-      "B. Partition phase and Sort phase",
-      "C. Select and Bubble",
-      "D. Hash and Rehash"
-    ],
-    "answer": "B",
-    "explanation": "The Quick Sort slide lists 'Two phases: Partition phase: divide the list... Sort phase: Conquers the halves'."
-  },
-  {
-    "question": "In the Partition phase of Quick Sort, what is chosen to divide the list?",
-    "options": [
-      "A. The median of the whole array",
-      "B. A pivot A[i]",
-      "C. The average of all elements",
-      "D. The smallest element"
-    ],
-    "answer": "B",
-    "explanation": "The instructions state: 'Choose a pivot A[i]'."
-  },
-  {
-    "question": "After re-arranging the list during Quick Sort, what is true about the elements relative to the pivot?",
-    "options": [
-      "A. All elements are equal to the pivot",
-      "B. Elements before it are smaller, elements after it are greater",
-      "C. Elements before it are greater, elements after it are smaller",
-      "D. They are perfectly sorted"
-    ],
-    "answer": "B",
-    "explanation": "The slide says: 'Re-arrange the list so that A...A[i-1] are smaller than A[i] while A[i+1]...A[n-1] are all greater than A[i]'."
-  },
-  {
-    "question": "What does the 'Sort phase' of Quick Sort do after partitioning?",
-    "options": [
-      "A. Recursively applies quick sort to the first half and the second half",
-      "B. Merges the halves together",
-      "C. Applies bubble sort",
-      "D. Halts the program"
-    ],
-    "answer": "A",
-    "explanation": "The text states: 'Then, recursively apply quick sort to the first half ... and the second half'."
-  },
-  {
-    "question": "In the `quickSort` code, what loop structure is used to move the left and right pointers `i` and `j`?",
-    "options": [
-      "A. for loop",
-      "B. do ... while loop",
-      "C. recursive call only",
-      "D. switch case"
-    ],
-    "answer": "B",
-    "explanation": "The code uses `do i++; while (list[i].key < pivot);` and `do j--; while (list[j].key > pivot);`."
-  },
-  {
-    "question": "Merge Sort is based on which algorithmic paradigm?",
-    "options": [
-      "A. Backtracking",
-      "B. Dynamic Programming",
-      "C. Divide and Conquer",
-      "D. Greedy Algorithm"
-    ],
-    "answer": "C",
-    "explanation": "The Merge Sort slide explicitly labels it a 'Divide and Conquer algorithm'."
-  },
-  {
-    "question": "What is the first step of the Merge Sort algorithm?",
-    "options": [
-      "A. Choose a pivot",
-      "B. Bubble the smallest element",
-      "C. Cut the list in 2 halves",
-      "D. Compare adjacent elements"
-    ],
-    "answer": "C",
-    "explanation": "The Divide and Conquer steps for Merge Sort begin with: '1. Cut the list in 2 halves'."
-  },
-  {
-    "question": "What is the third and final step of the Merge Sort algorithm?",
-    "options": [
-      "A. Find the max element",
-      "B. Merge the 2 sorted halves",
-      "C. Calculate the average",
-      "D. Return the pivot"
-    ],
-    "answer": "B",
-    "explanation": "The steps are: '3. Merge the 2 sorted halves'."
-  },
-  {
-    "question": "When merging two sorted lists `b` and `c`, if the current element `bi < cj`, what action is taken?",
-    "options": [
-      "A. Write `cj` to result and increment `j`",
-      "B. Write `bi` to result and increment `i`",
-      "C. Discard both elements",
-      "D. Swap `bi` and `cj`"
-    ],
-    "answer": "B",
-    "explanation": "The diagram indicates: 'bi < cj true, write bi, i = i+1'."
-  },
-  {
-    "question": "What is the mathematical recurrence relation for the time complexity of Merge Sort?",
-    "options": [
-      "A. T(n) = T(n-1) + n",
-      "B. T(n) = n^2",
-      "C. T(n) = 2T(n/2) + n - 1",
-      "D. T(n) = T(n/2) + 1"
-    ],
-    "answer": "C",
-    "explanation": "The Analysis slide for Merge Sort gives: 'Time complexity: T(n) = 2T(n/2) + n-1'."
-  },
-  {
-    "question": "What is the overall time complexity of Merge Sort?",
-    "options": [
-      "A. O(n)",
-      "B. O(n^2)",
-      "C. O(log n)",
-      "D. O(n log n)"
-    ],
-    "answer": "D",
-    "explanation": "The Analysis slide concludes: 'O(n log n) in time'."
-  },
-  {
-    "question": "What is the space complexity of the standard Merge Sort approach shown in the document?",
-    "options": [
-      "A. O(1)",
-      "B. O(n log n)",
-      "C. O(n)",
-      "D. O(n^2)"
-    ],
-    "answer": "C",
-    "explanation": "The Analysis slide lists: 'O(n) in space'."
-  },
-  {
-    "question": "Is the Merge Sort algorithm considered stable?",
-    "options": [
-      "A. Yes",
-      "B. No",
-      "C. Only when sorting integers",
-      "D. Only when using linked lists"
-    ],
-    "answer": "A",
-    "explanation": "The Analysis slide for Merge Sort explicitly lists 'Stable' at the bottom."
-  }
+    {
+        "question": "What are the two main topics covered in Chapter 3 of the document?",
+        "options": [
+            "A. Stacks and Queues",
+            "B. Trees and Graphs",
+            "C. Searching and Sorting",
+            "D. Algorithm Analysis and Heaps"
+        ],
+        "answer": "C",
+        "explanation": "The title of Chapter 3 is 'Searching & Sorting'."
+    },
+    {
+        "question": "Which of the following is listed as a Searching algorithm in the document?",
+        "options": [
+            "A. Insertion Search",
+            "B. Sequential Search",
+            "C. Merge Search",
+            "D. Bubble Search"
+        ],
+        "answer": "B",
+        "explanation": "The 'CONTENT' slide lists Sequential Search and Binary Search under the Searching category."
+    },
+    {
+        "question": "Which of the following is NOT listed as a sorting algorithm in the document?",
+        "options": [
+            "A. Insertion Sort",
+            "B. Binary Sort",
+            "C. Selection Sort",
+            "D. Bubble Sort"
+        ],
+        "answer": "B",
+        "explanation": "Binary Search is a searching algorithm, not a sorting algorithm. The sorting algorithms listed are Insertion, Selection, Bubble, Quick, and Merge."
+    },
+    {
+        "question": "In a Sequential Search of an unsorted list of 'n' numbers, how many comparisons are made in an unsuccessful search?",
+        "options": [
+            "A. n / 2",
+            "B. log(n)",
+            "C. n",
+            "D. 1"
+        ],
+        "answer": "C",
+        "explanation": "The analysis slide for Sequential Search states: 'unsuccessful search: n'."
+    },
+    {
+        "question": "In a Sequential Search, what is the average number of comparisons for a successful search?",
+        "options": [
+            "A. n / 2",
+            "B. (n + 1) / 2",
+            "C. n",
+            "D. log(n)"
+        ],
+        "answer": "B",
+        "explanation": "The document provides the mathematical formula: 'The average number of comparisons for a successful search is (n + 1) / 2'."
+    },
+    {
+        "question": "In the provided C code for Sequential Search, what is the purpose of the statement `list[n].key = searchNum;`?",
+        "options": [
+            "A. To resize the array",
+            "B. To sort the list before searching",
+            "C. It acts as a sentinel that signals the end of the list",
+            "D. To return the first element"
+        ],
+        "answer": "C",
+        "explanation": "The comment next to `list[n].key = searchNum;` explicitly states: '// Sentinel that signals the end of the list'."
+    },
+    {
+        "question": "In the Sequential Search function `seqSearch`, what does it return if the search number is found?",
+        "options": [
+            "A. The actual search number",
+            "B. The index 'i' where the number is located",
+            "C. -1",
+            "D. True"
+        ],
+        "answer": "B",
+        "explanation": "The comment explains: 'Return i, if list[i] = searchNum'. The return statement is `return ((i < n) ? i : -1);`."
+    },
+    {
+        "question": "In the Sequential Search function `seqSearch`, what does the function return if the search number is NOT in the list?",
+        "options": [
+            "A. 0",
+            "B. The size of the list 'n'",
+            "C. -1",
+            "D. A null pointer"
+        ],
+        "answer": "C",
+        "explanation": "The comment says: 'Return -1, if searchNum is not in the list'."
+    },
+    {
+        "question": "What is the primary requirement for the input list when performing a Binary Search?",
+        "options": [
+            "A. The list must contain only positive integers",
+            "B. The list must be randomly shuffled",
+            "C. The list must be sorted",
+            "D. The list must have an even number of elements"
+        ],
+        "answer": "C",
+        "explanation": "Under the Binary Search slide, it explicitly states: 'Input: sorted list (i.e. list.key <= list[1].key <= ... <= list[n-1].key)'."
+    },
+    {
+        "question": "In the Binary Search algorithm, how is the 'middle' index calculated in the provided code?",
+        "options": [
+            "A. middle = (left + right) / 2",
+            "B. middle = (left - right) / 2",
+            "C. middle = n / 2",
+            "D. middle = left + (right - left) / 2"
+        ],
+        "answer": "A",
+        "explanation": "The code snippet for Binary Search uses the formula: `middle = (left + right) / 2;`."
+    },
+    {
+        "question": "What is the maximum number of comparisons made by a Binary Search?",
+        "options": [
+            "A. O(n)",
+            "B. O(n^2)",
+            "C. O(log n)",
+            "D. O(n log n)"
+        ],
+        "answer": "C",
+        "explanation": "The document states: 'Binary search makes no more than O(log n) comparisons'."
+    },
+    {
+        "question": "In the context of the decision tree for a Binary Search, what does the O(log n) complexity represent?",
+        "options": [
+            "A. The number of leaves in the tree",
+            "B. The height of the tree",
+            "C. The number of internal nodes",
+            "D. The width of the tree"
+        ],
+        "answer": "B",
+        "explanation": "The document specifies: 'Binary search makes no more than O(log n) comparisons (i.e. height of tree)'."
+    },
+    {
+        "question": "In the `binSearch` function, if `COMPARE(list[middle].key, searchNum)` returns -1, what happens to the search boundaries?",
+        "options": [
+            "A. right = middle - 1;",
+            "B. left = middle + 1;",
+            "C. It returns the middle index",
+            "D. The loop breaks completely"
+        ],
+        "answer": "B",
+        "explanation": "According to the switch statement in `binSearch`, `case -1 : left = middle + 1; break;`."
+    },
+    {
+        "question": "In the `binSearch` function, if `COMPARE(list[middle].key, searchNum)` returns 1, what happens to the search boundaries?",
+        "options": [
+            "A. right = middle - 1;",
+            "B. left = middle + 1;",
+            "C. right = middle + 1;",
+            "D. left = middle - 1;"
+        ],
+        "answer": "A",
+        "explanation": "According to the switch statement in `binSearch`, `case 1 : right = middle - 1;`."
+    },
+    {
+        "question": "In the Insertion Sort algorithm with 'n' records, how many steps does the algorithm take?",
+        "options": [
+            "A. n steps",
+            "B. n / 2 steps",
+            "C. n - 1 steps",
+            "D. log(n) steps"
+        ],
+        "answer": "C",
+        "explanation": "The slide on Insertion Sort states: 'n-1 steps in the insertion sorting algorithm'."
+    },
+    {
+        "question": "During step 'i' of the Insertion Sort algorithm, what is the status of elements A to A[i-1]?",
+        "options": [
+            "A. They are unsorted",
+            "B. They contain the largest elements in the array",
+            "C. They are in sorted order",
+            "D. They are completely randomized"
+        ],
+        "answer": "C",
+        "explanation": "The document explains: 'During step i, i-1 elements A,A[1], ..., A[i-1] are in sorted order'."
+    },
+    {
+        "question": "In Insertion Sort, when inserting element A[i], what happens after its correct position 'k' is found?",
+        "options": [
+            "A. A[i] is swapped with A[n-1]",
+            "B. The elements A[k] to A[i-1] are moved to the right one position and A[i] is copied to A[k]",
+            "C. The array is reversed",
+            "D. A[k] is deleted"
+        ],
+        "answer": "B",
+        "explanation": "The document says: 'the elements A[k],A[k+1], ..., A[i-1] are moved to the right one position and A[i] is copied to A[k]'."
+    },
+    {
+        "question": "In the Selection Sort algorithm with 'n' records, how many steps are there in the loop?",
+        "options": [
+            "A. n steps",
+            "B. n - 1 steps",
+            "C. n / 2 steps",
+            "D. n^2 steps"
+        ],
+        "answer": "B",
+        "explanation": "The Selection Sort slide says: 'loop n-1 steps in the selection sorting algorithm'."
+    },
+    {
+        "question": "During step 'i' of the Selection Sort algorithm, what characterizes the elements A to A[i-1]?",
+        "options": [
+            "A. They are the largest elements, unsorted",
+            "B. They are the smallest i elements, arranged in sorted order",
+            "C. They are completely randomized",
+            "D. They are untouched"
+        ],
+        "answer": "B",
+        "explanation": "The text states: 'During step i, A,A[1], ..., A[i-1] are the smallest i elements, arranged in sorted order'."
+    },
+    {
+        "question": "At step 'i' of Selection Sort, what action is taken on the remaining unsorted array?",
+        "options": [
+            "A. The largest element is chosen and placed at the end",
+            "B. The array is split in half",
+            "C. The smallest among A[i]...A[n-1] is selected and is exchanged with A[i]",
+            "D. Adjacent pairs are repeatedly swapped"
+        ],
+        "answer": "C",
+        "explanation": "The rule is: 'Then the smallest among A[i],A[i+1], ... ,A[n-1] is selected and is exchanged with A[i]'."
+    },
+    {
+        "question": "For the Bubble Sort algorithm with 'n' records, how many steps are there?",
+        "options": [
+            "A. n - 1 steps",
+            "B. n steps",
+            "C. n / 2 steps",
+            "D. log(n) steps"
+        ],
+        "answer": "B",
+        "explanation": "The Bubble Sort slide states: 'n steps in the bubble sorting algorithm'."
+    },
+    {
+        "question": "During step 'i' of the Bubble Sort algorithm, what is true about elements A to A[i-1]?",
+        "options": [
+            "A. They are the smallest i elements, arranged in sorted order",
+            "B. They are the largest elements",
+            "C. They are yet to be sorted",
+            "D. They are randomly placed"
+        ],
+        "answer": "A",
+        "explanation": "The text says: 'During step i, A,A[1], ..., A[i-1] are the smallest i elements, arranged in sorted order'."
+    },
+    {
+        "question": "In Bubble Sort, what happens among the unsorted elements during step 'i'?",
+        "options": [
+            "A. Only the first and last elements are swapped",
+            "B. The smallest element is instantly found and placed at A[i]",
+            "C. Each pair is exchanged if they are out of order, so the smallest element bubbles up",
+            "D. The entire sub-array is reversed"
+        ],
+        "answer": "C",
+        "explanation": "The description says: 'Then among A[i],A[i+1], ... ,A[n-1], each pair ((A[n-2], A[n-1]) , ...) will be exchanged if they are out of order, so A[i] will be the smallest... At step i, the smallest element bubbles'."
+    },
+    {
+        "question": "In the provided C code for `bubbleSort`, what is the condition for the outer `for` loop?",
+        "options": [
+            "A. for (i = 0; i < n; i++)",
+            "B. for (i = 0; i < n-1; i++)",
+            "C. for (i = n; i > 0; i--)",
+            "D. for (i = 1; i <= n; i++)"
+        ],
+        "answer": "B",
+        "explanation": "The code uses `for (i = 0; i < n-1; i++)` for its outer loop."
+    },
+    {
+        "question": "In the provided C code for `bubbleSort`, what is the condition for the inner `for` loop?",
+        "options": [
+            "A. for (j = 0; j < n-1; j++)",
+            "B. for (j = i; j < n; j++)",
+            "C. for (j = n-1; j > i; j--)",
+            "D. for (j = n; j > 0; j--)"
+        ],
+        "answer": "C",
+        "explanation": "The code uses `for (j = n-1; j > i; j--)` for its inner loop, demonstrating the bottom-up bubbling behavior."
+    },
+    {
+        "question": "In the `bubbleSort` function, what condition triggers the exchange of two elements?",
+        "options": [
+            "A. if (list[j-1].key < list[j].key)",
+            "B. if (list[j-1].key == list[j].key)",
+            "C. if (list[j].key > list[j-1].key)",
+            "D. if (list[j-1].key > list[j].key)"
+        ],
+        "answer": "D",
+        "explanation": "The code evaluates `if (list[j-1].key > list[j].key) { /* exchange two elements */ ... }`."
+    },
+    {
+        "question": "In the `bubbleSort` implementation, which temporary variable type is used to swap the elements?",
+        "options": [
+            "A. int tmp;",
+            "B. element tmp;",
+            "C. pointer tmp;",
+            "D. float tmp;"
+        ],
+        "answer": "B",
+        "explanation": "The code declares `element tmp;` to safely store and swap the structures inside the array."
+    }
 ]
