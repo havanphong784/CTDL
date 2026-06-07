@@ -69,7 +69,7 @@ button {
     justify-content: space-between;
     gap: 20px;
     padding: 8px 0 28px;
-    border-bottom: 1.5px dashed rgba(23, 29, 28, 0.12);
+    border-bottom: 2px solid var(--ink);
     margin-bottom: 20px;
 }
 
@@ -142,10 +142,10 @@ button {
 
 .btn-secondary,
 .dialog-close {
-    background: transparent;
-    border-color: var(--component-line);
-    border-style: dashed;
+    background: #fffefa;
+    border: 2px solid var(--ink);
     color: var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
 }
 
 .btn-secondary:hover:not(:disabled),
@@ -178,18 +178,18 @@ button {
 .setup-hero,
 .selected-summary,
 .sample-dialog {
-    background: transparent;
-    border: 1.5px dashed var(--line);
+    background: #fffefa;
+    border: 2px solid var(--ink);
     border-radius: var(--radius);
-    box-shadow: none;
+    box-shadow: 4px 4px 0 rgba(23, 29, 28, 0.15);
 }
 
 .metric-card {
     min-height: 124px;
     padding: 20px;
-    background: transparent;
-    border-color: var(--line-strong);
-    border-style: dashed;
+    background: #fffefa;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 rgba(23, 29, 28, 0.15);
 }
 
 .metric-label {
@@ -226,8 +226,8 @@ button {
     align-items: stretch;
     overflow: hidden;
     padding: clamp(28px, 5vw, 56px);
-    border-color: var(--line);
-    background: transparent;
+    border: 2px solid var(--ink);
+    background: #fffefa;
 }
 
 .setup-hero::before,
@@ -278,8 +278,9 @@ button {
     justify-content: center;
     min-height: 180px;
     padding: 24px;
-    background: transparent;
-    border: 1.5px dashed var(--teal);
+    background: #f4fffc;
+    border: 2px solid var(--teal);
+    box-shadow: 4px 4px 0 rgba(0, 111, 102, 0.15);
     z-index: 1;
 }
 
@@ -356,13 +357,14 @@ button {
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    border: 1.5px dashed var(--line-strong);
-    background: transparent;
+    border: 1.5px solid var(--ink);
+    background: #fffefa;
     padding: 0 10px;
-    color: var(--muted);
+    color: var(--ink);
     font-size: 0.82rem;
     font-weight: 800;
     white-space: nowrap;
+    box-shadow: 2px 2px 0 rgba(23, 29, 28, 0.15);
 }
 
 #timer-display.warning {
@@ -384,9 +386,9 @@ button {
 .compact-field select {
     width: 100%;
     min-height: 42px;
-    border: 1.5px dashed var(--line-strong);
+    border: 2px solid var(--ink);
     border-radius: var(--control-radius);
-    background: transparent;
+    background: #fffefa;
     color: var(--ink);
     padding: 0 12px;
     outline: none;
@@ -413,24 +415,25 @@ button {
     width: 100%;
     min-height: 148px;
     padding: 18px;
-    border: 1.5px dashed var(--line-strong);
+    border: 2px solid var(--ink);
     border-radius: var(--radius);
-    background: transparent;
+    background: #fffefa;
     text-align: left;
     cursor: pointer;
+    box-shadow: 4px 4px 0 rgba(23, 29, 28, 0.15);
     transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease, background 0.16s ease;
 }
 
 .pack-item:hover {
     border-color: var(--teal);
-    box-shadow: var(--lift);
-    transform: translateY(-1px);
+    box-shadow: 6px 6px 0 rgba(0, 104, 95, 0.2);
+    transform: translateY(-2px);
 }
 
 .pack-item.active {
     border-color: var(--teal);
-    background: var(--teal-soft);
-    box-shadow: inset 0 0 0 1px rgba(0, 104, 95, 0.18);
+    background: #f4fffc;
+    box-shadow: 4px 4px 0 var(--teal);
 }
 
 .pack-topline {
@@ -526,7 +529,9 @@ button {
     display: flex;
     flex-direction: column;
     min-width: 0;
-    background: transparent;
+    background: #fffefa;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 rgba(23, 29, 28, 0.15);
 }
 
 .stage-header {
@@ -542,22 +547,26 @@ button {
     grid-template-columns: 1fr 1fr;
     gap: 4px;
     padding: 4px;
-    border: 1.5px dashed var(--component-line);
+    border: 2px solid var(--ink);
     border-radius: 14px;
     overflow: hidden;
-    background: transparent;
+    background: #eef6f3;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .segment {
-    border: 0;
+    border: 2px solid transparent;
     border-radius: 10px;
     background: transparent;
     color: var(--muted);
+    font-weight: 700;
 }
 
 .segment.active {
-    background: var(--teal);
-    color: #ffffff;
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    box-shadow: 2px 2px 0 rgba(23, 29, 28, 0.15);
 }
 
 .compact-field {
@@ -593,9 +602,9 @@ button {
     place-items: center;
     flex: 1;
     min-height: 390px;
-    border: 1.5px dashed var(--line-strong);
+    border: 2px dashed var(--ink);
     border-radius: var(--radius);
-    background: transparent;
+    background: #fbfaf3;
     padding: 32px;
     text-align: center;
 }
@@ -621,10 +630,11 @@ button {
 .question-card,
 .explanation-card,
 .result-card {
-    border: 1.5px dashed var(--component-line);
+    border: 2px solid var(--ink);
     border-radius: var(--radius);
-    background: transparent;
+    background: #fffefa;
     padding: 20px;
+    box-shadow: 4px 4px 0 rgba(23, 29, 28, 0.15);
 }
 
 .session-gate {
@@ -666,12 +676,13 @@ button {
 
 .inline-action {
     min-height: 34px;
-    border: 1px dashed var(--line-strong);
-    background: transparent;
-    color: var(--teal);
+    border: 1.5px solid var(--ink);
+    background: #fffefa;
+    color: var(--ink);
     padding: 0 12px;
     font-size: 0.82rem;
     border-radius: 999px;
+    box-shadow: 2px 2px 0 rgba(23, 29, 28, 0.15);
 }
 
 .translated-copy,
@@ -694,20 +705,21 @@ button {
     width: 100%;
     min-height: 68px;
     padding: 14px;
-    border: 1.5px dashed var(--line-strong);
+    border: 2px solid var(--ink);
     border-radius: 12px;
-    background: transparent;
+    background: #fffefa;
     color: var(--ink);
     text-align: left;
     cursor: pointer;
-    box-shadow: none;
+    box-shadow: 3px 3px 0 rgba(23, 29, 28, 0.15);
     transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
 }
 
 .option-btn:hover:not(:disabled) {
     border-color: var(--teal);
     background: #f4fffc;
-    box-shadow: var(--lift);
+    box-shadow: 5px 5px 0 var(--teal);
+    transform: translateY(-2px);
 }
 
 .option-btn:disabled {
@@ -721,8 +733,8 @@ button {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: transparent;
-    border: 1.5px dashed var(--line-strong);
+    background: #eef6f3;
+    border: 2px solid var(--ink);
     font-weight: 800;
 }
 
@@ -734,7 +746,7 @@ button {
 .option-btn.selected {
     border-color: var(--teal);
     background: var(--teal-soft);
-    box-shadow: inset 0 0 0 1px rgba(0, 104, 95, 0.12);
+    box-shadow: 4px 4px 0 var(--teal);
 }
 
 .option-btn.selected .option-key {
@@ -746,6 +758,7 @@ button {
 .option-btn.correct {
     border-color: var(--green);
     background: var(--green-soft);
+    box-shadow: 4px 4px 0 var(--green);
 }
 
 .option-btn.correct .option-key {
@@ -757,6 +770,7 @@ button {
 .option-btn.wrong {
     border-color: var(--rose);
     background: var(--rose-soft);
+    box-shadow: 4px 4px 0 var(--rose);
 }
 
 .option-btn.wrong .option-key {
@@ -792,9 +806,10 @@ button {
 .result-stat {
     min-height: 78px;
     padding: 14px;
-    border: 1.5px dashed var(--line-strong);
+    border: 2px solid var(--ink);
     border-radius: var(--radius);
-    background: transparent;
+    background: #fffefa;
+    box-shadow: 3px 3px 0 rgba(23, 29, 28, 0.15);
 }
 
 .result-stat strong,
@@ -833,9 +848,10 @@ button {
 
 .dict-item {
     padding: 14px;
-    border: 1.5px dashed var(--line-strong);
+    border: 2px solid var(--ink);
     border-radius: 10px;
-    background: transparent;
+    background: #fffefa;
+    box-shadow: 2px 2px 0 rgba(23, 29, 28, 0.15);
 }
 
 .dict-item.relevant {
