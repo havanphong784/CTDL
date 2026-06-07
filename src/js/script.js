@@ -1,3 +1,13 @@
+// Safe fallback if Motion library fails to load (e.g., offline or CDN error)
+const motionLib = window.Motion || {
+    animate: (selector, keyframes, options) => {
+        return { finished: Promise.resolve(), stop: () => {} };
+    },
+    spring: () => "ease-out",
+    stagger: () => 0
+};
+const { animate, spring, stagger } = motionLib;
+
 const glossary = [
     { term: "Algorithm", def: "Thuật toán" },
     { term: "Data Structure", def: "Cấu trúc dữ liệu" },
@@ -256,6 +266,12 @@ function renderPacks() {
 
         els.packList.appendChild(item);
     });
+
+    animate(
+        ".pack-item",
+        { opacity: [0, 1], y: [30, 0], scale: [0.85, 1], rotate: [-2, 0] },
+        { delay: stagger(0.08), type: "spring", stiffness: 400, damping: 15 }
+    );
 }
 
 function selectPack(pack) {
@@ -276,6 +292,12 @@ function updateSelectedPackSummary(pack) {
         <small>${escapeHtml(pack.desc || "Gói câu hỏi đã import.")}</small>
         <small>${wrongCount > 0 ? `${wrongCount} câu sai có thể luyện lại` : "Chưa có câu sai trong gói này"}</small>
     `;
+
+    animate(
+        els.selectedPackSummary,
+        { opacity: [0, 1], scale: [0.9, 1], rotate: [-1, 0] },
+        { type: "spring", stiffness: 400, damping: 15 }
+    );
 }
 
 async function openQuizFromSelection(wrongPractice) {
@@ -421,6 +443,16 @@ function showSetupView() {
     els.btnResetSession.hidden = true;
     els.btnResetSession.disabled = !activePack;
     document.documentElement.scrollTop = 0;
+
+    animate(
+        els.setupView,
+        { opacity: [0, 1] },
+        { duration: 0.3, easing: "ease-out" }
+    );
+    
+    animate(".setup-hero", { opacity: [0, 1], scale: [0.95, 1], y: [20, 0] }, { duration: 0.5, type: "spring", stiffness: 300, damping: 20 });
+    animate(".metric-card", { opacity: [0, 1], scale: [0.8, 1], y: [30, 0] }, { delay: stagger(0.08), type: "spring", stiffness: 400, damping: 18 });
+    animate(".setup-panel", { opacity: [0, 1], x: [30, 0] }, { duration: 0.5, type: "spring", stiffness: 300, damping: 20 });
 }
 
 function showQuizView() {
@@ -430,6 +462,15 @@ function showQuizView() {
     els.btnResetSession.hidden = false;
     els.btnResetSession.disabled = false;
     document.documentElement.scrollTop = 0;
+
+    animate(
+        els.quizView,
+        { opacity: [0, 1] },
+        { duration: 0.3, easing: "ease-out" }
+    );
+    
+    animate(".quiz-stage", { opacity: [0, 1], scale: [0.98, 1], y: [20, 0] }, { duration: 0.4, type: "spring", stiffness: 300, damping: 20 });
+    animate(".assist-panel", { opacity: [0, 1], x: [30, 0] }, { duration: 0.4, type: "spring", stiffness: 300, damping: 20 });
 }
 
 function startWrongPractice() {
@@ -483,6 +524,22 @@ function showQuestion() {
 
         els.optionsContainer.appendChild(button);
     });
+
+    animate(
+        ".option-btn",
+        { opacity: [0, 1], x: [-30, 0], scale: [0.95, 1] },
+        { delay: stagger(0.08), type: "spring", stiffness: 450, damping: 18 }
+    );
+
+    animate(
+        els.questionText,
+        { opacity: [0, 1], scale: [0.95, 1], y: [15, 0] },
+        { duration: 0.4, type: "spring", stiffness: 300, damping: 15 }
+    );
+    
+    if (!sessionStarted && !quizFinished) {
+        animate(els.sessionGate, { opacity: [0, 1], scale: [0.9, 1], y: [20, 0] }, { type: "spring", stiffness: 400, damping: 15 });
+    }
 
     if (showAnswers && hasAnswered) {
         showFeedback(question, userAnswers[currentQuestionIndex]);
@@ -572,6 +629,12 @@ function showFeedback(question, selectedIndex) {
     els.explanationText.innerHTML = `<strong>${correct ? "Chính xác." : "Chưa đúng."}</strong> ${escapeHtml(question.explanation || "Chưa có giải thích chi tiết cho câu này.")}`;
     els.btnTranslateExplanation.hidden = !question.explanation;
     els.explanationTranslated.textContent = "";
+
+    animate(
+        els.explanationCard,
+        { opacity: [0, 1], y: [30, 0], scale: [0.8, 1], rotate: [-2, 0] },
+        { type: "spring", stiffness: 450, damping: 15 }
+    );
 }
 
 function showResult(autoSubmitted) {
@@ -593,6 +656,18 @@ function showResult(autoSubmitted) {
         </div>
         <p>Thời gian làm bài: ${duration}</p>
     `;
+
+    animate(
+        els.resultCard,
+        { opacity: [0, 1], scale: [0.8, 1], y: [40, 0], rotate: [1, 0] },
+        { type: "spring", stiffness: 300, damping: 15 }
+    );
+
+    animate(
+        ".result-stat",
+        { opacity: [0, 1], scale: [0.6, 1], rotate: [-3, 0] },
+        { delay: stagger(0.1, { startDelay: 0.2 }), type: "spring", stiffness: 400, damping: 12 }
+    );
 }
 
 function getResultMessage(percent) {
@@ -832,6 +907,12 @@ function renderDictionary(items) {
     }
 
     items.forEach(item => els.dictList.appendChild(createDictItem(item)));
+
+    animate(
+        ".dict-item",
+        { opacity: [0, 1], x: [20, 0], scale: [0.9, 1] },
+        { delay: stagger(0.04), type: "spring", stiffness: 400, damping: 20 }
+    );
 }
 
 function createDictItem(item, relevant = false) {
@@ -895,6 +976,12 @@ function renderDictionaryForQuestion(relevantTerms) {
         .filter(item => !relevantKeys.has(item.term.toLowerCase()))
         .slice(0, 12)
         .forEach(item => els.dictList.appendChild(createDictItem(item)));
+
+    animate(
+        ".dict-item",
+        { opacity: [0, 1], x: [20, 0], scale: [0.9, 1] },
+        { delay: stagger(0.04), type: "spring", stiffness: 400, damping: 20 }
+    );
 }
 
 async function fetchWordTranslation(word) {
