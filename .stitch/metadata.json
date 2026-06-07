@@ -1,0 +1,28 @@
+{
+  "name": "projects/9619794758430701500",
+  "projectId": "9619794758430701500",
+  "title": "CTDL&GT Quiz Modern Art Redesign",
+  "visibility": "PRIVATE",
+  "origin": "STITCH",
+  "projectType": "PROJECT_DESIGN",
+  "deviceType": "DESKTOP",
+  "designSystem": {
+    "name": "Academic Gallery",
+    "primary": "#00685f",
+    "secondary": "#dc2c4f",
+    "tertiary": "#b15f00",
+    "background": "#f5faf8",
+    "surface": "#ffffff",
+    "outline": "#bcc9c6",
+    "roundness": "ROUND_EIGHT"
+  },
+  "screens": {
+    "index": {
+      "id": "6176c567196448b685cb78da4599ed01",
+      "sourceScreen": "projects/9619794758430701500/screens/6176c567196448b685cb78da4599ed01",
+      "width": 2560,
+      "height": 2632,
+      "title": "Quiz - DSA Học Thuật"
+    }
+  }
+}
