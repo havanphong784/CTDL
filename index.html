@@ -109,6 +109,11 @@
                             <h3>Import dữ liệu</h3>
                             <p>Hỗ trợ JSON dạng mảng câu hỏi có `question`, `options`, `answer`, `explanation`.</p>
                         </div>
+                        <div class="import-dropzone" id="import-dropzone">
+                            <span style="font-size: 0.85rem;">Kéo & thả file JSON vào đây hoặc</span>
+                            <label class="btn btn-secondary btn-small" for="import-file-sidebar" style="cursor: pointer; padding: 4px 10px; font-size: 0.8rem; width: auto; min-height: auto; margin-top: 4px; display: inline-block;">Chọn file JSON</label>
+                            <input id="import-file-sidebar" type="file" accept=".json,application/json" hidden>
+                        </div>
                         <button class="btn btn-secondary full-width" id="btn-import-sample" type="button">Xem mẫu JSON</button>
                         <p class="status-text" id="import-status"></p>
                     </section>

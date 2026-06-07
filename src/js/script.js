@@ -186,7 +186,9 @@ const els = {
     statBestBar: document.getElementById("stat-best-bar"),
     statWrongBar: document.getElementById("stat-wrong-bar"),
     dictList: document.getElementById("dict-list"),
-    dictSearch: document.getElementById("dict-search")
+    dictSearch: document.getElementById("dict-search"),
+    importFileSidebar: document.getElementById("import-file-sidebar"),
+    importDropzone: document.getElementById("import-dropzone")
 };
 
 function init() {
@@ -216,6 +218,37 @@ function bindEvents() {
     els.btnTranslateQuestion.addEventListener("click", translateCurrentQuestion);
     els.btnTranslateExplanation.addEventListener("click", translateCurrentExplanation);
     els.importFile.addEventListener("change", handleImportFile);
+    if (els.importFileSidebar) {
+        els.importFileSidebar.addEventListener("change", handleImportFile);
+    }
+    
+    // Setup Drag & Drop
+    const dropzone = els.importDropzone;
+    if (dropzone) {
+        ["dragenter", "dragover"].forEach(eventName => {
+            dropzone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.add("dragover");
+            }, false);
+        });
+
+        ["dragleave", "drop"].forEach(eventName => {
+            dropzone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.remove("dragover");
+            }, false);
+        });
+
+        dropzone.addEventListener("drop", (e) => {
+            const dt = e.dataTransfer;
+            const file = dt.files?.[0];
+            if (file) {
+                handleImportFile(file);
+            }
+        }, false);
+    }
     els.btnImportSample.addEventListener("click", showSampleDialog);
     els.btnCloseSample.addEventListener("click", () => els.sampleDialog.close());
 }
@@ -348,25 +381,97 @@ async function fetchPackFile(file) {
 }
 
 function normalizeQuestions(data) {
-    if (!Array.isArray(data)) {
-        throw new Error("Dữ liệu phải là một mảng câu hỏi.");
+    let questionsArray = data;
+    if (!Array.isArray(data) && data && typeof data === "object") {
+        if (Array.isArray(data.questions)) {
+            questionsArray = data.questions;
+        } else if (Array.isArray(data.data)) {
+            questionsArray = data.data;
+        } else if (Array.isArray(data.quiz)) {
+            questionsArray = data.quiz;
+        }
     }
 
-    const normalized = data.map((item, index) => {
-        const question = String(item.question || "").trim();
-        const options = Array.isArray(item.options) ? item.options.map(option => String(option).trim()).filter(Boolean) : [];
-        const answer = String(item.answer || "").trim().charAt(0).toUpperCase();
-        const explanation = String(item.explanation || "").trim();
+    if (!Array.isArray(questionsArray)) {
+        throw new Error("Dữ liệu phải là một mảng câu hỏi hoặc chứa mảng câu hỏi (ví dụ: { questions: [...] }).");
+    }
 
-        if (!question || options.length < 2 || !/^[A-Z]$/.test(answer)) {
-            throw new Error(`Câu ${index + 1} thiếu question/options/answer hợp lệ.`);
+    const normalized = questionsArray.map((item, index) => {
+        const question = String(item.question || item.title || item.text || "").trim();
+        
+        let options = [];
+        if (Array.isArray(item.options)) {
+            options = item.options.map(option => String(option).trim()).filter(Boolean);
+        } else if (Array.isArray(item.answers)) {
+            options = item.answers.map(option => String(option).trim()).filter(Boolean);
+        } else if (Array.isArray(item.choices)) {
+            options = item.choices.map(option => String(option).trim()).filter(Boolean);
+        }
+
+        let rawAnswer = item.answer !== undefined ? item.answer : (item.correctAnswer !== undefined ? item.correctAnswer : item.correct_answer);
+        let answer = "";
+        
+        if (rawAnswer !== undefined && rawAnswer !== null) {
+            let strAnswer = String(rawAnswer).trim();
+            
+            // Case 1: Answer is index-based (e.g. 0, 1, 2)
+            if (/^\d+$/.test(strAnswer)) {
+                const idx = parseInt(strAnswer, 10);
+                if (idx >= 0 && idx < options.length) {
+                    answer = String.fromCharCode(65 + idx);
+                }
+            }
+            
+            // Case 2: Answer starts with choice letter (e.g. "A.", "A)", "A ")
+            if (!answer) {
+                const matchLetter = strAnswer.match(/^([A-Z])([\.\)\s]|$)/i);
+                if (matchLetter) {
+                    answer = matchLetter[1].toUpperCase();
+                }
+            }
+            
+            // Case 3: Answer is option text string matching one of options
+            if (!answer) {
+                const matchIdx = options.findIndex(opt => {
+                    const optStr = opt.toLowerCase();
+                    const ansStr = strAnswer.toLowerCase();
+                    if (optStr === ansStr) return true;
+                    const parsed = parseOption(opt, 0);
+                    return parsed.text.toLowerCase() === ansStr;
+                });
+                if (matchIdx !== -1) {
+                    answer = String.fromCharCode(65 + matchIdx);
+                }
+            }
+            
+            // Default: Single letter matching A-Z
+            if (!answer && /^[A-Za-z]$/.test(strAnswer)) {
+                answer = strAnswer.toUpperCase();
+            }
+        }
+
+        const explanation = String(item.explanation || item.explain || item.desc || "").trim();
+
+        if (!question) {
+            throw new Error(`Câu ${index + 1} bị thiếu nội dung câu hỏi (question).`);
+        }
+        if (options.length < 2) {
+            throw new Error(`Câu ${index + 1} phải có ít nhất 2 phương án lựa chọn (options).`);
+        }
+        if (!answer || !/^[A-Z]$/.test(answer)) {
+            throw new Error(`Câu ${index + 1} thiếu đáp án đúng hoặc đáp án không hợp lệ ("${rawAnswer}").`);
+        }
+
+        const answerIdx = answer.charCodeAt(0) - 65;
+        if (answerIdx >= options.length) {
+            throw new Error(`Câu ${index + 1} có đáp án "${answer}" vượt quá số lượng phương án (${options.length}).`);
         }
 
         return { question, options, answer, explanation };
     });
 
     if (normalized.length === 0) {
-        throw new Error("File không có câu hỏi.");
+        throw new Error("File JSON không chứa câu hỏi nào.");
     }
 
     return normalized;
@@ -1036,8 +1141,13 @@ async function translateText(text, targetEl, loadingText) {
     }
 }
 
-async function handleImportFile(event) {
-    const file = event.target.files?.[0];
+async function handleImportFile(eventOrFile) {
+    let file;
+    if (eventOrFile instanceof File) {
+        file = eventOrFile;
+    } else {
+        file = eventOrFile?.target?.files?.[0];
+    }
     if (!file) return;
 
     try {
@@ -1065,7 +1175,9 @@ async function handleImportFile(event) {
         console.error("Import thất bại:", error);
         setImportStatus(error.message || "File JSON không hợp lệ.", "error");
     } finally {
-        event.target.value = "";
+        if (eventOrFile?.target) {
+            eventOrFile.target.value = "";
+        }
     }
 }
 
