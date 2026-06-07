@@ -17,7 +17,7 @@
     --rose-soft: #ffdadb;
     --green: #23845c;
     --green-soft: #e5f4ec;
-    --paper-line: rgba(0, 104, 95, 0.045);
+    --paper-line: rgba(0, 104, 95, 0.15);
     --paper-margin: rgba(220, 44, 79, 0.11);
     --shadow: 0 18px 40px rgba(44, 58, 55, 0.13), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
     --lift: 0 14px 28px rgba(0, 104, 95, 0.16), 0 2px 0 rgba(0, 104, 95, 0.12);
@@ -39,7 +39,7 @@ body {
     margin: 0;
     background-color: #fbfaf3;
     background-image:
-        repeating-linear-gradient(180deg, transparent 0, transparent 27px, var(--paper-line) 28px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='28'%3E%3Cpath d='M 0 25 Q 20 22, 40 25 T 80 25' fill='none' stroke='%2300685f' stroke-opacity='0.15' stroke-width='1.5'/%3E%3C/svg%3E"),
         linear-gradient(180deg, #fbfaf3 0%, #f5faf8 100%);
     background-attachment: fixed;
     color: var(--ink);
