@@ -1,0 +1,552 @@
+[
+  {
+    "question": "Given T(n) = 7n^2 + 10n + 3, what is the tightest Big-O among the choices?",
+    "options": [
+      "A. O(n^2)",
+      "B. O(n)",
+      "C. O(log n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Bỏ hệ số và hạng bậc thấp, hạng cao nhất là n^2 nên O(n^2)."
+  },
+  {
+    "question": "Given T(n) = 3n^3 + 100n^2 + 5, what is the Big-Theta complexity?",
+    "options": [
+      "A. Θ(n^3)",
+      "B. Θ(n^2)",
+      "C. Θ(n)",
+      "D. Θ(log n)"
+    ],
+    "answer": "A",
+    "explanation": "Big-Theta lấy cận chặt; đa thức bậc 3 có Θ(n^3)."
+  },
+  {
+    "question": "What is the time complexity of the nested loops: for i=0..n-1, for j=0..n*n-1, do constant work?",
+    "options": [
+      "A. O(n^3)",
+      "B. O(n^2)",
+      "C. O(n log n)",
+      "D. O(log n)"
+    ],
+    "answer": "A",
+    "explanation": "Vòng ngoài chạy n lần, vòng trong chạy n^2 lần, tổng n*n^2 = n^3."
+  },
+  {
+    "question": "For factorial recursion with T(n) = T(n-1) + 1 and T(0)=0, what is T(n)?",
+    "options": [
+      "A. O(n)",
+      "B. O(log n)",
+      "C. O(n^2)",
+      "D. O(2^n)"
+    ],
+    "answer": "A",
+    "explanation": "Mỗi lần giảm n đi 1 cho đến 0, nên số lời gọi tỷ lệ tuyến tính với n."
+  },
+  {
+    "question": "Which case is usually most commonly analyzed because it gives an upper bound?",
+    "options": [
+      "A. Worst case",
+      "B. Best case",
+      "C. Random case only",
+      "D. Syntax case"
+    ],
+    "answer": "A",
+    "explanation": "Worst case cho thời gian lớn nhất cần thiết nên thường được dùng để đảm bảo cận trên."
+  },
+  {
+    "question": "For successful sequential search with the target equally likely at any position, what is the average number of comparisons?",
+    "options": [
+      "A. (n + 1) / 2",
+      "B. log2 n",
+      "C. n^2",
+      "D. 1"
+    ],
+    "answer": "A",
+    "explanation": "Trung bình của 1,2,...,n là (n+1)/2."
+  },
+  {
+    "question": "Why can binary search be represented by a decision tree of height O(log n)?",
+    "options": [
+      "A. Each comparison roughly halves the remaining search space",
+      "B. Each comparison scans all elements",
+      "C. It inserts elements into a heap",
+      "D. It uses a linked list with O(1) random access"
+    ],
+    "answer": "A",
+    "explanation": "Mỗi lần so sánh loại bỏ khoảng một nửa dữ liệu còn lại."
+  },
+  {
+    "question": "In the singly linked list insert-after operation, why must temp->next be assigned before node->next is changed?",
+    "options": [
+      "A. To avoid losing the remainder of the list",
+      "B. To make the list sorted automatically",
+      "C. To free old memory first",
+      "D. To create a circular list always"
+    ],
+    "answer": "A",
+    "explanation": "Nếu đổi node->next trước, ta có thể mất địa chỉ phần danh sách phía sau."
+  },
+  {
+    "question": "In a singly linked list, deleting a node when only that node pointer is known is difficult mainly because:",
+    "options": [
+      "A. The previous node's link must be updated",
+      "B. The next node always points backward",
+      "C. The list is always sorted",
+      "D. The node has no data field"
+    ],
+    "answer": "A",
+    "explanation": "Singly linked list không có con trỏ lùi, nên cần biết node trước để nối bỏ node cần xóa."
+  },
+  {
+    "question": "What is the final result of reversing a singly linked list by repeatedly changing next pointers?",
+    "options": [
+      "A. The old tail becomes the new head",
+      "B. The old head remains the head",
+      "C. All nodes point to NULL",
+      "D. The list becomes a heap"
+    ],
+    "answer": "A",
+    "explanation": "Khi đảo danh sách, hướng liên kết đổi ngược, node cuối cũ trở thành head mới."
+  },
+  {
+    "question": "In a circular linked list represented by a pointer to the last node, what is (*ptr)->next?",
+    "options": [
+      "A. The first node",
+      "B. NULL",
+      "C. The previous node",
+      "D. The second last node"
+    ],
+    "answer": "A",
+    "explanation": "Nếu ptr trỏ node cuối, liên kết next của node cuối trỏ về node đầu."
+  },
+  {
+    "question": "In a doubly linked circular list deletion, why are two links adjusted?",
+    "options": [
+      "A. The predecessor and successor must bypass the deleted node",
+      "B. The node key must be hashed twice",
+      "C. The array must shift left and right",
+      "D. The root must be replaced"
+    ],
+    "answer": "A",
+    "explanation": "Doubly linked list có llink và rlink nên cần nối cả node trước và node sau lại với nhau."
+  },
+  {
+    "question": "When adding two polynomial linked lists sorted by decreasing exponent, if a->expon < b->expon, what should be appended next?",
+    "options": [
+      "A. A duplicate of b's current term",
+      "B. A duplicate of a's current term",
+      "C. The sum of both coefficients",
+      "D. Nothing; skip both terms"
+    ],
+    "answer": "A",
+    "explanation": "Danh sách giảm dần số mũ, số mũ của b lớn hơn nên đưa hạng tử b vào kết quả trước."
+  },
+  {
+    "question": "In polynomial addition, if two current terms have equal exponents and their coefficient sum is zero, what should happen?",
+    "options": [
+      "A. Do not attach a term for that exponent",
+      "B. Attach a zero-coefficient term always",
+      "C. Stop the algorithm",
+      "D. Reverse both lists"
+    ],
+    "answer": "A",
+    "explanation": "Hệ số bằng 0 không cần lưu vì biểu diễn đa thức chỉ lưu các hạng tử khác 0."
+  },
+  {
+    "question": "For sparse matrix linked representation, how many head nodes are used for a matrix with r rows and c columns?",
+    "options": [
+      "A. max(r, c)",
+      "B. r + c",
+      "C. r * c",
+      "D. min(r, c)"
+    ],
+    "answer": "A",
+    "explanation": "Slide nêu số head node là max{number of rows, number of columns}."
+  },
+  {
+    "question": "A sparse matrix with r rows, c columns, and t nonzero terms needs how many nodes in the described representation?",
+    "options": [
+      "A. max(r, c) + t + 1",
+      "B. r * c",
+      "C. t only",
+      "D. r + c + 2t"
+    ],
+    "answer": "A",
+    "explanation": "Cần head nodes, entry nodes cho phần tử khác 0, và 1 special head node."
+  },
+  {
+    "question": "In postfix evaluation, when an operator is read, what happens?",
+    "options": [
+      "A. Pop the top two operands, apply the operator, push the result",
+      "B. Push the operator as an operand forever",
+      "C. Reverse the entire expression",
+      "D. Sort the stack"
+    ],
+    "answer": "A",
+    "explanation": "Postfix dùng stack: toán hạng được push, gặp toán tử thì lấy hai toán hạng trên cùng để tính."
+  },
+  {
+    "question": "What is the postfix form of the infix expression a - (b + c * d) / e?",
+    "options": [
+      "A. a b c d * + e / -",
+      "B. a b + c d * e / -",
+      "C. - a / + b * c d e",
+      "D. a b c d e * + / -"
+    ],
+    "answer": "A",
+    "explanation": "Trong ngoặc: c*d rồi b+..., sau đó chia e, cuối cùng a trừ kết quả đó."
+  },
+  {
+    "question": "When converting infix to postfix, what happens when a right parenthesis ')' is read?",
+    "options": [
+      "A. Pop operators until the matching '(' is found",
+      "B. Push ')' onto the stack forever",
+      "C. Clear the whole postfix expression",
+      "D. Sort all operands"
+    ],
+    "answer": "A",
+    "explanation": "Gặp ')' thì đưa các toán tử trong stack ra postfix cho đến dấu '(' tương ứng."
+  },
+  {
+    "question": "Why can a queue implemented with a simple array eventually 'fall off' the right end?",
+    "options": [
+      "A. front and rear only increment and unused left slots are not reused",
+      "B. The array sorts itself automatically",
+      "C. The queue uses recursion",
+      "D. The rear pointer moves backward"
+    ],
+    "answer": "A",
+    "explanation": "Nếu chỉ tăng front/rear, các ô đã xóa ở đầu mảng không được tái sử dụng."
+  },
+  {
+    "question": "In a circular queue with MAX slots as described, why can it store at most MAX - 1 elements?",
+    "options": [
+      "A. One slot is left empty to distinguish full from empty",
+      "B. The last slot is reserved for the root",
+      "C. The first slot stores the hash function",
+      "D. It uses only odd indexes"
+    ],
+    "answer": "A",
+    "explanation": "Để tránh nhầm front == rear giữa rỗng và đầy, circular queue thường chừa một ô trống."
+  },
+  {
+    "question": "For palindrome recognition using both a stack and a queue, what is the key idea?",
+    "options": [
+      "A. The queue preserves order while the stack reverses order",
+      "B. Both structures sort characters alphabetically",
+      "C. The queue reverses and the stack preserves order",
+      "D. Hashing is required for every character"
+    ],
+    "answer": "A",
+    "explanation": "So sánh ký tự lấy từ queue và stack giúp kiểm tra chuỗi xuôi và ngược có giống nhau không."
+  },
+  {
+    "question": "In a max heap delete operation, after removing the root, why is the last element moved to the root first?",
+    "options": [
+      "A. To preserve the complete binary tree shape before restoring heap order",
+      "B. To make the array sorted immediately",
+      "C. To delete all leaves",
+      "D. To convert the heap into a BST"
+    ],
+    "answer": "A",
+    "explanation": "Heap phải giữ dạng complete tree; đưa phần tử cuối lên root rồi điều chỉnh xuống."
+  },
+  {
+    "question": "During deleteMaxHeap, why is the larger child selected while moving down?",
+    "options": [
+      "A. To maintain the max-heap property at each step",
+      "B. To make the tree balanced by height only",
+      "C. To perform inorder traversal",
+      "D. To reduce array size by half"
+    ],
+    "answer": "A",
+    "explanation": "Max heap yêu cầu cha lớn hơn cả hai con, nên khi kéo con lên phải chọn con lớn hơn."
+  },
+  {
+    "question": "In heap sort using a max heap, after swapping A[1] with A[n], where is the maximum element?",
+    "options": [
+      "A. In its final sorted position at the end",
+      "B. At A[1] again",
+      "C. Outside the array",
+      "D. In the left child of the root"
+    ],
+    "answer": "A",
+    "explanation": "Root là max; đổi với phần tử cuối sẽ đặt max vào vị trí cuối đúng của mảng tăng dần."
+  },
+  {
+    "question": "Which representation is more space-wasteful for a skewed binary tree?",
+    "options": [
+      "A. Array representation",
+      "B. Linked representation",
+      "C. Adjacency list",
+      "D. Stack representation"
+    ],
+    "answer": "A",
+    "explanation": "Cây lệch khi lưu kiểu mảng theo vị trí complete tree sẽ bỏ trống nhiều ô."
+  },
+  {
+    "question": "If a BST is built by inserting sorted keys in increasing order, what shape is likely produced?",
+    "options": [
+      "A. A skewed tree",
+      "B. A complete tree always",
+      "C. A perfect heap",
+      "D. A circular list"
+    ],
+    "answer": "A",
+    "explanation": "Chèn tăng dần làm mỗi key mới đi sang phải liên tục, tạo cây lệch."
+  },
+  {
+    "question": "What is the worst-case height of a BST with n nodes?",
+    "options": [
+      "A. O(n)",
+      "B. O(log n) always",
+      "C. O(1)",
+      "D. O(n^2)"
+    ],
+    "answer": "A",
+    "explanation": "BST có thể lệch thành gần giống linked list, chiều cao xấp xỉ n."
+  },
+  {
+    "question": "What is the time complexity of BST search in a completely skewed BST with n nodes?",
+    "options": [
+      "A. O(n)",
+      "B. O(log n)",
+      "C. O(1)",
+      "D. O(n log n)"
+    ],
+    "answer": "A",
+    "explanation": "Vì search là O(h), khi cây lệch h có thể bằng n."
+  },
+  {
+    "question": "For an undirected graph represented by adjacency lists, how many list nodes are needed for e edges?",
+    "options": [
+      "A. 2e",
+      "B. e",
+      "C. e/2",
+      "D. n^2"
+    ],
+    "answer": "A",
+    "explanation": "Mỗi cạnh vô hướng xuất hiện trong danh sách kề của cả hai đỉnh nên cần 2e list nodes."
+  },
+  {
+    "question": "Why is adjacency matrix convenient for checking whether two vertices are connected by an edge?",
+    "options": [
+      "A. The answer is available directly at A[i][j]",
+      "B. It always uses less memory than lists",
+      "C. It performs DFS automatically",
+      "D. It stores only nonzero values"
+    ],
+    "answer": "A",
+    "explanation": "Ma trận kề cho phép kiểm tra cạnh i-j bằng cách xem trực tiếp ô A[i][j]."
+  },
+  {
+    "question": "Which graph representation is usually better for sparse graphs in terms of memory?",
+    "options": [
+      "A. Adjacency lists",
+      "B. Adjacency matrix",
+      "C. Full binary tree array",
+      "D. Sequential sorted array"
+    ],
+    "answer": "A",
+    "explanation": "Sparse graph có ít cạnh, adjacency list lưu theo số cạnh O(n+e) thay vì O(n^2)."
+  },
+  {
+    "question": "In BFS implementation from the slides, when is a vertex marked visited?",
+    "options": [
+      "A. When it is discovered/enqueued",
+      "B. Only after all graph traversal ends",
+      "C. Never",
+      "D. When it is deleted from memory"
+    ],
+    "answer": "A",
+    "explanation": "Đánh dấu khi enqueue giúp tránh đưa cùng một đỉnh vào queue nhiều lần."
+  },
+  {
+    "question": "In a directed graph, if there is a path from u to v and a path from v to u, what can be said about u and v?",
+    "options": [
+      "A. They are strongly connected",
+      "B. They are necessarily adjacent",
+      "C. They must be leaves",
+      "D. They must have degree zero"
+    ],
+    "answer": "A",
+    "explanation": "Strongly connected yêu cầu có đường đi theo cả hai chiều giữa hai đỉnh."
+  },
+  {
+    "question": "What is a tree in graph theory?",
+    "options": [
+      "A. A connected acyclic graph",
+      "B. A complete directed graph",
+      "C. A hash table with chaining",
+      "D. A queue with no rear"
+    ],
+    "answer": "A",
+    "explanation": "Tree là đồ thị liên thông và không có chu trình."
+  },
+  {
+    "question": "What is the main disadvantage of linear probing mentioned through clustering?",
+    "options": [
+      "A. Large clusters make searches longer",
+      "B. It cannot store integers",
+      "C. It requires recursion",
+      "D. It turns the table into a tree"
+    ],
+    "answer": "A",
+    "explanation": "Clustering làm nhiều key tập trung thành cụm, khiến chuỗi dò tìm dài hơn."
+  },
+  {
+    "question": "In linear probing with table size b, if all b positions are probed and no empty slot is found, what does it mean?",
+    "options": [
+      "A. The table is full",
+      "B. The key is necessarily duplicate",
+      "C. The array is sorted",
+      "D. The hash function is perfect"
+    ],
+    "answer": "A",
+    "explanation": "Nếu đã thử quay vòng toàn bộ b ô mà không có ô trống, bảng đã đầy."
+  },
+  {
+    "question": "Which probing method examines f(x), (f(x)+i^2)%b, and (f(x)-i^2)%b?",
+    "options": [
+      "A. Quadratic probing",
+      "B. Linear probing",
+      "C. Separate chaining",
+      "D. Merge probing"
+    ],
+    "answer": "A",
+    "explanation": "Quadratic probing dùng bước nhảy dạng bình phương của i."
+  },
+  {
+    "question": "Which collision method has the advantage that deletion is easy and array size is not a strict limitation?",
+    "options": [
+      "A. Separate chaining",
+      "B. Linear probing",
+      "C. Quadratic probing only",
+      "D. Binary search"
+    ],
+    "answer": "A",
+    "explanation": "Separate chaining dùng linked list nên xóa node dễ và mỗi bucket có thể chứa nhiều phần tử."
+  },
+  {
+    "question": "Why can separate chaining still be expected O(1) on average with a good hash function?",
+    "options": [
+      "A. Each chain remains a small constant length on average",
+      "B. Each chain is always empty",
+      "C. It sorts all keys in O(log n)",
+      "D. It removes all collisions"
+    ],
+    "answer": "A",
+    "explanation": "Nếu phân phối đều, số key trong mỗi bucket nhỏ nên tìm/chèn/xóa trung bình hằng số."
+  },
+  {
+    "question": "What is a synonym in hashing terminology?",
+    "options": [
+      "A. A key that has the same home bucket as another key",
+      "B. A duplicate variable name in C only",
+      "C. A node with two children",
+      "D. A sorted array record"
+    ],
+    "answer": "A",
+    "explanation": "Các key khác nhau nhưng cùng hash value/home bucket được gọi là synonyms."
+  },
+  {
+    "question": "What is overflow in a hash table bucket?",
+    "options": [
+      "A. The home bucket has no space for a new pair",
+      "B. The graph has a cycle",
+      "C. The stack is empty",
+      "D. A tree has no root"
+    ],
+    "answer": "A",
+    "explanation": "Overflow xảy ra khi bucket cần chèn đã đầy."
+  },
+  {
+    "question": "Which hash method squares the key and uses middle digits/bits?",
+    "options": [
+      "A. Mid-square method",
+      "B. Division method",
+      "C. Linear probing",
+      "D. DFS"
+    ],
+    "answer": "A",
+    "explanation": "Mid-square lấy phần giữa của bình phương key để tạo địa chỉ băm."
+  },
+  {
+    "question": "Using the mid-square example, if key 4567 squared gives 20857489 and the table size needs two decimal digits, what hash value is selected?",
+    "options": [
+      "A. 57",
+      "B. 20",
+      "C. 89",
+      "D. 4567"
+    ],
+    "answer": "A",
+    "explanation": "Phương pháp mid-square lấy hai chữ số giữa của 20857489 là 57."
+  },
+  {
+    "question": "In folding hash for integer key 87629426 with HT_SIZE = 251, using (8762 + 9426) % 251, what is the hash value?",
+    "options": [
+      "A. 116",
+      "B. 251",
+      "C. 8762",
+      "D. 9426"
+    ],
+    "answer": "A",
+    "explanation": "8762 + 9426 = 18188; 18188 mod 251 = 116."
+  },
+  {
+    "question": "When is hashing less suitable according to the slides?",
+    "options": [
+      "A. When many insertions/deletions or table traversals are needed",
+      "B. When many searches are needed in a stable table",
+      "C. When keys uniquely identify entries",
+      "D. When a compiler tracks variables"
+    ],
+    "answer": "A",
+    "explanation": "Hash table mạnh về tìm kiếm trong bảng tương đối ổn định, nhưng traversal và cập nhật nhiều có thể kém phù hợp."
+  },
+  {
+    "question": "What is the main goal of dynamic or extendible hashing?",
+    "options": [
+      "A. Adjust table size as the number of identifiers changes",
+      "B. Force all keys into one bucket",
+      "C. Replace graphs with stacks",
+      "D. Make binary search unnecessary for sorted arrays"
+    ],
+    "answer": "A",
+    "explanation": "Dynamic hashing tăng/giảm kích thước bảng khi số lượng key thay đổi nhiều."
+  },
+  {
+    "question": "In extendible hashing terminology from the slides, what may buckets also be called in database contexts?",
+    "options": [
+      "A. Pages",
+      "B. Leaves",
+      "C. Pivots",
+      "D. Roots"
+    ],
+    "answer": "A",
+    "explanation": "Trong ngữ cảnh cơ sở dữ liệu, bucket thường tương ứng với page."
+  },
+  {
+    "question": "What is space utilization in dynamic hashing according to the slides?",
+    "options": [
+      "A. n / (m * p)",
+      "B. m * p / n",
+      "C. n + m + p",
+      "D. log2(n)"
+    ],
+    "answer": "A",
+    "explanation": "Space utilization = số record thực tế n chia cho tổng sức chứa m*p."
+  },
+  {
+    "question": "Why is quick sort unstable according to the slide's classification?",
+    "options": [
+      "A. Partition swaps may change the relative order of equal keys",
+      "B. It cannot sort arrays",
+      "C. It always uses O(n^2)",
+      "D. It requires a linked list"
+    ],
+    "answer": "A",
+    "explanation": "Các phép swap trong partition có thể làm đổi thứ tự tương đối của các phần tử bằng khóa."
+  }
+]

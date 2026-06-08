@@ -97,6 +97,49 @@ const builtInPacks = [
     }
 ];
 
+const packEnhancements = {
+    algo_analysis: { tags: ["Foundation", "Big-O", "Theory"] },
+    linked_lists: { tags: ["Structure", "Linked List", "Pointer"] },
+    stacks_queues: { tags: ["Structure", "Stack", "Queue"] },
+    search_sort: { tags: ["Algorithm", "Search", "Sort"] },
+    trees: { tags: ["Structure", "Tree", "Traversal"] },
+    heaps: { tags: ["Structure", "Heap", "Priority Queue"] },
+    graphs: { tags: ["Structure", "Graph", "BFS/DFS"] },
+    hash_table: { tags: ["Structure", "Hashing", "Collision"] }
+};
+
+builtInPacks.forEach(pack => Object.assign(pack, packEnhancements[pack.id] || {}));
+
+builtInPacks.push(
+    {
+        id: "dsa_easy_50",
+        title: "DSA Easy - 50 Questions",
+        desc: "Entry-level DSA review questions for core concepts and basic operations.",
+        file: "./src/data/dsa_easy_50_questions.json",
+        source: "Built-in",
+        count: 50,
+        tags: ["Easy", "50 questions", "Review"]
+    },
+    {
+        id: "dsa_medium_50",
+        title: "DSA Medium - 50 Questions",
+        desc: "Medium DSA questions focused on analysis and practical algorithm use.",
+        file: "./src/data/dsa_medium_50_questions.json",
+        source: "Built-in",
+        count: 50,
+        tags: ["Medium", "50 questions", "Practice"]
+    },
+    {
+        id: "dsa_hard_50",
+        title: "DSA Hard - 50 Questions",
+        desc: "Advanced DSA questions for complexity analysis and deeper reasoning.",
+        file: "./src/data/dsa_hard_50_questions.json",
+        source: "Built-in",
+        count: 50,
+        tags: ["Hard", "50 questions", "Advanced"]
+    }
+);
+
 const STORAGE_STATS_KEY = "ctdlgt_quiz_stats_v2";
 const STORAGE_PROGRESS_PREFIX = "ctdlgt_progress_";
 const STORAGE_IMPORTED_KEY = "ctdlgt_imported_packs_v1";
@@ -262,7 +305,7 @@ function rebuildPackList() {
 function renderPacks() {
     const query = els.packSearch.value.trim().toLowerCase();
     const packs = availablePacks.filter(pack => {
-        const haystack = `${pack.title} ${pack.desc} ${pack.source}`.toLowerCase();
+        const haystack = `${pack.title} ${pack.desc} ${pack.source} ${(pack.tags || []).join(" ")}`.toLowerCase();
         return haystack.includes(query);
     });
 
@@ -277,12 +320,14 @@ function renderPacks() {
         const item = document.createElement("button");
         item.type = "button";
         item.className = `pack-item ${selectedPack?.id === pack.id ? "active" : ""}`;
+        const tagMarkup = renderPackTags(pack.tags);
         item.innerHTML = `
             <div class="pack-topline">
                 <h3>${escapeHtml(pack.title)}</h3>
                 <span class="pack-source">${escapeHtml(pack.source || "Import")}</span>
             </div>
             <p>${escapeHtml(pack.desc || "Gói câu hỏi đã import.")}</p>
+            ${tagMarkup}
             <div class="pack-meta">
                 <span>${pack.count ? `${pack.count} câu` : "Sẵn sàng tải"}</span>
                 ${pack.imported ? '<span class="text-button" data-delete-pack>Gỡ</span>' : ""}
@@ -305,6 +350,18 @@ function renderPacks() {
         { opacity: [0, 1], y: [30, 0], scale: [0.85, 1], rotate: [-2, 0] },
         { delay: stagger(0.08), type: "spring", stiffness: 400, damping: 15 }
     );
+}
+
+function renderPackTags(tags = []) {
+    if (!Array.isArray(tags) || tags.length === 0) {
+        return "";
+    }
+
+    return `
+        <div class="pack-tags">
+            ${tags.map(tag => `<span class="pack-tag">${escapeHtml(tag)}</span>`).join("")}
+        </div>
+    `;
 }
 
 function selectPack(pack) {
@@ -1096,7 +1153,7 @@ function updateDictionaryForCurrentQuestion(question) {
     const knownKeys = new Set();
 
     glossary.forEach(item => {
-        if (fullText.includes(item.term.toLowerCase())) {
+        if (textContainsTerm(fullText, item.term)) {
             relevant.push(item);
             knownKeys.add(item.term.toLowerCase());
         }
@@ -1107,15 +1164,43 @@ function updateDictionaryForCurrentQuestion(question) {
         .split(/\s+/)
         .filter(word => word.length > 3 && !stopWords.has(word));
 
-    [...new Set(words)].slice(0, 18).forEach(word => {
+    const uniqueWords = [...new Set(words)];
+
+    uniqueWords.slice(0, 18).forEach(word => {
         if (knownKeys.has(word)) return;
-        if (translationCache.has(word) && translationCache.get(word) !== "Không rõ") {
-            relevant.push({ term: capitalize(word), def: translationCache.get(word) });
-            knownKeys.add(word);
+        if (translationCache.has(word)) {
+            const cachedDef = translationCache.get(word);
+            if (cachedDef !== "Không rõ") {
+                relevant.push({ term: capitalize(word), def: cachedDef });
+                knownKeys.add(word);
+            }
         }
     });
 
     renderDictionaryForQuestion(relevant);
+
+    // Fetch translations for words not in cache (limit to 5 to prevent API rate-limiting)
+    const uncachedWords = [];
+    
+    uncachedWords.forEach(async (word) => {
+        await fetchWordTranslation(word);
+        const translated = translationCache.get(word);
+        if (translated && translated !== "Không rõ") {
+            // Re-render only if the user is still on the same question
+            if (currentQuestions.length > 0 && currentQuestions[currentQuestionIndex] === question) {
+                updateDictionaryForCurrentQuestion(question);
+            }
+        }
+    });
+}
+
+function textContainsTerm(text, term) {
+    const normalizedTerm = term.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    if (!normalizedTerm) {
+        return false;
+    }
+
+    return new RegExp(`(^|[^a-z0-9])${normalizedTerm}([^a-z0-9]|$)`, "i").test(text);
 }
 
 function renderDictionaryForQuestion(relevantTerms) {

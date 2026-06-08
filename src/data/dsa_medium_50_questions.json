@@ -1,0 +1,552 @@
+[
+  {
+    "question": "For an array representation of a complete binary tree using 1-based indexing, where is the left child of node i?",
+    "options": [
+      "A. 2i",
+      "B. 2i + 2",
+      "C. i / 2",
+      "D. i - 1"
+    ],
+    "answer": "A",
+    "explanation": "Với chỉ số bắt đầu từ 1, con trái của node i nằm ở vị trí 2i."
+  },
+  {
+    "question": "For an array representation of a complete binary tree using 1-based indexing, where is the right child of node i?",
+    "options": [
+      "A. 2i + 1",
+      "B. 2i",
+      "C. i / 2",
+      "D. i + 1"
+    ],
+    "answer": "A",
+    "explanation": "Với 1-based indexing, con phải của node i nằm ở vị trí 2i + 1."
+  },
+  {
+    "question": "For a non-root node i in a 1-based complete binary tree array, where is its parent?",
+    "options": [
+      "A. floor(i / 2)",
+      "B. 2i",
+      "C. 2i + 1",
+      "D. i + 2"
+    ],
+    "answer": "A",
+    "explanation": "Cha của node i trong cách lưu mảng 1-based là floor(i/2)."
+  },
+  {
+    "question": "What is the maximum number of nodes at level i of a binary tree when the root is level 1?",
+    "options": [
+      "A. 2^(i - 1)",
+      "B. 2^i - 1",
+      "C. i^2",
+      "D. i - 1"
+    ],
+    "answer": "A",
+    "explanation": "Level 1 có tối đa 1 node, level 2 có 2 node, nên level i có tối đa 2^(i-1) node."
+  },
+  {
+    "question": "What is the maximum number of nodes in a binary tree of depth k?",
+    "options": [
+      "A. 2^k - 1",
+      "B. k^2",
+      "C. 2k + 1",
+      "D. k - 1"
+    ],
+    "answer": "A",
+    "explanation": "Cây nhị phân đầy đủ độ sâu k có tổng số node tối đa là 2^k - 1."
+  },
+  {
+    "question": "For any nonempty binary tree, if n0 is the number of leaves and n2 is the number of degree-2 nodes, which relation holds?",
+    "options": [
+      "A. n0 = n2 + 1",
+      "B. n0 = n2 - 1",
+      "C. n0 = 2n2",
+      "D. n0 + n2 = 0"
+    ],
+    "answer": "A",
+    "explanation": "Tính chất cơ bản của cây nhị phân không rỗng là số lá bằng số node bậc 2 cộng 1."
+  },
+  {
+    "question": "What is the time complexity of searching in a BST with height h?",
+    "options": [
+      "A. O(h)",
+      "B. O(1)",
+      "C. O(n^2)",
+      "D. O(2^n)"
+    ],
+    "answer": "A",
+    "explanation": "Tìm kiếm trong BST đi theo một nhánh từ root xuống nên phụ thuộc vào chiều cao h."
+  },
+  {
+    "question": "When inserting a key into a BST, where is the new key placed?",
+    "options": [
+      "A. At the null subtree where the search terminates",
+      "B. Always at the root",
+      "C. Always at the leftmost leaf",
+      "D. At a random position"
+    ],
+    "answer": "A",
+    "explanation": "Ta tìm vị trí theo quy tắc BST, khi gặp NULL thì chèn node mới tại đó."
+  },
+  {
+    "question": "In BST deletion, if a node has two children, what is a common replacement?",
+    "options": [
+      "A. The smallest element in the right subtree",
+      "B. A random leaf",
+      "C. The root of the whole tree only",
+      "D. NULL without reconnecting"
+    ],
+    "answer": "A",
+    "explanation": "Node có hai con thường được thay bằng successor: phần tử nhỏ nhất ở cây con phải."
+  },
+  {
+    "question": "Which traversal of a BST outputs keys in ascending order?",
+    "options": [
+      "A. Inorder traversal",
+      "B. Preorder traversal",
+      "C. Postorder traversal",
+      "D. Level-order traversal always"
+    ],
+    "answer": "A",
+    "explanation": "Inorder của BST duyệt trái-root-phải nên cho thứ tự tăng dần."
+  },
+  {
+    "question": "Which data structure is used by iterative inorder traversal to simulate recursion?",
+    "options": [
+      "A. Stack",
+      "B. Queue",
+      "C. Hash table",
+      "D. Heap"
+    ],
+    "answer": "A",
+    "explanation": "Iterative inorder dùng stack để lưu các node chờ xử lý giống cơ chế đệ quy."
+  },
+  {
+    "question": "Which data structure is used for level-order traversal of a binary tree?",
+    "options": [
+      "A. Queue",
+      "B. Stack",
+      "C. Hash table",
+      "D. Linked list only"
+    ],
+    "answer": "A",
+    "explanation": "Level-order duyệt theo từng tầng nên dùng queue để xử lý node theo FIFO."
+  },
+  {
+    "question": "What is the worst-case time complexity of insertion sort?",
+    "options": [
+      "A. O(n^2)",
+      "B. O(log n)",
+      "C. O(n log n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Trường hợp xấu, mỗi phần tử phải dịch qua nhiều vị trí, tổng khoảng n(n-1)/2."
+  },
+  {
+    "question": "Why is insertion sort considered stable?",
+    "options": [
+      "A. Equal keys keep their relative order",
+      "B. It never moves any element",
+      "C. It always uses O(log n) time",
+      "D. It requires a heap"
+    ],
+    "answer": "A",
+    "explanation": "Stable nghĩa là các phần tử có khóa bằng nhau vẫn giữ thứ tự tương đối ban đầu."
+  },
+  {
+    "question": "What is the worst-case time complexity of selection sort?",
+    "options": [
+      "A. O(n^2)",
+      "B. O(n)",
+      "C. O(log n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Selection sort luôn cần nhiều lượt so sánh để tìm phần tử nhỏ nhất trong phần chưa sắp xếp."
+  },
+  {
+    "question": "What does bubble sort do at each step in the version shown in the slides?",
+    "options": [
+      "A. It bubbles the smallest element of the unsorted part toward the front",
+      "B. It chooses a pivot and partitions",
+      "C. It builds a hash table",
+      "D. It performs binary search"
+    ],
+    "answer": "A",
+    "explanation": "Phiên bản trong slide so sánh từ cuối về đầu để phần tử nhỏ nhất nổi về vị trí i."
+  },
+  {
+    "question": "What are the average and best time complexities of quick sort in the slides?",
+    "options": [
+      "A. O(n log n)",
+      "B. O(n^2)",
+      "C. O(n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Quick sort trung bình và tốt nhất là O(n log n) khi phân hoạch tương đối cân bằng."
+  },
+  {
+    "question": "What is the worst-case time complexity of quick sort?",
+    "options": [
+      "A. O(n^2)",
+      "B. O(log n)",
+      "C. O(n log n) always",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Quick sort xấu nhất O(n^2) khi pivot tạo phân hoạch quá lệch."
+  },
+  {
+    "question": "What is the time complexity of merging two sorted lists of total length n?",
+    "options": [
+      "A. O(n)",
+      "B. O(log n)",
+      "C. O(n^2)",
+      "D. O(2^n)"
+    ],
+    "answer": "A",
+    "explanation": "Merge duyệt mỗi phần tử một lần nên thời gian là O(n)."
+  },
+  {
+    "question": "What is the time complexity of merge sort?",
+    "options": [
+      "A. O(n log n)",
+      "B. O(n^2)",
+      "C. O(log n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Merge sort chia đôi log n lần và mỗi tầng trộn O(n), nên tổng là O(n log n)."
+  },
+  {
+    "question": "What is the extra space complexity of the merge sort version in the slides?",
+    "options": [
+      "A. O(n)",
+      "B. O(1)",
+      "C. O(log n) always",
+      "D. O(n^2)"
+    ],
+    "answer": "A",
+    "explanation": "Phiên bản merge sort trong slide dùng mảng phụ để trộn nên cần O(n) bộ nhớ."
+  },
+  {
+    "question": "What is the worst-case number of comparisons for unsuccessful sequential search?",
+    "options": [
+      "A. n",
+      "B. log n",
+      "C. 1",
+      "D. n log n"
+    ],
+    "answer": "A",
+    "explanation": "Nếu không tìm thấy, sequential search phải kiểm tra toàn bộ n phần tử."
+  },
+  {
+    "question": "What is the best-case time complexity of successful sequential search?",
+    "options": [
+      "A. O(1)",
+      "B. O(n)",
+      "C. O(n^2)",
+      "D. O(log n)"
+    ],
+    "answer": "A",
+    "explanation": "Nếu phần tử cần tìm ở vị trí đầu tiên, chỉ cần một lần so sánh."
+  },
+  {
+    "question": "What is the worst-case time complexity of binary search?",
+    "options": [
+      "A. O(log n)",
+      "B. O(n)",
+      "C. O(n^2)",
+      "D. O(n log n)"
+    ],
+    "answer": "A",
+    "explanation": "Binary search giảm một nửa kích thước vùng tìm kiếm sau mỗi vòng lặp."
+  },
+  {
+    "question": "In a singly linked list, what is the time complexity of random access by index?",
+    "options": [
+      "A. O(n)",
+      "B. O(1)",
+      "C. O(log n)",
+      "D. O(n log n)"
+    ],
+    "answer": "A",
+    "explanation": "Linked list không lưu liên tiếp, muốn tới vị trí i phải đi từ head qua từng node."
+  },
+  {
+    "question": "What is an advantage of linked lists over fixed-size arrays?",
+    "options": [
+      "A. Arbitrary size and easier middle insertion/deletion",
+      "B. O(1) random access",
+      "C. No pointers needed",
+      "D. Always less memory per element"
+    ],
+    "answer": "A",
+    "explanation": "Linked list linh hoạt kích thước và chèn/xóa giữa danh sách không cần dịch phần tử."
+  },
+  {
+    "question": "In a circularly linked list, where does the last node point?",
+    "options": [
+      "A. To the first node",
+      "B. To NULL",
+      "C. To itself only always",
+      "D. To a hash bucket"
+    ],
+    "answer": "A",
+    "explanation": "Circular linked list nối node cuối về node đầu, tạo thành vòng."
+  },
+  {
+    "question": "What extra link does a doubly linked list add compared with a singly linked list?",
+    "options": [
+      "A. A previous/left link",
+      "B. A hash code",
+      "C. A queue index",
+      "D. A pivot pointer"
+    ],
+    "answer": "A",
+    "explanation": "Doubly linked list có liên kết tới node trước và node sau."
+  },
+  {
+    "question": "In polynomial linked-list representation, what fields does each term node usually contain?",
+    "options": [
+      "A. coefficient, exponent, link",
+      "B. row, column, color only",
+      "C. parent, left, right only",
+      "D. key, bucket, probe only"
+    ],
+    "answer": "A",
+    "explanation": "Mỗi hạng tử đa thức lưu hệ số, số mũ và con trỏ tới hạng tử tiếp theo."
+  },
+  {
+    "question": "What is the time complexity of adding two polynomials with m and n terms using linked lists?",
+    "options": [
+      "A. O(m + n)",
+      "B. O(mn)",
+      "C. O(log(m+n))",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Ta duyệt tuần tự hai danh sách hạng tử nên tổng thời gian là O(m+n)."
+  },
+  {
+    "question": "Which properties define an equivalence relation?",
+    "options": [
+      "A. Reflexive, symmetric, and transitive",
+      "B. Sorted, stable, and recursive",
+      "C. Weighted, directed, and complete",
+      "D. Empty, full, and circular"
+    ],
+    "answer": "A",
+    "explanation": "Quan hệ tương đương phải phản xạ, đối xứng và bắc cầu."
+  },
+  {
+    "question": "In a sparse matrix linked representation, why are head nodes used?",
+    "options": [
+      "A. To link row and column lists",
+      "B. To sort all elements by heap order",
+      "C. To perform binary search",
+      "D. To store only zero values"
+    ],
+    "answer": "A",
+    "explanation": "Head nodes giúp quản lý các danh sách theo hàng và cột của các phần tử khác 0."
+  },
+  {
+    "question": "In a max heap insertion, where is the new item first placed?",
+    "options": [
+      "A. At the last entry of the array",
+      "B. At the root permanently",
+      "C. In the leftmost position always",
+      "D. In a separate linked list"
+    ],
+    "answer": "A",
+    "explanation": "Khi chèn heap, thêm phần tử vào cuối rồi đẩy lên nếu cần."
+  },
+  {
+    "question": "What is the time complexity of insertion into a heap?",
+    "options": [
+      "A. O(log n)",
+      "B. O(n^2)",
+      "C. O(n)",
+      "D. O(1) always"
+    ],
+    "answer": "A",
+    "explanation": "Phần tử có thể đi lên theo chiều cao heap, mà chiều cao heap là O(log n)."
+  },
+  {
+    "question": "What is the time complexity of deleting the maximum from a max heap?",
+    "options": [
+      "A. O(log n)",
+      "B. O(1) always",
+      "C. O(n^2)",
+      "D. O(n log n)"
+    ],
+    "answer": "A",
+    "explanation": "Sau khi lấy root, ta đưa phần tử cuối lên root rồi điều chỉnh xuống O(log n)."
+  },
+  {
+    "question": "What is the time complexity of heap sort?",
+    "options": [
+      "A. O(n log n)",
+      "B. O(n^2)",
+      "C. O(log n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Heap sort xây heap rồi lặp lại thao tác lấy max và adjust, tổng O(n log n)."
+  },
+  {
+    "question": "When building a max heap in heap sort, from which nodes is adjust invoked first?",
+    "options": [
+      "A. From A[n/2] down to A[1]",
+      "B. From A[1] to A[n] only",
+      "C. From all leaves upward by index n to 1",
+      "D. From random nodes"
+    ],
+    "answer": "A",
+    "explanation": "Chỉ cần adjust các node không phải lá, bắt đầu từ n/2 về 1."
+  },
+  {
+    "question": "For an undirected graph with n vertices, what is the maximum number of edges?",
+    "options": [
+      "A. n(n - 1) / 2",
+      "B. n(n - 1)",
+      "C. n^2 + 1",
+      "D. log n"
+    ],
+    "answer": "A",
+    "explanation": "Đồ thị vô hướng đầy đủ có một cạnh cho mỗi cặp đỉnh không thứ tự."
+  },
+  {
+    "question": "For a directed graph with n vertices, what is the maximum number of edges if self-loops are not considered?",
+    "options": [
+      "A. n(n - 1)",
+      "B. n(n - 1) / 2",
+      "C. n",
+      "D. n - 1"
+    ],
+    "answer": "A",
+    "explanation": "Đồ thị có hướng phân biệt <u,v> và <v,u>, nên tối đa n(n-1) cạnh."
+  },
+  {
+    "question": "In an undirected graph, what is the sum of all vertex degrees?",
+    "options": [
+      "A. 2|E|",
+      "B. |E|",
+      "C. |V|",
+      "D. |V| + |E|"
+    ],
+    "answer": "A",
+    "explanation": "Mỗi cạnh vô hướng đóng góp 1 vào bậc của hai đỉnh, tổng là 2|E|."
+  },
+  {
+    "question": "What is a connected component?",
+    "options": [
+      "A. A maximal connected subgraph",
+      "B. A single hash bucket",
+      "C. A stack activation record",
+      "D. A sorted array segment"
+    ],
+    "answer": "A",
+    "explanation": "Connected component là đồ thị con liên thông lớn nhất theo quan hệ liên thông."
+  },
+  {
+    "question": "What is the adjacency matrix property for an undirected graph?",
+    "options": [
+      "A. It is symmetric",
+      "B. It must be triangular",
+      "C. It contains only prime numbers",
+      "D. It has no zeros"
+    ],
+    "answer": "A",
+    "explanation": "Vì (u,v) và (v,u) là cùng cạnh, ma trận kề của đồ thị vô hướng đối xứng."
+  },
+  {
+    "question": "For a digraph adjacency matrix, what does the row sum represent?",
+    "options": [
+      "A. Out-degree",
+      "B. In-degree",
+      "C. Tree height",
+      "D. Heap size"
+    ],
+    "answer": "A",
+    "explanation": "Tổng hàng i đếm số cạnh đi ra từ đỉnh i, tức out-degree."
+  },
+  {
+    "question": "For a digraph adjacency matrix, what does the column sum represent?",
+    "options": [
+      "A. In-degree",
+      "B. Out-degree",
+      "C. Stack size",
+      "D. Tree depth"
+    ],
+    "answer": "A",
+    "explanation": "Tổng cột i đếm số cạnh đi vào đỉnh i, tức in-degree."
+  },
+  {
+    "question": "What is the DFS time complexity using adjacency lists?",
+    "options": [
+      "A. O(n + e)",
+      "B. O(n^2) always",
+      "C. O(log n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "DFS với adjacency list duyệt các đỉnh và các cạnh kề nên O(n+e)."
+  },
+  {
+    "question": "What is the DFS time complexity using adjacency matrices?",
+    "options": [
+      "A. O(n^2)",
+      "B. O(n + e)",
+      "C. O(log n)",
+      "D. O(1)"
+    ],
+    "answer": "A",
+    "explanation": "Với ma trận kề, để tìm hàng xóm thường phải quét hàng dài n cho mỗi đỉnh, tổng O(n^2)."
+  },
+  {
+    "question": "Which hashing method uses f(k) = k % b?",
+    "options": [
+      "A. Division method",
+      "B. Mid-square method",
+      "C. Digit analysis only",
+      "D. Preorder method"
+    ],
+    "answer": "A",
+    "explanation": "Division method lấy phần dư của key khi chia cho số bucket b."
+  },
+  {
+    "question": "Why is a prime number often chosen as hash table size in division hashing?",
+    "options": [
+      "A. To help distribute keys better and avoid bad patterns",
+      "B. To make binary search faster",
+      "C. To remove the need for keys",
+      "D. To make the table a tree"
+    ],
+    "answer": "A",
+    "explanation": "Kích thước bảng là số nguyên tố thường giúp giảm phân cụm do mẫu chia dư."
+  },
+  {
+    "question": "Which collision resolution formula describes linear probing?",
+    "options": [
+      "A. f_i(k) = (f(k) + i) % b",
+      "B. f_i(k) = f(k) / i",
+      "C. f_i(k) = i^2 without modulo",
+      "D. f_i(k) = root + left"
+    ],
+    "answer": "A",
+    "explanation": "Linear probing tăng vị trí thử thêm i và lấy modulo b để quay vòng."
+  },
+  {
+    "question": "Which open addressing method uses a second hash function?",
+    "options": [
+      "A. Double hashing",
+      "B. Bubble sort",
+      "C. Separate chaining",
+      "D. DFS"
+    ],
+    "answer": "A",
+    "explanation": "Double hashing dùng hai hash function để tạo chuỗi dò tìm khi collision."
+  }
+]

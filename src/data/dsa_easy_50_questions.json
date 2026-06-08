@@ -1,0 +1,552 @@
+[
+  {
+    "question": "What is an algorithm?",
+    "options": [
+      "A. A sequence of instructions used to solve a problem",
+      "B. A physical storage device",
+      "C. A programming language only for C",
+      "D. A type of database table"
+    ],
+    "answer": "A",
+    "explanation": "Thuật toán là một dãy bước/hướng dẫn để giải quyết một bài toán."
+  },
+  {
+    "question": "What is the main purpose of algorithm analysis?",
+    "options": [
+      "A. To make code look shorter",
+      "B. To estimate efficiency such as running time and memory usage",
+      "C. To remove all variables from a program",
+      "D. To convert C code into Java code"
+    ],
+    "answer": "B",
+    "explanation": "Phân tích thuật toán giúp đánh giá độ hiệu quả, thường là thời gian chạy và bộ nhớ."
+  },
+  {
+    "question": "Which notation is most commonly used to describe an upper bound of running time?",
+    "options": [
+      "A. Big-O",
+      "B. ASCII",
+      "C. FIFO",
+      "D. LIFO"
+    ],
+    "answer": "A",
+    "explanation": "Big-O mô tả cận trên của tốc độ tăng thời gian chạy."
+  },
+  {
+    "question": "Which growth rate is usually faster than O(n) but slower than O(n^2)?",
+    "options": [
+      "A. O(1)",
+      "B. O(log n)",
+      "C. O(n log n)",
+      "D. O(2^n)"
+    ],
+    "answer": "C",
+    "explanation": "O(n log n) thường lớn hơn O(n) nhưng nhỏ hơn O(n^2) khi n lớn."
+  },
+  {
+    "question": "What does a pointer store in C/C++?",
+    "options": [
+      "A. The address of another variable",
+      "B. Only an integer value",
+      "C. Only a character",
+      "D. The name of a compiler"
+    ],
+    "answer": "A",
+    "explanation": "Con trỏ lưu địa chỉ bộ nhớ của một biến hoặc vùng nhớ khác."
+  },
+  {
+    "question": "Which operator is used in C/C++ to get the address of a variable?",
+    "options": [
+      "A. *",
+      "B. &",
+      "C. %",
+      "D. ->"
+    ],
+    "answer": "B",
+    "explanation": "Toán tử & dùng để lấy địa chỉ của biến."
+  },
+  {
+    "question": "Which C function is used to release memory allocated by malloc?",
+    "options": [
+      "A. delete",
+      "B. free",
+      "C. remove",
+      "D. clear"
+    ],
+    "answer": "B",
+    "explanation": "Trong C, vùng nhớ cấp phát bằng malloc/calloc/realloc được giải phóng bằng free."
+  },
+  {
+    "question": "What is the base case in recursion?",
+    "options": [
+      "A. The condition that stops recursive calls",
+      "B. The largest input value",
+      "C. The last variable declared",
+      "D. A pointer to the stack"
+    ],
+    "answer": "A",
+    "explanation": "Base case là trường hợp dừng, giúp đệ quy không gọi vô hạn."
+  },
+  {
+    "question": "What is an array?",
+    "options": [
+      "A. A collection of elements stored contiguously in memory",
+      "B. A collection of nodes connected by pointers only",
+      "C. A graph traversal method",
+      "D. A hash collision technique"
+    ],
+    "answer": "A",
+    "explanation": "Mảng lưu các phần tử liên tiếp trong bộ nhớ nên truy cập theo chỉ số nhanh."
+  },
+  {
+    "question": "What is a linked list made of?",
+    "options": [
+      "A. Nodes pointing to each other",
+      "B. Only one integer variable",
+      "C. A sorted matrix",
+      "D. A compiler table only"
+    ],
+    "answer": "A",
+    "explanation": "Danh sách liên kết gồm các node, mỗi node chứa dữ liệu và liên kết đến node khác."
+  },
+  {
+    "question": "In a singly linked list, what does the last node usually point to?",
+    "options": [
+      "A. NULL",
+      "B. The middle node",
+      "C. The previous node",
+      "D. A random address"
+    ],
+    "answer": "A",
+    "explanation": "Node cuối thường trỏ đến NULL để báo hiệu hết danh sách."
+  },
+  {
+    "question": "Which pointer usually identifies the first node of a linked list?",
+    "options": [
+      "A. head",
+      "B. tail only",
+      "C. root",
+      "D. pivot"
+    ],
+    "answer": "A",
+    "explanation": "head lưu địa chỉ node đầu tiên của danh sách liên kết."
+  },
+  {
+    "question": "Which data structure follows LIFO?",
+    "options": [
+      "A. Queue",
+      "B. Stack",
+      "C. Graph",
+      "D. Hash table"
+    ],
+    "answer": "B",
+    "explanation": "Stack hoạt động theo Last In, First Out: vào sau thì ra trước."
+  },
+  {
+    "question": "Which operations are basic stack operations?",
+    "options": [
+      "A. push and pop",
+      "B. enqueue and dequeue",
+      "C. rotate and split",
+      "D. hash and probe"
+    ],
+    "answer": "A",
+    "explanation": "push thêm phần tử vào đỉnh stack, pop lấy phần tử khỏi đỉnh stack."
+  },
+  {
+    "question": "Which data structure follows FIFO?",
+    "options": [
+      "A. Stack",
+      "B. Queue",
+      "C. Binary search tree",
+      "D. Heap"
+    ],
+    "answer": "B",
+    "explanation": "Queue hoạt động theo First In, First Out: vào trước thì ra trước."
+  },
+  {
+    "question": "In a queue, insertion is usually done at which end?",
+    "options": [
+      "A. front",
+      "B. rear",
+      "C. middle",
+      "D. root"
+    ],
+    "answer": "B",
+    "explanation": "Queue thêm phần tử ở rear và xóa phần tử ở front."
+  },
+  {
+    "question": "Which structure is commonly used to check balanced braces?",
+    "options": [
+      "A. Stack",
+      "B. Hash table",
+      "C. Binary search tree",
+      "D. Adjacency matrix"
+    ],
+    "answer": "A",
+    "explanation": "Stack phù hợp để lưu dấu mở và kiểm tra dấu đóng có khớp hay không."
+  },
+  {
+    "question": "What is sequential search?",
+    "options": [
+      "A. Checking elements one by one",
+      "B. Always dividing the list into two halves",
+      "C. Sorting the list first",
+      "D. Building a heap"
+    ],
+    "answer": "A",
+    "explanation": "Sequential search duyệt từng phần tử cho đến khi tìm thấy hoặc hết danh sách."
+  },
+  {
+    "question": "What condition is required for binary search on an array?",
+    "options": [
+      "A. The array must be sorted",
+      "B. The array must be circular",
+      "C. The array must contain only strings",
+      "D. The array must be a linked list"
+    ],
+    "answer": "A",
+    "explanation": "Binary search chỉ đúng khi dữ liệu đã được sắp xếp."
+  },
+  {
+    "question": "What is the average/worst typical time complexity of binary search?",
+    "options": [
+      "A. O(1)",
+      "B. O(log n)",
+      "C. O(n^2)",
+      "D. O(2^n)"
+    ],
+    "answer": "B",
+    "explanation": "Binary search chia đôi vùng tìm kiếm sau mỗi bước nên có độ phức tạp O(log n)."
+  },
+  {
+    "question": "Which sorting algorithm repeatedly inserts the current element into a sorted prefix?",
+    "options": [
+      "A. Insertion sort",
+      "B. Selection sort",
+      "C. Heap sort",
+      "D. Binary search"
+    ],
+    "answer": "A",
+    "explanation": "Insertion sort giữ phần đầu đã sắp xếp rồi chèn phần tử mới vào đúng vị trí."
+  },
+  {
+    "question": "Which sorting algorithm repeatedly selects the smallest remaining element?",
+    "options": [
+      "A. Selection sort",
+      "B. Merge sort",
+      "C. DFS",
+      "D. Hashing"
+    ],
+    "answer": "A",
+    "explanation": "Selection sort chọn phần tử nhỏ nhất trong đoạn chưa sắp xếp rồi đưa về đầu đoạn đó."
+  },
+  {
+    "question": "Which sorting algorithm is based on divide and conquer using a pivot?",
+    "options": [
+      "A. Quick sort",
+      "B. Bubble sort",
+      "C. Sequential search",
+      "D. Linear probing"
+    ],
+    "answer": "A",
+    "explanation": "Quick sort chọn pivot, phân hoạch mảng rồi sắp xếp đệ quy hai phần."
+  },
+  {
+    "question": "Which sorting algorithm divides the list into halves and merges sorted halves?",
+    "options": [
+      "A. Merge sort",
+      "B. Bubble sort",
+      "C. Selection sort",
+      "D. Sequential search"
+    ],
+    "answer": "A",
+    "explanation": "Merge sort chia mảng thành hai nửa, sắp xếp từng nửa rồi trộn lại."
+  },
+  {
+    "question": "What is a tree root?",
+    "options": [
+      "A. The specially designated top node of a tree",
+      "B. Any leaf node",
+      "C. The last node in an array",
+      "D. A collision in hashing"
+    ],
+    "answer": "A",
+    "explanation": "Root là node gốc, từ đó các subtree được hình thành."
+  },
+  {
+    "question": "What is a leaf node?",
+    "options": [
+      "A. A node with no children",
+      "B. A node with exactly two children",
+      "C. The first element of a queue",
+      "D. A node with a hash key"
+    ],
+    "answer": "A",
+    "explanation": "Leaf là node không có con."
+  },
+  {
+    "question": "What is a binary tree?",
+    "options": [
+      "A. A tree in which each node has at most two children",
+      "B. A graph with no vertices",
+      "C. A sorted array",
+      "D. A hash table with two buckets"
+    ],
+    "answer": "A",
+    "explanation": "Binary tree có mỗi node tối đa hai cây con: left subtree và right subtree."
+  },
+  {
+    "question": "What is inorder traversal order?",
+    "options": [
+      "A. Left, Visit, Right",
+      "B. Visit, Left, Right",
+      "C. Left, Right, Visit",
+      "D. Right, Visit, Left only"
+    ],
+    "answer": "A",
+    "explanation": "Inorder traversal đi trái, thăm node, rồi đi phải."
+  },
+  {
+    "question": "What is preorder traversal order?",
+    "options": [
+      "A. Visit, Left, Right",
+      "B. Left, Visit, Right",
+      "C. Left, Right, Visit",
+      "D. Right, Left, Visit"
+    ],
+    "answer": "A",
+    "explanation": "Preorder traversal thăm node trước, sau đó duyệt trái và phải."
+  },
+  {
+    "question": "What is postorder traversal order?",
+    "options": [
+      "A. Left, Right, Visit",
+      "B. Visit, Left, Right",
+      "C. Left, Visit, Right",
+      "D. Visit, Right, Left"
+    ],
+    "answer": "A",
+    "explanation": "Postorder traversal duyệt trái, duyệt phải, rồi mới thăm node."
+  },
+  {
+    "question": "What property must a Binary Search Tree satisfy?",
+    "options": [
+      "A. Left keys are smaller than root and right keys are larger than root",
+      "B. Every node must have exactly two children",
+      "C. All leaves must be at level 1",
+      "D. Keys are stored randomly"
+    ],
+    "answer": "A",
+    "explanation": "BST yêu cầu khóa bên trái nhỏ hơn node gốc và khóa bên phải lớn hơn node gốc."
+  },
+  {
+    "question": "Where is the smallest key found in a nonempty BST?",
+    "options": [
+      "A. The leftmost node",
+      "B. The root always",
+      "C. The rightmost node",
+      "D. The deepest right child"
+    ],
+    "answer": "A",
+    "explanation": "Trong BST, đi liên tục sang trái sẽ gặp khóa nhỏ nhất."
+  },
+  {
+    "question": "What is a heap commonly based on?",
+    "options": [
+      "A. Complete binary tree",
+      "B. Circular linked list only",
+      "C. Unsorted sequential search",
+      "D. Directed graph only"
+    ],
+    "answer": "A",
+    "explanation": "Heap là ứng dụng của complete binary tree và thường dùng làm priority queue."
+  },
+  {
+    "question": "In a max heap, what is true about each parent node?",
+    "options": [
+      "A. Its key is no smaller than its children",
+      "B. Its key is always smaller than its children",
+      "C. It has no children",
+      "D. It must be a prime number"
+    ],
+    "answer": "A",
+    "explanation": "Max heap yêu cầu khóa của cha lớn hơn hoặc bằng khóa của các con."
+  },
+  {
+    "question": "Where is the maximum element in a max heap?",
+    "options": [
+      "A. At the root",
+      "B. At the last leaf",
+      "C. At the leftmost leaf",
+      "D. Outside the array"
+    ],
+    "answer": "A",
+    "explanation": "Max heap luôn đặt phần tử lớn nhất ở root."
+  },
+  {
+    "question": "What is a graph G usually defined as?",
+    "options": [
+      "A. G = (V, E), with vertices and edges",
+      "B. G = stack + queue",
+      "C. G = array index only",
+      "D. G = key modulo table size"
+    ],
+    "answer": "A",
+    "explanation": "Graph gồm tập đỉnh V và tập cạnh E."
+  },
+  {
+    "question": "In an undirected graph, are edges (u, v) and (v, u) the same?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only in a heap",
+      "D. Only if u is the root"
+    ],
+    "answer": "A",
+    "explanation": "Trong đồ thị vô hướng, cạnh không có chiều nên (u,v) và (v,u) là cùng một cạnh."
+  },
+  {
+    "question": "What is a complete graph?",
+    "options": [
+      "A. A graph with the maximum possible number of edges",
+      "B. A graph with no edges",
+      "C. A linked list with a head node",
+      "D. A tree with one node only"
+    ],
+    "answer": "A",
+    "explanation": "Complete graph có số cạnh tối đa giữa các đỉnh."
+  },
+  {
+    "question": "Which representation uses a 2D matrix to show edges?",
+    "options": [
+      "A. Adjacency matrix",
+      "B. Stack array",
+      "C. Heap array only",
+      "D. Hash function"
+    ],
+    "answer": "A",
+    "explanation": "Adjacency matrix dùng ma trận n x n để biểu diễn quan hệ kề giữa các đỉnh."
+  },
+  {
+    "question": "Which graph traversal uses a queue?",
+    "options": [
+      "A. BFS",
+      "B. DFS recursive only",
+      "C. Quick sort",
+      "D. Heap insertion"
+    ],
+    "answer": "A",
+    "explanation": "BFS dùng queue để duyệt theo chiều rộng/từng lớp."
+  },
+  {
+    "question": "Which graph traversal goes as deeply as possible before backtracking?",
+    "options": [
+      "A. DFS",
+      "B. BFS",
+      "C. Merge sort",
+      "D. Linear probing"
+    ],
+    "answer": "A",
+    "explanation": "DFS duyệt sâu nhất có thể rồi quay lui."
+  },
+  {
+    "question": "What is a hash table mainly used for?",
+    "options": [
+      "A. Fast insertion, search, and deletion by key",
+      "B. Only sorting numbers",
+      "C. Only drawing graphs",
+      "D. Only recursion"
+    ],
+    "answer": "A",
+    "explanation": "Hash table dùng hash function để ánh xạ key vào vị trí lưu trữ, giúp thao tác nhanh."
+  },
+  {
+    "question": "What is a hash function?",
+    "options": [
+      "A. A function that maps a key to an index/address",
+      "B. A function that always sorts an array",
+      "C. A binary tree traversal",
+      "D. A stack overflow error"
+    ],
+    "answer": "A",
+    "explanation": "Hash function biến key thành chỉ số trong bảng băm."
+  },
+  {
+    "question": "What is a collision in hashing?",
+    "options": [
+      "A. Two different keys hash to the same bucket",
+      "B. A stack becomes empty",
+      "C. A binary tree has one node",
+      "D. A queue deletes from rear"
+    ],
+    "answer": "A",
+    "explanation": "Collision xảy ra khi hai key khác nhau được ánh xạ vào cùng bucket."
+  },
+  {
+    "question": "Which collision resolution method keeps a linked list at each table position?",
+    "options": [
+      "A. Separate chaining",
+      "B. Binary search",
+      "C. Inorder traversal",
+      "D. Bubble sort"
+    ],
+    "answer": "A",
+    "explanation": "Separate chaining lưu các key cùng bucket trong một linked list."
+  },
+  {
+    "question": "Which collision resolution method checks the next cells sequentially?",
+    "options": [
+      "A. Linear probing",
+      "B. Merge sort",
+      "C. Tree traversal",
+      "D. Hanoi recursion"
+    ],
+    "answer": "A",
+    "explanation": "Linear probing thử các ô tiếp theo theo thứ tự cho đến khi gặp ô trống."
+  },
+  {
+    "question": "What is dynamic hashing?",
+    "options": [
+      "A. Hashing where table size may grow or shrink",
+      "B. Hashing that never changes table size",
+      "C. Sorting by stack",
+      "D. BFS on a tree"
+    ],
+    "answer": "A",
+    "explanation": "Dynamic hashing cho phép tăng/giảm kích thước bảng khi số bản ghi thay đổi."
+  },
+  {
+    "question": "Which data structure is useful for job scheduling in the slides?",
+    "options": [
+      "A. Queue",
+      "B. Stack",
+      "C. Binary search tree",
+      "D. Sparse matrix"
+    ],
+    "answer": "A",
+    "explanation": "Job scheduling thường dùng queue vì công việc đến trước được xử lý trước."
+  },
+  {
+    "question": "Which data structure can reverse the order of characters?",
+    "options": [
+      "A. Stack",
+      "B. Queue",
+      "C. Hash table",
+      "D. Adjacency matrix"
+    ],
+    "answer": "A",
+    "explanation": "Stack đảo thứ tự vì phần tử vào sau được lấy ra trước."
+  },
+  {
+    "question": "What is a sparse matrix?",
+    "options": [
+      "A. A matrix with many zero elements",
+      "B. A matrix with no rows",
+      "C. A complete graph",
+      "D. A max heap"
+    ],
+    "answer": "A",
+    "explanation": "Sparse matrix có nhiều phần tử bằng 0 nên cần cách lưu tiết kiệm bộ nhớ."
+  }
+]
