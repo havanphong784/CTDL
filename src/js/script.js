@@ -749,6 +749,12 @@ function showResult(autoSubmitted) {
     const percent = total ? Math.round((score / total) * 100) : 0;
     const duration = formatTime(getSessionDuration());
 
+    // Find next pack
+    const currentIdx = availablePacks.findIndex(p => p.id === currentPackId);
+    const nextPack = (currentIdx !== -1 && currentIdx + 1 < availablePacks.length)
+        ? availablePacks[currentIdx + 1]
+        : null;
+
     els.resultCard.hidden = false;
     els.resultCard.innerHTML = `
         <h2>${autoSubmitted ? "Hết giờ" : "Kết quả phiên học"}</h2>
@@ -759,8 +765,54 @@ function showResult(autoSubmitted) {
             <div class="result-stat"><strong>${answered}</strong><span>Đã trả lời</span></div>
             <div class="result-stat"><strong>${wrong}</strong><span>Cần ôn lại</span></div>
         </div>
-        <p>Thời gian làm bài: ${duration}</p>
+        <p style="margin: 12px 0 16px; color: var(--muted); font-size: 0.9rem;">Thời gian làm bài: ${duration}</p>
+        
+        <div class="result-actions" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; margin-top: 18px; border-top: 1.5px dashed var(--line); padding-top: 18px;">
+            <button class="btn btn-secondary" id="btn-result-back" type="button">Đổi lựa chọn</button>
+            <button class="btn btn-secondary" id="btn-result-retry" type="button">Học lại</button>
+            ${nextPack ? `<button class="btn btn-primary" id="btn-result-next-pack" type="button" data-next-id="${nextPack.id}">Phần tiếp theo: ${escapeHtml(nextPack.title)}</button>` : ''}
+        </div>
     `;
+
+    // Dynamic bindings
+    const btnRetry = els.resultCard.querySelector("#btn-result-retry");
+    const btnNextPack = els.resultCard.querySelector("#btn-result-next-pack");
+    const btnBack = els.resultCard.querySelector("#btn-result-back");
+
+    const exitAnimation = () => {
+        const promise = animate(
+            els.resultCard,
+            { opacity: 0, scale: 0.9, y: [0, 20] },
+            { duration: 0.2 }
+        );
+        return promise.finished || Promise.resolve();
+    };
+
+    if (btnRetry) {
+        btnRetry.addEventListener("click", async () => {
+            await exitAnimation();
+            els.resultCard.hidden = true;
+            resetActiveSession();
+        });
+    }
+    if (btnNextPack) {
+        btnNextPack.addEventListener("click", async () => {
+            const nextPackObj = availablePacks.find(p => p.id === nextPack.id);
+            if (nextPackObj) {
+                await exitAnimation();
+                els.resultCard.hidden = true;
+                selectPack(nextPackObj);
+                openQuizFromSelection(false);
+            }
+        });
+    }
+    if (btnBack) {
+        btnBack.addEventListener("click", async () => {
+            await exitAnimation();
+            els.resultCard.hidden = true;
+            showSetupView();
+        });
+    }
 
     animate(
         els.resultCard,
@@ -772,6 +824,12 @@ function showResult(autoSubmitted) {
         ".result-stat",
         { opacity: [0, 1], scale: [0.6, 1], rotate: [-3, 0] },
         { delay: stagger(0.1, { startDelay: 0.2 }), type: "spring", stiffness: 400, damping: 12 }
+    );
+
+    animate(
+        ".result-actions .btn",
+        { opacity: [0, 1], y: [15, 0], scale: [0.9, 1] },
+        { delay: stagger(0.08, { startDelay: 0.4 }), type: "spring", stiffness: 300, damping: 15 }
     );
 }
 
