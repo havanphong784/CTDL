@@ -501,9 +501,27 @@ button {
 }
 
 .pack-item.active {
+    border-width: 2.5px;
     border-color: var(--teal);
-    background: #f4fffc;
-    box-shadow: 4px 4px 0 var(--teal);
+    background: var(--teal-soft);
+    box-shadow: 5px 5px 0 var(--teal);
+    transform: rotate(0deg) scale(1.02) !important;
+    z-index: 2;
+}
+
+.pack-item.active::after {
+    content: "✓ Đang chọn";
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    background: var(--teal);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 99px;
+    border: 1.5px solid var(--ink);
+    box-shadow: 1px 1px 0 var(--ink);
 }
 
 .pack-topline {
