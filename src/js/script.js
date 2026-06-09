@@ -1232,12 +1232,95 @@ function renderDictionaryForQuestion(relevantTerms) {
     );
 }
 
+const TRANSLATION_APIS = [
+    {
+        name: "Google Translate (GTX API)",
+        fetch: async (text) => {
+            const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            const data = await response.json();
+            if (data && data[0]) {
+                return data[0].map(item => item[0]).join("");
+            }
+            throw new Error("Invalid format");
+        }
+    },
+    {
+        name: "MyMemory API",
+        fetch: async (text) => {
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|vi`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            const data = await response.json();
+            const translated = data?.responseData?.translatedText;
+            if (translated && !translated.includes("MYMEMORY WARNING")) {
+                return translated;
+            }
+            throw new Error("MyMemory translation failed or rate limited");
+        }
+    },
+    {
+        name: "Google Translate (Web API)",
+        fetch: async (text) => {
+            const url = `https://translate.google.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            const data = await response.json();
+            if (data && data[0]) {
+                return data[0].map(item => item[0]).join("");
+            }
+            throw new Error("Invalid format");
+        }
+    },
+    {
+        name: "Lingva (lunes.host Instance)",
+        fetch: async (text) => {
+            const url = `https://lingva.lunes.host/api/v1/en/vi/${encodeURIComponent(text)}`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            const data = await response.json();
+            if (data && data.translation) {
+                return data.translation;
+            }
+            throw new Error("Invalid format");
+        }
+    },
+    {
+        name: "Lingva (lingva.ml Instance)",
+        fetch: async (text) => {
+            const url = `https://lingva.ml/api/v1/en/vi/${encodeURIComponent(text)}`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            const data = await response.json();
+            if (data && data.translation) {
+                return data.translation;
+            }
+            throw new Error("Invalid format");
+        }
+    }
+];
+
+async function translateTextWithFallback(text) {
+    let lastError = null;
+    for (const api of TRANSLATION_APIS) {
+        try {
+            console.log(`Trying translation using ${api.name}...`);
+            const translated = await api.fetch(text);
+            if (translated && translated.trim()) {
+                return translated;
+            }
+        } catch (error) {
+            console.warn(`Translation API ${api.name} failed:`, error);
+            lastError = error;
+        }
+    }
+    throw lastError || new Error("Tất cả các API dịch đều không hoạt động hoặc bị giới hạn.");
+}
+
 async function fetchWordTranslation(word) {
     try {
-        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|vi`;
-        const response = await fetch(url);
-        const data = await response.json();
-        const translated = data?.responseData?.translatedText;
+        const translated = await translateTextWithFallback(word);
 
         if (translated && translated.toLowerCase() !== word.toLowerCase()) {
             translationCache.set(word, translated);
@@ -1272,11 +1355,7 @@ async function translateText(text, targetEl, loadingText) {
     targetEl.textContent = loadingText;
 
     try {
-        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|vi`;
-        const response = await fetch(url);
-        const data = await response.json();
-        const translated = data?.responseData?.translatedText || "";
-
+        const translated = await translateTextWithFallback(text);
         sentenceCache.set(text, translated);
         targetEl.textContent = translated || "Không có bản dịch phù hợp.";
     } catch (error) {
