@@ -1301,14 +1301,56 @@ const TRANSLATION_APIS = [
     }
 ];
 
+function isValidTranslation(translated, originalText) {
+    if (!translated || typeof translated !== "string") return false;
+    const lower = translated.toLowerCase();
+    
+    const blockList = [
+        "mymemory warning",
+        "you used all available free translations",
+        "quota exceeded",
+        "too many requests",
+        "rate limit",
+        "limit exceeded",
+        "daily limit",
+        "request limit",
+        "soft limit",
+        "http error",
+        "too many request"
+    ];
+
+    if (blockList.some(keyword => lower.includes(keyword))) {
+        return false;
+    }
+    
+    if (translated.trim().startsWith("<") || lower.includes("<!doctype html>") || lower.includes("<html>") || lower.includes("<div>")) {
+        return false;
+    }
+    
+    if (translated.trim().startsWith("{") && lower.includes("error") && lower.includes("message")) {
+        return false;
+    }
+    
+    if (originalText && originalText.trim().length > 15) {
+        if (translated.trim().toLowerCase() === originalText.trim().toLowerCase()) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
 async function translateTextWithFallback(text) {
     let lastError = null;
     for (const api of TRANSLATION_APIS) {
         try {
             console.log(`Trying translation using ${api.name}...`);
             const translated = await api.fetch(text);
-            if (translated && translated.trim()) {
+            if (isValidTranslation(translated, text)) {
                 return translated;
+            } else {
+                console.warn(`Translation API ${api.name} returned quota limit or invalid text:`, translated);
+                lastError = new Error(`API returned rate-limit message or invalid translation`);
             }
         } catch (error) {
             console.warn(`Translation API ${api.name} failed:`, error);
