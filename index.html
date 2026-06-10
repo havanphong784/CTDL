@@ -17,7 +17,8 @@
             </div>
             <div class="topbar-actions">
                 <button class="btn btn-secondary" id="btn-back-setup" type="button" hidden>Đổi lựa chọn</button>
-                <button class="btn btn-secondary" id="btn-reset-session" type="button" disabled hidden>Làm lại phiên</button>
+                <button class="btn btn-secondary" id="btn-reset-session" type="button" disabled hidden>Làm lại
+                    phiên</button>
                 <label class="btn btn-primary import-trigger" for="import-file">Import JSON</label>
                 <input id="import-file" type="file" accept=".json,application/json" hidden>
             </div>
@@ -28,7 +29,8 @@
                 <div>
                     <p class="eyebrow">Bước 1</p>
                     <h2>Chọn gói, chế độ và dữ liệu trước khi vào quiz</h2>
-                    <p>Không gian làm bài được tách riêng để rộng hơn. Màn này dùng để chuẩn bị phiên học, import dữ liệu và xem nhanh thống kê.</p>
+                    <p>Không gian làm bài được tách riêng để rộng hơn. Màn này dùng để chuẩn bị phiên học, import dữ
+                        liệu và xem nhanh thống kê.</p>
                 </div>
                 <div class="selected-summary" id="selected-pack-summary">
                     <span>Gói đang chọn</span>
@@ -100,8 +102,10 @@
                                 <option value="3600">60 phút</option>
                             </select>
                         </label>
-                        <button class="btn btn-secondary full-width" id="btn-practice-wrong" type="button" disabled>Luyện câu sai</button>
-                        <button class="btn btn-primary full-width btn-large" id="btn-open-quiz" type="button" disabled>Vào quiz</button>
+                        <button class="btn btn-secondary full-width" id="btn-practice-wrong" type="button"
+                            disabled>Luyện câu sai</button>
+                        <button class="btn btn-primary full-width btn-large" id="btn-open-quiz" type="button"
+                            disabled>Vào quiz</button>
                     </div>
 
                     <section class="import-panel" aria-label="Import dữ liệu">
@@ -111,10 +115,13 @@
                         </div>
                         <div class="import-dropzone" id="import-dropzone">
                             <span style="font-size: 0.85rem;">Kéo & thả file JSON vào đây hoặc</span>
-                            <label class="btn btn-secondary btn-small" for="import-file-sidebar" style="cursor: pointer; padding: 4px 10px; font-size: 0.8rem; width: auto; min-height: auto; margin-top: 4px; display: inline-block;">Chọn file JSON</label>
+                            <label class="btn btn-secondary btn-small" for="import-file-sidebar"
+                                style="cursor: pointer; padding: 4px 10px; font-size: 0.8rem; width: auto; min-height: auto; margin-top: 4px; display: inline-block;">Chọn
+                                file JSON</label>
                             <input id="import-file-sidebar" type="file" accept=".json,application/json" hidden>
                         </div>
-                        <button class="btn btn-secondary full-width" id="btn-import-sample" type="button">Xem mẫu JSON</button>
+                        <button class="btn btn-secondary full-width" id="btn-import-sample" type="button">Xem mẫu
+                            JSON</button>
                         <p class="status-text" id="import-status"></p>
                     </section>
 
@@ -124,17 +131,23 @@
                             <span>Độ chính xác</span>
                             <strong id="stat-accuracy-label">0%</strong>
                         </div>
-                        <div class="mini-bar"><div id="stat-accuracy-bar"></div></div>
+                        <div class="mini-bar">
+                            <div id="stat-accuracy-bar"></div>
+                        </div>
                         <div class="stat-row">
                             <span>Điểm tốt nhất</span>
                             <strong id="stat-best-label">0%</strong>
                         </div>
-                        <div class="mini-bar success"><div id="stat-best-bar"></div></div>
+                        <div class="mini-bar success">
+                            <div id="stat-best-bar"></div>
+                        </div>
                         <div class="stat-row">
                             <span>Câu cần ôn</span>
                             <strong id="stat-wrong-label">0%</strong>
                         </div>
-                        <div class="mini-bar warning"><div id="stat-wrong-bar"></div></div>
+                        <div class="mini-bar warning">
+                            <div id="stat-wrong-bar"></div>
+                        </div>
                     </section>
                 </aside>
             </section>
@@ -185,7 +198,8 @@
                     <article class="explanation-card" id="explanation-card" hidden>
                         <div class="explanation-title">Giải thích</div>
                         <p id="explanation-text"></p>
-                        <button class="inline-action" id="btn-translate-explanation" type="button">Dịch giải thích</button>
+                        <button class="inline-action" id="btn-translate-explanation" type="button">Dịch giải
+                            thích</button>
                         <div id="explanation-translated"></div>
                     </article>
 
