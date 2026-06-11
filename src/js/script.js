@@ -563,9 +563,18 @@ function startSession(questions, wrongPractice) {
     showQuestion();
 }
 
-function resetActiveSession() {
+function resetActiveSession({ clearSavedProgress = false, autoStart = false } = {}) {
     if (!activePack || baseQuestions.length === 0) return;
+
+    if (clearSavedProgress && currentPackId) {
+        localStorage.removeItem(`${STORAGE_PROGRESS_PREFIX}${currentPackId}`);
+    }
+
     startSession(isWrongPractice ? currentQuestions : baseQuestions, isWrongPractice);
+
+    if (autoStart) {
+        startQuizSession();
+    }
 }
 
 function startQuizSession() {
@@ -849,7 +858,7 @@ function showResult(autoSubmitted) {
         btnRetry.addEventListener("click", async () => {
             await exitAnimation();
             els.resultCard.hidden = true;
-            resetActiveSession();
+            resetActiveSession({ clearSavedProgress: true, autoStart: true });
         });
     }
     if (btnNextPack) {

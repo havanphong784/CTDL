@@ -1052,9 +1052,10 @@ button {
 }
 
 .option-btn.correct {
-  border-color: var(--green);
-  background: var(--green-soft);
-  box-shadow: 4px 4px 0 var(--green);
+  border: 2px solid var(--green);
+  background: #fffefa;
+  box-shadow: 3px 3px 0 rgba(24, 114, 76, 0.28);
+  color: var(--ink);
 }
 
 .option-btn.correct .option-key {
@@ -1064,9 +1065,10 @@ button {
 }
 
 .option-btn.wrong {
-  border-color: var(--rose);
-  background: var(--rose-soft);
-  box-shadow: 4px 4px 0 var(--rose);
+  border: 2px solid var(--rose);
+  background: #fffefa;
+  box-shadow: 3px 3px 0 rgba(180, 35, 63, 0.24);
+  color: var(--ink);
 }
 
 .option-btn.wrong .option-key {
@@ -1075,12 +1077,40 @@ button {
   color: #ffffff;
 }
 
+.option-btn.correct .option-text::after,
+.option-btn.wrong .option-text::after {
+  display: block;
+  width: fit-content;
+  margin-top: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.option-btn.correct .option-text::after {
+  content: "Đáp án đúng";
+  background: #08783f;
+}
+
+.option-btn.wrong .option-text::after {
+  content: "Bạn chọn sai";
+  background: #c1123f;
+}
+
 .explanation-card.correct {
-  border-left: 4px solid var(--green);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+  background: #fffefa;
 }
 
 .explanation-card.wrong {
-  border-left: 4px solid var(--rose);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--rose);
+  background: #fffefa;
 }
 
 .explanation-card p,
